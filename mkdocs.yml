@@ -3,7 +3,7 @@ site_url: https://docs.polkadot.com/
 home_url: https://polkadot.com/
 home_name: Polkadot
 edit_uri: https://github.com/polkadot-developers/polkadot-docs/edit/master
-site_dir: /var/www/polkadot-docs-static
+site_dir: site
 docs_dir: polkadot-docs
 copyright: © 2025
 extra_javascript:
