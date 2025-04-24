@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-deploy:
-    uses: Telucero/workflows/deploy-docs.yml@Central_repo_test  
+    uses: Telucero/workflows/.github/workflows/deploy-docs.yml@Central_repo_test  
     with:
       branch: main  # Branch to deploy from in the docs repo
       repository: Telucero/polkadot-docs
