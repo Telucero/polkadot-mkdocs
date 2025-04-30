@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3199,7 +3216,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3210,7 +3227,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5083,25 +5100,7 @@
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>--listen-addr<span class="w"> </span>/ip4/0.0.0.0/tcp/30311/ws
 </span></code></pre></div>
 <p>This assigns the p2p to port 30310 and p2p/ws to port 30311. For the p2p/wss port, a proxy must be set up with a DNS name and a corresponding certificate. The following example is for the popular nginx server and enables p2p/wss on port 30312 by adding a proxy to the p2p/ws port 30311:</p>
-<div class="language-text highlight"><span class="filename">/etc/nginx/sites-enabled/dot-bootnode</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>server {
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>       listen       30312 ssl http2 default_server;
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>       server_name  dot-bootnode.stakeworld.io;
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>       root         /var/www/html;
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>       ssl_certificate &quot;INSERT_YOUR_CERT&quot;;
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>       ssl_certificate_key &quot;INSERT_YOUR_KEY&quot;;
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>       location / {
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>         proxy_buffers 16 4k;
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>         proxy_buffer_size 2k;
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>         proxy_pass http://localhost:30311;
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>         proxy_http_version 1.1;
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>         proxy_set_header Upgrade $http_upgrade;
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>         proxy_set_header Connection &quot;Upgrade&quot;;
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>         proxy_set_header Host $host;
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>   }
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>}
+<div class="language-text highlight"><span class="filename">/etc/nginx/sites-enabled/dot-bootnode</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>--8&lt;-- &#39;code/infrastructure/running-a-node/setup-bootnode/bootnode.conf&#39;
 </span></code></pre></div>
 <h2 id="testing-bootnode-connection">Testing Bootnode Connection<a class="headerlink" href="#testing-bootnode-connection" title="Permanent link">&para;</a></h2>
 <p>If the preceding node is running with DNS name <code>dot-bootnode.stakeworld.io</code>, which contains a proxy with a valid certificate and node-id <code>12D3KooWAb5MyC1UJiEQJk4Hg4B2Vi3AJdqSUhTGYUqSnEqCFMFg</code> then the following commands should output <code>syncing 1 peers</code>.</p>
@@ -5137,12 +5136,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

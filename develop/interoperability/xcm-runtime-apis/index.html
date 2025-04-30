@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -1535,6 +1552,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-8-codedevelopinteroperabilityxcm-runtime-apisquery-weight-to-fee-outputhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      --8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/query-weight-to-fee-output.html'
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="--8<-- 'code/develop/interoperability/xcm-runtime-apis/query-weight-to-fee-output.html'">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#query-delivery-fees" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1546,6 +1578,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-8-codedevelopinteroperabilityxcm-runtime-apisquery-delivery-fees-outputhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      --8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/query-delivery-fees-output.html'
+    </span>
+  </a>
   
 </li>
       
@@ -3205,7 +3246,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3216,7 +3257,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -4969,6 +5010,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-8-codedevelopinteroperabilityxcm-runtime-apisquery-weight-to-fee-outputhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      --8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/query-weight-to-fee-output.html'
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="--8<-- 'code/develop/interoperability/xcm-runtime-apis/query-weight-to-fee-output.html'">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#query-delivery-fees" class="md-nav__link">
     <span class="md-ellipsis">
@@ -4980,6 +5036,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-8-codedevelopinteroperabilityxcm-runtime-apisquery-delivery-fees-outputhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      --8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/query-delivery-fees-output.html'
+    </span>
+  </a>
   
 </li>
       
@@ -5077,7 +5142,7 @@
 <p>This API can be used independently for dry-running, double-checking, or testing. However, it mainly shines when used with the <a href="#xcm-payment-api">Xcm Payment API</a>, given that it only estimates fees if you know the specific XCM you want to execute or send.</p>
 <h3 id="dry-run-call">Dry Run Call<a class="headerlink" href="#dry-run-call" title="Permanent link">&para;</a></h3>
 <p>This API allows a dry-run of any extrinsic and obtaining the outcome if it fails or succeeds, as well as the local xcm and remote xcm messages sent to other chains.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">fn</span> <span class="nf">dry_run_call</span><span class="p">(</span><span class="n">origin</span>: <span class="nc">OriginCaller</span><span class="p">,</span><span class="w"> </span><span class="n">call</span>: <span class="nc">Call</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">CallDryRunEffects</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Error</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/polkadot/xcm/xcm-runtime-apis/src/dry_run.rs:67:67&#39;</span>
 </span></code></pre></div>
 <details class="interface">
 <summary>Input parameters</summary>
@@ -5121,214 +5186,17 @@
 <p>This example demonstrates how to simulate a cross-chain asset transfer from the Paseo network to the Pop Network using a <a href="https://wiki.polkadot.network/docs/learn/xcm/journey/transfers-reserve" target="_blank">reserve transfer</a> mechanism. Instead of executing the actual transfer, the code shows how to test and verify the transaction's behavior through a dry run before performing it on the live network.</p>
 <p>Replace <code>INSERT_USER_ADDRESS</code> with your SS58 address before running the script.</p>
 <p><strong><em>Usage with PAPI</em></strong></p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">paseo</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-api/descriptors&#39;</span><span class="p">;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getWsProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/ws-provider/web&#39;</span><span class="p">;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">withPolkadotSdkCompat</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/polkadot-sdk-compat&#39;</span><span class="p">;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nx">PolkadotRuntimeOriginCaller</span><span class="p">,</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nx">XcmVersionedLocation</span><span class="p">,</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nx">XcmVersionedAssets</span><span class="p">,</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nx">XcmV3Junction</span><span class="p">,</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nx">XcmV3Junctions</span><span class="p">,</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nx">XcmV3WeightLimit</span><span class="p">,</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">,</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">,</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-api/descriptors&#39;</span><span class="p">;</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">DispatchRawOrigin</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-api/descriptors&#39;</span><span class="p">;</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Binary</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ss58Decode</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-labs/hdkd-helpers&#39;</span><span class="p">;</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="c1">// Connect to the Paseo relay chain</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClient</span><span class="p">(</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">  </span><span class="nx">withPolkadotSdkCompat</span><span class="p">(</span><span class="nx">getWsProvider</span><span class="p">(</span><span class="s1">&#39;wss://paseo-rpc.dwellir.com&#39;</span><span class="p">)),</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="p">);</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="kd">const</span><span class="w"> </span><span class="nx">paseoApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">getTypedApi</span><span class="p">(</span><span class="nx">paseo</span><span class="p">);</span>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="kd">const</span><span class="w"> </span><span class="nx">popParaID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4001</span><span class="p">;</span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="kd">const</span><span class="w"> </span><span class="nx">userAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;INSERT_USER_ADDRESS&#39;</span><span class="p">;</span>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="kd">const</span><span class="w"> </span><span class="nx">userPublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss58Decode</span><span class="p">(</span><span class="nx">userAddress</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="kd">const</span><span class="w"> </span><span class="nx">idBeneficiary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Binary</span><span class="p">.</span><span class="nx">fromBytes</span><span class="p">(</span><span class="nx">userPublicKey</span><span class="p">);</span>
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
-</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="c1">// Define the origin caller</span>
-</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="c1">// This is a regular signed account owned by a user</span>
-</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="kd">let</span><span class="w"> </span><span class="nx">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PolkadotRuntimeOriginCaller</span><span class="p">.</span><span class="nx">system</span><span class="p">(</span>
-</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">  </span><span class="nx">DispatchRawOrigin</span><span class="p">.</span><span class="nx">Signed</span><span class="p">(</span><span class="nx">userAddress</span><span class="p">),</span>
-</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="p">);</span>
-</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>
-</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="c1">// Define a transaction to transfer assets from Polkadot to Pop Network using a Reserve Transfer</span>
-</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="kd">const</span><span class="w"> </span><span class="nx">tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">paseoApi</span><span class="p">.</span><span class="nx">tx</span><span class="p">.</span><span class="nx">XcmPallet</span><span class="p">.</span><span class="nx">limited_reserve_transfer_assets</span><span class="p">({</span>
-</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">  </span><span class="nx">dest</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmVersionedLocation</span><span class="p">.</span><span class="nx">V3</span><span class="p">({</span>
-</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">    </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">    </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">X1</span><span class="p">(</span>
-</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">      </span><span class="nx">XcmV3Junction</span><span class="p">.</span><span class="nx">Parachain</span><span class="p">(</span><span class="nx">popParaID</span><span class="p">),</span><span class="w"> </span><span class="c1">// Destination is the Pop Network parachain</span>
-</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">    </span><span class="p">),</span>
-</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">  </span><span class="p">}),</span>
-</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">  </span><span class="nx">beneficiary</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmVersionedLocation</span><span class="p">.</span><span class="nx">V3</span><span class="p">({</span>
-</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">    </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">    </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">X1</span><span class="p">(</span>
-</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">      </span><span class="nx">XcmV3Junction</span><span class="p">.</span><span class="nx">AccountId32</span><span class="p">({</span>
-</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">        </span><span class="c1">// Beneficiary address on Pop Network</span>
-</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">        </span><span class="nx">network</span><span class="o">:</span><span class="w"> </span><span class="kc">undefined</span><span class="p">,</span>
-</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">idBeneficiary</span><span class="p">,</span>
-</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">      </span><span class="p">}),</span>
-</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">    </span><span class="p">),</span>
-</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">  </span><span class="p">}),</span>
-</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">  </span><span class="nx">assets</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmVersionedAssets</span><span class="p">.</span><span class="nx">V3</span><span class="p">([</span>
-</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">      </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">.</span><span class="nx">Concrete</span><span class="p">({</span>
-</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">        </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="w">        </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">Here</span><span class="p">(),</span><span class="w"> </span><span class="c1">// Native asset from the sender. In this case PAS</span>
-</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">      </span><span class="p">}),</span>
-</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="w">      </span><span class="nx">fun</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">.</span><span class="nx">Fungible</span><span class="p">(</span><span class="mi">120000000000n</span><span class="p">),</span><span class="w"> </span><span class="c1">// Asset amount to transfer</span>
-</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="w">  </span><span class="p">]),</span>
-</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">  </span><span class="nx">fee_asset_item</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="c1">// Asset used to pay transaction fees</span>
-</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="w">  </span><span class="nx">weight_limit</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3WeightLimit</span><span class="p">.</span><span class="nx">Unlimited</span><span class="p">(),</span><span class="w"> </span><span class="c1">// No weight limit on transaction</span>
-</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="p">});</span>
-</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a>
-</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="c1">// Execute the dry run call to simulate the transaction</span>
-</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="kd">const</span><span class="w"> </span><span class="nx">dryRunResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">paseoApi</span><span class="p">.</span><span class="nx">apis</span><span class="p">.</span><span class="nx">DryRunApi</span><span class="p">.</span><span class="nx">dry_run_call</span><span class="p">(</span>
-</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">  </span><span class="nx">origin</span><span class="p">,</span>
-</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">  </span><span class="nx">tx</span><span class="p">.</span><span class="nx">decodedCall</span><span class="p">,</span>
-</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="p">);</span>
-</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a>
-</span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="c1">// Extract the data from the dry run result</span>
-</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="kd">const</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">  </span><span class="nx">execution_result</span><span class="o">:</span><span class="w"> </span><span class="nx">executionResult</span><span class="p">,</span>
-</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">  </span><span class="nx">emitted_events</span><span class="o">:</span><span class="w"> </span><span class="nx">emmittedEvents</span><span class="p">,</span>
-</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">  </span><span class="nx">local_xcm</span><span class="o">:</span><span class="w"> </span><span class="nx">localXcm</span><span class="p">,</span>
-</span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a><span class="w">  </span><span class="nx">forwarded_xcms</span><span class="o">:</span><span class="w"> </span><span class="nx">forwardedXcms</span><span class="p">,</span>
-</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dryRunResult</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a>
-</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="c1">// Extract the XCM generated by this call</span>
-</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a><span class="kd">const</span><span class="w"> </span><span class="nx">xcmsToPop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">forwardedXcms</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
-</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="w">  </span><span class="p">([</span><span class="nx">location</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="p">])</span><span class="w"> </span><span class="p">=&gt;</span>
-</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a><span class="w">    </span><span class="nx">location</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;V4&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-</span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a><span class="w">    </span><span class="nx">location</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">parents</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-</span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a><span class="w">    </span><span class="nx">location</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">interior</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;X1&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a><span class="w">    </span><span class="nx">location</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">interior</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Parachain&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-</span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a><span class="w">    </span><span class="nx">location</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">interior</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">popParaID</span><span class="p">,</span><span class="w"> </span><span class="c1">// Pop network&#39;s ParaID</span>
-</span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a><span class="p">);</span>
-</span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a><span class="kd">const</span><span class="w"> </span><span class="nx">destination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">xcmsToPop</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
-</span><span id="__span-1-92"><a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a><span class="kd">const</span><span class="w"> </span><span class="nx">remoteXcm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">xcmsToPop</span><span class="p">[</span><span class="mf">1</span><span class="p">][</span><span class="mf">0</span><span class="p">];</span>
-</span><span id="__span-1-93"><a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a>
-</span><span id="__span-1-94"><a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a><span class="c1">// Print the results</span>
-</span><span id="__span-1-95"><a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a><span class="kd">const</span><span class="w"> </span><span class="nx">resultObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-96"><a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a><span class="w">  </span><span class="nx">execution_result</span><span class="o">:</span><span class="w"> </span><span class="nx">executionResult</span><span class="p">,</span>
-</span><span id="__span-1-97"><a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a><span class="w">  </span><span class="nx">emitted_events</span><span class="o">:</span><span class="w"> </span><span class="nx">emmittedEvents</span><span class="p">,</span>
-</span><span id="__span-1-98"><a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a><span class="w">  </span><span class="nx">local_xcm</span><span class="o">:</span><span class="w"> </span><span class="nx">localXcm</span><span class="p">,</span>
-</span><span id="__span-1-99"><a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a><span class="w">  </span><span class="nx">destination</span><span class="o">:</span><span class="w"> </span><span class="nx">destination</span><span class="p">,</span>
-</span><span id="__span-1-100"><a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a><span class="w">  </span><span class="nx">remote_xcm</span><span class="o">:</span><span class="w"> </span><span class="nx">remoteXcm</span><span class="p">,</span>
-</span><span id="__span-1-101"><a id="__codelineno-1-101" name="__codelineno-1-101" href="#__codelineno-1-101"></a><span class="p">};</span>
-</span><span id="__span-1-102"><a id="__codelineno-1-102" name="__codelineno-1-102" href="#__codelineno-1-102"></a>
-</span><span id="__span-1-103"><a id="__codelineno-1-103" name="__codelineno-1-103" href="#__codelineno-1-103"></a><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">resultObject</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">depth</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-1-104"><a id="__codelineno-1-104" name="__codelineno-1-104" href="#__codelineno-1-104"></a>
-</span><span id="__span-1-105"><a id="__codelineno-1-105" name="__codelineno-1-105" href="#__codelineno-1-105"></a><span class="nx">client</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/interoperability/xcm-runtime-apis/call-example.js&#39;</span>
 </span></code></pre></div>
 <p><strong><em>Output</em></strong></p>
-<p><div id="termynal" data-termynal>
-  <pre>
-    {
-      execution_result: {
-        success: true,
-        value: {
-          actual_weight: undefined,
-          pays_fee: { type: 'Yes', value: undefined }
-        }
-      },
-      emitted_events: [
+<p>--8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/call-example-output.html::11'
             ...
-      ],
-      local_xcm: undefined,
-      destination: {
-        type: 'V4',
-        value: {
-          parents: 0,
-          interior: { type: 'X1', value: { type: 'Parachain', value: 4001 } }
-        }
-      },
-      remote_xcm: {
-        type: 'V3',
-        value: [
-          {
-            type: 'ReserveAssetDeposited',
-            value: [
-              {
-                id: {
-                  type: 'Concrete',
-                  value: {
-                    parents: 1,
-                    interior: { type: 'Here', value: undefined }
-                  }
-                },
-                fun: { type: 'Fungible', value: 120000000000n }
-              }
-            ]
-          },
-          { type: 'ClearOrigin', value: undefined },
-          {
-            type: 'BuyExecution',
-            value: {
-              fees: {
-                id: {
-                  type: 'Concrete',
-                  value: {
-                    parents: 1,
-                    interior: { type: 'Here', value: undefined }
-                  }
-                },
-                fun: { type: 'Fungible', value: 120000000000n }
-              },
-              weight_limit: { type: 'Unlimited', value: undefined }
-            }
-          },
-          {
-            type: 'DepositAsset',
-            value: {
-              assets: { type: 'Wild', value: { type: 'AllCounted', value: 1 } },
-              beneficiary: {
-                parents: 0,
-                interior: {
-                  type: 'X1',
-                  value: {
-                    type: 'AccountId32',
-                    value: {
-                      network: undefined,
-                      id: FixedSizeBinary {
-                        asText: [Function (anonymous)],
-                        asHex: [Function (anonymous)],
-                        asOpaqueHex: [Function (anonymous)],
-                        asBytes: [Function (anonymous)],
-                        asOpaqueBytes: [Function (anonymous)]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          {
-            type: 'SetTopic',
-            value: FixedSizeBinary {
-              asText: [Function (anonymous)],
-              asHex: [Function (anonymous)],
-              asOpaqueHex: [Function (anonymous)],
-              asBytes: [Function (anonymous)],
-              asOpaqueBytes: [Function (anonymous)]
-            }
-          }
-        ]
-      }
-    }    <br />
-  </pre>
-</div></p>
+--8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/call-example-output.html:189'</p>
 <hr />
 </details>
 <h3 id="dry-run-xcm">Dry Run XCM<a class="headerlink" href="#dry-run-xcm" title="Permanent link">&para;</a></h3>
 <p>This API allows the direct dry-run of an xcm message instead of an extrinsic one, checks if it will execute successfully, and determines what other xcm messages will be forwarded to other chains.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">fn</span> <span class="nf">dry_run_xcm</span><span class="p">(</span><span class="n">origin_location</span>: <span class="nc">VersionedLocation</span><span class="p">,</span><span class="w"> </span><span class="n">xcm</span>: <span class="nc">VersionedXcm</span><span class="o">&lt;</span><span class="n">Call</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">XcmDryRunEffects</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Error</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/polkadot/xcm/xcm-runtime-apis/src/dry_run.rs:70:70&#39;</span>
 </span></code></pre></div>
 <details class="interface">
 <summary>Input parameters</summary>
@@ -5369,154 +5237,10 @@
 <p>This example demonstrates how to simulate a <a href="https://wiki.polkadot.network/docs/learn/xcm/journey/transfers-teleport" target="_blank">teleport asset transfer</a> from the Paseo network to the Paseo Asset Hub parachain. The code shows how to test and verify the received XCM message's behavior in the destination chain through a dry run on the live network.</p>
 <p>Replace <code>INSERT_USER_ADDRESS</code> with your SS58 address before running the script.</p>
 <p><strong><em>Usage with PAPI</em></strong></p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getWsProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/ws-provider/web&#39;</span><span class="p">;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">withPolkadotSdkCompat</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/polkadot-sdk-compat&#39;</span><span class="p">;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nx">XcmVersionedXcm</span><span class="p">,</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nx">paseoAssetHub</span><span class="p">,</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nx">XcmVersionedLocation</span><span class="p">,</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nx">XcmV3Junction</span><span class="p">,</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="nx">XcmV3Junctions</span><span class="p">,</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="nx">XcmV3WeightLimit</span><span class="p">,</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">,</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">,</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">,</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="nx">XcmV3MultiassetMultiAssetFilter</span><span class="p">,</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">  </span><span class="nx">XcmV3MultiassetWildMultiAsset</span><span class="p">,</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-api/descriptors&#39;</span><span class="p">;</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Binary</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ss58Decode</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-labs/hdkd-helpers&#39;</span><span class="p">;</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="c1">// Connect to Paseo Asset Hub</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClient</span><span class="p">(</span>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">  </span><span class="nx">withPolkadotSdkCompat</span><span class="p">(</span><span class="nx">getWsProvider</span><span class="p">(</span><span class="s1">&#39;wss://asset-hub-paseo-rpc.dwellir.com&#39;</span><span class="p">)),</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="p">);</span>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="kd">const</span><span class="w"> </span><span class="nx">paseoAssetHubApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">getTypedApi</span><span class="p">(</span><span class="nx">paseoAssetHub</span><span class="p">);</span>
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="kd">const</span><span class="w"> </span><span class="nx">userAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;INSERT_USER_ADDRESS&#39;</span><span class="p">;</span>
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="kd">const</span><span class="w"> </span><span class="nx">userPublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss58Decode</span><span class="p">(</span><span class="nx">userAddress</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="kd">const</span><span class="w"> </span><span class="nx">idBeneficiary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Binary</span><span class="p">.</span><span class="nx">fromBytes</span><span class="p">(</span><span class="nx">userPublicKey</span><span class="p">);</span>
-</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
-</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="c1">// Define the origin</span>
-</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="kd">const</span><span class="w"> </span><span class="nx">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">XcmVersionedLocation</span><span class="p">.</span><span class="nx">V3</span><span class="p">({</span>
-</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">  </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">  </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">Here</span><span class="p">(),</span>
-</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="p">});</span>
-</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>
-</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="c1">// Define a xcm message comming from the Paseo relay chain to Asset Hub to Teleport some tokens</span>
-</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="kd">const</span><span class="w"> </span><span class="nx">xcm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">XcmVersionedXcm</span><span class="p">.</span><span class="nx">V3</span><span class="p">([</span>
-</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">ReceiveTeleportedAsset</span><span class="p">([</span>
-</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">      </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">.</span><span class="nx">Concrete</span><span class="p">({</span>
-</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="w">        </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">        </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">Here</span><span class="p">(),</span>
-</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="w">      </span><span class="p">}),</span>
-</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="w">      </span><span class="nx">fun</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">.</span><span class="nx">Fungible</span><span class="p">(</span><span class="mi">12000000000n</span><span class="p">),</span>
-</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="w">  </span><span class="p">]),</span>
-</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">ClearOrigin</span><span class="p">(),</span>
-</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">BuyExecution</span><span class="p">({</span>
-</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="w">    </span><span class="nx">fees</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="w">      </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">.</span><span class="nx">Concrete</span><span class="p">({</span>
-</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a><span class="w">        </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a><span class="w">        </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">Here</span><span class="p">(),</span>
-</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="w">      </span><span class="p">}),</span>
-</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a><span class="w">      </span><span class="nx">fun</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">.</span><span class="nx">Fungible</span><span class="p">(</span><span class="nb">BigInt</span><span class="p">(</span><span class="mi">12000000000n</span><span class="p">)),</span>
-</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="w">    </span><span class="nx">weight_limit</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3WeightLimit</span><span class="p">.</span><span class="nx">Unlimited</span><span class="p">(),</span>
-</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a><span class="w">  </span><span class="p">}),</span>
-</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">DepositAsset</span><span class="p">({</span>
-</span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a><span class="w">    </span><span class="nx">assets</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetMultiAssetFilter</span><span class="p">.</span><span class="nx">Wild</span><span class="p">(</span>
-</span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a><span class="w">      </span><span class="nx">XcmV3MultiassetWildMultiAsset</span><span class="p">.</span><span class="nx">All</span><span class="p">(),</span>
-</span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a><span class="w">    </span><span class="p">),</span>
-</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a><span class="w">    </span><span class="nx">beneficiary</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-64"><a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a><span class="w">      </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-</span><span id="__span-3-65"><a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a><span class="w">      </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">X1</span><span class="p">(</span>
-</span><span id="__span-3-66"><a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a><span class="w">        </span><span class="nx">XcmV3Junction</span><span class="p">.</span><span class="nx">AccountId32</span><span class="p">({</span>
-</span><span id="__span-3-67"><a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a><span class="w">          </span><span class="nx">network</span><span class="o">:</span><span class="w"> </span><span class="kc">undefined</span><span class="p">,</span>
-</span><span id="__span-3-68"><a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a><span class="w">          </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">idBeneficiary</span><span class="p">,</span>
-</span><span id="__span-3-69"><a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a><span class="w">        </span><span class="p">}),</span>
-</span><span id="__span-3-70"><a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a><span class="w">      </span><span class="p">),</span>
-</span><span id="__span-3-71"><a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-3-72"><a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a><span class="w">  </span><span class="p">}),</span>
-</span><span id="__span-3-73"><a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a><span class="p">]);</span>
-</span><span id="__span-3-74"><a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>
-</span><span id="__span-3-75"><a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a><span class="c1">// Execute dry run xcm</span>
-</span><span id="__span-3-76"><a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a><span class="kd">const</span><span class="w"> </span><span class="nx">dryRunResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">paseoAssetHubApi</span><span class="p">.</span><span class="nx">apis</span><span class="p">.</span><span class="nx">DryRunApi</span><span class="p">.</span><span class="nx">dry_run_xcm</span><span class="p">(</span>
-</span><span id="__span-3-77"><a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a><span class="w">  </span><span class="nx">origin</span><span class="p">,</span>
-</span><span id="__span-3-78"><a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a><span class="w">  </span><span class="nx">xcm</span><span class="p">,</span>
-</span><span id="__span-3-79"><a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a><span class="p">);</span>
-</span><span id="__span-3-80"><a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>
-</span><span id="__span-3-81"><a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a><span class="c1">// Print the results</span>
-</span><span id="__span-3-82"><a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">dryRunResult</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">depth</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-3-83"><a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a>
-</span><span id="__span-3-84"><a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a><span class="nx">client</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/interoperability/xcm-runtime-apis/xcm-example.js&#39;</span>
 </span></code></pre></div>
 <p><strong><em>Output</em></strong></p>
-<p><div id="termynal" data-termynal>
-  <pre>
-    {
-      execution_result: {
-        type: 'Complete',
-        value: { used: { ref_time: 15574200000n, proof_size: 359300n } }
-      },
-      emitted_events: [
-        {
-          type: 'System',
-          value: {
-            type: 'NewAccount',
-            value: { account: '12pGtwHPL4tUAUcyeCoJ783NKRspztpWmXv4uxYRwiEnYNET' }
-          }
-        },
-        {
-          type: 'Balances',
-          value: {
-            type: 'Endowed',
-            value: {
-              account: '12pGtwHPL4tUAUcyeCoJ783NKRspztpWmXv4uxYRwiEnYNET',
-              free_balance: 10203500000n
-            }
-          }
-        },
-        {
-          type: 'Balances',
-          value: {
-            type: 'Minted',
-            value: {
-              who: '12pGtwHPL4tUAUcyeCoJ783NKRspztpWmXv4uxYRwiEnYNET',
-              amount: 10203500000n
-            }
-          }
-        },
-        {
-          type: 'Balances',
-          value: { type: 'Issued', value: { amount: 1796500000n } }
-        },
-        {
-          type: 'Balances',
-          value: {
-            type: 'Deposit',
-            value: {
-              who: '13UVJyLgBASGhE2ok3TvxUfaQBGUt88JCcdYjHvUhvQkFTTx',
-              amount: 1796500000n
-            }
-          }
-        }
-      ],
-      forwarded_xcms: [
-        [
-          {
-            type: 'V4',
-            value: { parents: 1, interior: { type: 'Here', value: undefined } }
-          },
-          []
-        ]
-      ]
-    }
-  </pre>
-</div></p>
+<p>--8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/xcm-example-output.html'</p>
 <hr />
 </details>
 <h2 id="xcm-payment-api">XCM Payment API<a class="headerlink" href="#xcm-payment-api" title="Permanent link">&para;</a></h2>
@@ -5531,7 +5255,7 @@
 <p>To use the API effectively, the client must already know the XCM program to be executed and the chains involved in the program's execution.</p>
 <h3 id="query-acceptable-payment-assets">Query Acceptable Payment Assets<a class="headerlink" href="#query-acceptable-payment-assets" title="Permanent link">&para;</a></h3>
 <p>Retrieves the list of assets that are acceptable for paying fees when using a specific XCM version</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">fn</span> <span class="nf">query_acceptable_payment_assets</span><span class="p">(</span><span class="n">xcm_version</span>: <span class="nc">Version</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">VersionedAssetId</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Error</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/polkadot/xcm/xcm-runtime-apis/src/fees.rs:43:43&#39;</span>
 </span></code></pre></div>
 <details class="interface">
 <summary>Input parameters</summary>
@@ -5561,51 +5285,15 @@
 <summary>Example</summary>
 <p>This example demonstrates how to query the acceptable payment assets for executing XCM messages on the Paseo Asset Hub network using XCM version 3.</p>
 <p><strong><em>Usage with PAPI</em></strong></p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">paseoAssetHub</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-api/descriptors&#39;</span><span class="p">;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getWsProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/ws-provider/web&#39;</span><span class="p">;</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">withPolkadotSdkCompat</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/polkadot-sdk-compat&#39;</span><span class="p">;</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">// Connect to the polkadot relay chain</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClient</span><span class="p">(</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nx">withPolkadotSdkCompat</span><span class="p">(</span><span class="nx">getWsProvider</span><span class="p">(</span><span class="s1">&#39;wss://asset-hub-paseo-rpc.dwellir.com&#39;</span><span class="p">)),</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">);</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="kd">const</span><span class="w"> </span><span class="nx">paseoAssetHubApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">getTypedApi</span><span class="p">(</span><span class="nx">paseoAssetHub</span><span class="p">);</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1">// Define the xcm version to use</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="kd">const</span><span class="w"> </span><span class="nx">xcmVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="c1">// Execute the runtime call to query the assets</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">paseoAssetHubApi</span><span class="p">.</span><span class="nx">apis</span><span class="p">.</span><span class="nx">XcmPaymentApi</span><span class="p">.</span><span class="nx">query_acceptable_payment_assets</span><span class="p">(</span>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="nx">xcmVersion</span><span class="p">,</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="c1">// Print the assets</span>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">depth</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
-</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="nx">client</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/interoperability/xcm-runtime-apis/query-assets.js&#39;</span>
 </span></code></pre></div>
 <p><strong><em>Output</em></strong></p>
-<p><div id="termynal" data-termynal>
-  <pre>
-    [
-      {
-        type: 'V3',
-        value: {
-          type: 'Concrete',
-          value: { parents: 1, interior: { type: 'Here', value: undefined } }
-        }
-      }
-    ]
-  </pre>
-</div></p>
+<p>--8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/query-assets-output.html'</p>
 <hr />
 </details>
 <h3 id="query-xcm-weight">Query XCM Weight<a class="headerlink" href="#query-xcm-weight" title="Permanent link">&para;</a></h3>
 <p>Calculates the weight required to execute a given XCM message. It is useful for estimating the execution cost of a cross-chain message in the destination chain before sending it.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">fn</span> <span class="nf">query_xcm_weight</span><span class="p">(</span><span class="n">message</span>: <span class="nc">VersionedXcm</span><span class="o">&lt;</span><span class="p">()</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">Weight</span><span class="p">,</span><span class="w"> </span><span class="n">Error</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/polkadot/xcm/xcm-runtime-apis/src/fees.rs:50:50&#39;</span>
 </span></code></pre></div>
 <details class="interface">
 <summary>Input parameters</summary>
@@ -5645,90 +5333,15 @@
 <p>This example demonstrates how to calculate the weight needed to execute a <a href="https://wiki.polkadot.network/docs/learn/xcm/journey/transfers-teleport" target="_blank">teleport transfer</a> from the Paseo network to the Paseo Asset Hub parachain using the XCM Payment API. The result shows the required weight in terms of reference time and proof size needed in the destination chain.</p>
 <p>Replace <code>INSERT_USER_ADDRESS</code> with your SS58 address before running the script.</p>
 <p><strong><em>Usage with PAPI</em></strong></p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getWsProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/ws-provider/web&#39;</span><span class="p">;</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">withPolkadotSdkCompat</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/polkadot-sdk-compat&#39;</span><span class="p">;</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nx">XcmVersionedXcm</span><span class="p">,</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nx">paseoAssetHub</span><span class="p">,</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="nx">XcmV3Junction</span><span class="p">,</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="nx">XcmV3Junctions</span><span class="p">,</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="nx">XcmV3WeightLimit</span><span class="p">,</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">,</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">,</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">,</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="nx">XcmV3MultiassetMultiAssetFilter</span><span class="p">,</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="nx">XcmV3MultiassetWildMultiAsset</span><span class="p">,</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-api/descriptors&#39;</span><span class="p">;</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Binary</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ss58Decode</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-labs/hdkd-helpers&#39;</span><span class="p">;</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="c1">// Connect to Paseo Asset Hub</span>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClient</span><span class="p">(</span>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">  </span><span class="nx">withPolkadotSdkCompat</span><span class="p">(</span><span class="nx">getWsProvider</span><span class="p">(</span><span class="s1">&#39;wss://asset-hub-paseo-rpc.dwellir.com&#39;</span><span class="p">)),</span>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="p">);</span>
-</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
-</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="kd">const</span><span class="w"> </span><span class="nx">paseoAssetHubApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">getTypedApi</span><span class="p">(</span><span class="nx">paseoAssetHub</span><span class="p">);</span>
-</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
-</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="kd">const</span><span class="w"> </span><span class="nx">userAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;INSERT_USER_ADDRESS&#39;</span><span class="p">;</span>
-</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="kd">const</span><span class="w"> </span><span class="nx">userPublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss58Decode</span><span class="p">(</span><span class="nx">userAddress</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
-</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="kd">const</span><span class="w"> </span><span class="nx">idBeneficiary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Binary</span><span class="p">.</span><span class="nx">fromBytes</span><span class="p">(</span><span class="nx">userPublicKey</span><span class="p">);</span>
-</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>
-</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="c1">// Define a xcm message comming from the Paseo relay chain to Asset Hub to Teleport some tokens</span>
-</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="kd">const</span><span class="w"> </span><span class="nx">xcm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">XcmVersionedXcm</span><span class="p">.</span><span class="nx">V3</span><span class="p">([</span>
-</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">ReceiveTeleportedAsset</span><span class="p">([</span>
-</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">      </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">.</span><span class="nx">Concrete</span><span class="p">({</span>
-</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">        </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">        </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">Here</span><span class="p">(),</span>
-</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="w">      </span><span class="p">}),</span>
-</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="w">      </span><span class="nx">fun</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">.</span><span class="nx">Fungible</span><span class="p">(</span><span class="mi">12000000000n</span><span class="p">),</span>
-</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="w">  </span><span class="p">]),</span>
-</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">ClearOrigin</span><span class="p">(),</span>
-</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">BuyExecution</span><span class="p">({</span>
-</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="w">    </span><span class="nx">fees</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a><span class="w">      </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">.</span><span class="nx">Concrete</span><span class="p">({</span>
-</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="w">        </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="w">        </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">Here</span><span class="p">(),</span>
-</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="w">      </span><span class="p">}),</span>
-</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="w">      </span><span class="nx">fun</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">.</span><span class="nx">Fungible</span><span class="p">(</span><span class="nb">BigInt</span><span class="p">(</span><span class="mi">12000000000n</span><span class="p">)),</span>
-</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="w">    </span><span class="nx">weight_limit</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3WeightLimit</span><span class="p">.</span><span class="nx">Unlimited</span><span class="p">(),</span>
-</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a><span class="w">  </span><span class="p">}),</span>
-</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">DepositAsset</span><span class="p">({</span>
-</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a><span class="w">    </span><span class="nx">assets</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetMultiAssetFilter</span><span class="p">.</span><span class="nx">Wild</span><span class="p">(</span>
-</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a><span class="w">      </span><span class="nx">XcmV3MultiassetWildMultiAsset</span><span class="p">.</span><span class="nx">All</span><span class="p">(),</span>
-</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a><span class="w">    </span><span class="p">),</span>
-</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a><span class="w">    </span><span class="nx">beneficiary</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a><span class="w">      </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a><span class="w">      </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">X1</span><span class="p">(</span>
-</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a><span class="w">        </span><span class="nx">XcmV3Junction</span><span class="p">.</span><span class="nx">AccountId32</span><span class="p">({</span>
-</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a><span class="w">          </span><span class="nx">network</span><span class="o">:</span><span class="w"> </span><span class="kc">undefined</span><span class="p">,</span>
-</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a><span class="w">          </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">idBeneficiary</span><span class="p">,</span>
-</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a><span class="w">        </span><span class="p">}),</span>
-</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a><span class="w">      </span><span class="p">),</span>
-</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a><span class="w">  </span><span class="p">}),</span>
-</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a><span class="p">]);</span>
-</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a>
-</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a><span class="c1">// Execute the query weight runtime call</span>
-</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">paseoAssetHubApi</span><span class="p">.</span><span class="nx">apis</span><span class="p">.</span><span class="nx">XcmPaymentApi</span><span class="p">.</span><span class="nx">query_xcm_weight</span><span class="p">(</span><span class="nx">xcm</span><span class="p">);</span>
-</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a>
-</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a><span class="c1">// Print the results</span>
-</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">depth</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a>
-</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a><span class="nx">client</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/interoperability/xcm-runtime-apis/query-xcm-weight.js&#39;</span>
 </span></code></pre></div>
 <p><strong><em>Output</em></strong></p>
-<p><div id="termynal" data-termynal>
-  <span data-ty>{ ref_time: 15574200000n, proof_size: 359300n }</span>
-</div></p>
+<p>--8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/query-xcm-weight-output.html'</p>
 <hr />
 </details>
 <h3 id="query-weight-to-asset-fee">Query Weight to Asset Fee<a class="headerlink" href="#query-weight-to-asset-fee" title="Permanent link">&para;</a></h3>
 <p>Converts a given weight into the corresponding fee for a specified <code>AssetId</code>. It allows clients to determine the cost of execution in terms of the desired asset.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">fn</span> <span class="nf">query_weight_to_asset_fee</span><span class="p">(</span><span class="n">weight</span>: <span class="nc">Weight</span><span class="p">,</span><span class="w"> </span><span class="n">asset</span>: <span class="nc">VersionedAssetId</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="kt">u128</span><span class="p">,</span><span class="w"> </span><span class="n">Error</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/polkadot/xcm/xcm-runtime-apis/src/fees.rs:58:58&#39;</span>
 </span></code></pre></div>
 <details class="interface">
 <summary>Input parameters</summary>
@@ -5770,48 +5383,14 @@
 <summary>Example</summary>
 <p>This example demonstrates how to calculate the fee for a given execution weight using a specific versioned asset ID (PAS token) on Paseo Asset Hub.</p>
 <p><strong><em>Usage with PAPI</em></strong></p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">paseoAssetHub</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-api/descriptors&#39;</span><span class="p">;</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getWsProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/ws-provider/web&#39;</span><span class="p">;</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">withPolkadotSdkCompat</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/polkadot-sdk-compat&#39;</span><span class="p">;</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1">// Connect to the polkadot relay chain</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClient</span><span class="p">(</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nx">withPolkadotSdkCompat</span><span class="p">(</span><span class="nx">getWsProvider</span><span class="p">(</span><span class="s1">&#39;wss://asset-hub-paseo-rpc.dwellir.com&#39;</span><span class="p">)),</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">);</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="kd">const</span><span class="w"> </span><span class="nx">paseoAssetHubApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">getTypedApi</span><span class="p">(</span><span class="nx">paseoAssetHub</span><span class="p">);</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="c1">// Define the weight to convert to fee</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="kd">const</span><span class="w"> </span><span class="nx">weight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ref_time</span><span class="o">:</span><span class="w"> </span><span class="mi">15574200000n</span><span class="p">,</span><span class="w"> </span><span class="nx">proof_size</span><span class="o">:</span><span class="w"> </span><span class="mi">359300n</span><span class="w"> </span><span class="p">};</span>
-</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
-</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="c1">// Define the versioned asset id</span>
-</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="kd">const</span><span class="w"> </span><span class="nx">versionedAssetId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">  </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;V4&#39;</span><span class="p">,</span>
-</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">  </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Here&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="p">};</span>
-</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
-</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="c1">// Execute the runtime call to convert the weight to fee</span>
-</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">paseoAssetHubApi</span><span class="p">.</span><span class="nx">apis</span><span class="p">.</span><span class="nx">XcmPaymentApi</span><span class="p">.</span><span class="nx">query_weight_to_asset_fee</span><span class="p">(</span>
-</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">    </span><span class="nx">weight</span><span class="p">,</span>
-</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">    </span><span class="nx">versionedAssetId</span><span class="p">,</span>
-</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>
-</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="c1">// Print the fee</span>
-</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">depth</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>
-</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="nx">client</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/interoperability/xcm-runtime-apis/query-weight-to-fee.js&#39;</span>
 </span></code></pre></div>
 <p><strong><em>Output</em></strong></p>
-<p><div id="termynal" data-termynal>
-  <span data-ty>1796500000n</span>
-</div></p>
-<hr />
+<h2 id="-8-codedevelopinteroperabilityxcm-runtime-apisquery-weight-to-fee-outputhtml">--8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/query-weight-to-fee-output.html'<a class="headerlink" href="#-8-codedevelopinteroperabilityxcm-runtime-apisquery-weight-to-fee-outputhtml" title="Permanent link">&para;</a></h2>
 </details>
 <h3 id="query-delivery-fees">Query Delivery Fees<a class="headerlink" href="#query-delivery-fees" title="Permanent link">&para;</a></h3>
 <p>Retrieves the delivery fees for sending a specific XCM message to a designated destination. The fees are always returned in a specific asset defined by the destination chain.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">fn</span> <span class="nf">query_delivery_fees</span><span class="p">(</span><span class="n">destination</span>: <span class="nc">VersionedLocation</span><span class="p">,</span><span class="w"> </span><span class="n">message</span>: <span class="nc">VersionedXcm</span><span class="o">&lt;</span><span class="p">()</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">VersionedAssets</span><span class="p">,</span><span class="w"> </span><span class="n">Error</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/polkadot/xcm/xcm-runtime-apis/src/fees.rs:68:68&#39;</span>
 </span></code></pre></div>
 <details class="interface">
 <summary>Input parameters</summary>
@@ -5845,120 +5424,21 @@
 <p>This example demonstrates how to query the delivery fees for sending an XCM message from Paseo to Paseo Asset Hub.</p>
 <p>Replace <code>INSERT_USER_ADDRESS</code> with your SS58 address before running the script.</p>
 <p><strong><em>Usage with PAPI</em></strong></p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getWsProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/ws-provider/web&#39;</span><span class="p">;</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">withPolkadotSdkCompat</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/polkadot-sdk-compat&#39;</span><span class="p">;</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="nx">XcmVersionedXcm</span><span class="p">,</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="nx">paseo</span><span class="p">,</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="nx">XcmVersionedLocation</span><span class="p">,</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">  </span><span class="nx">XcmV3Junction</span><span class="p">,</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span><span class="nx">XcmV3Junctions</span><span class="p">,</span>
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="nx">XcmV3WeightLimit</span><span class="p">,</span>
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">  </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">,</span>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">  </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">,</span>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">,</span>
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">  </span><span class="nx">XcmV3MultiassetMultiAssetFilter</span><span class="p">,</span>
-</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">  </span><span class="nx">XcmV3MultiassetWildMultiAsset</span><span class="p">,</span>
-</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-api/descriptors&#39;</span><span class="p">;</span>
-</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Binary</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ss58Decode</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-labs/hdkd-helpers&#39;</span><span class="p">;</span>
-</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
-</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClient</span><span class="p">(</span>
-</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">  </span><span class="nx">withPolkadotSdkCompat</span><span class="p">(</span><span class="nx">getWsProvider</span><span class="p">(</span><span class="s1">&#39;wss://paseo-rpc.dwellir.com&#39;</span><span class="p">)),</span>
-</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="p">);</span>
-</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>
-</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="kd">const</span><span class="w"> </span><span class="nx">paseoApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">getTypedApi</span><span class="p">(</span><span class="nx">paseo</span><span class="p">);</span>
-</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>
-</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="kd">const</span><span class="w"> </span><span class="nx">paseoAssetHubParaID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000</span><span class="p">;</span>
-</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="kd">const</span><span class="w"> </span><span class="nx">userAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;INSERT_USER_ADDRESS&#39;</span><span class="p">;</span>
-</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="kd">const</span><span class="w"> </span><span class="nx">userPublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss58Decode</span><span class="p">(</span><span class="nx">userAddress</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
-</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="kd">const</span><span class="w"> </span><span class="nx">idBeneficiary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Binary</span><span class="p">.</span><span class="nx">fromBytes</span><span class="p">(</span><span class="nx">userPublicKey</span><span class="p">);</span>
-</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>
-</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="c1">// Define the destination</span>
-</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="kd">const</span><span class="w"> </span><span class="nx">destination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">XcmVersionedLocation</span><span class="p">.</span><span class="nx">V3</span><span class="p">({</span>
-</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">  </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="w">  </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">X1</span><span class="p">(</span><span class="nx">XcmV3Junction</span><span class="p">.</span><span class="nx">Parachain</span><span class="p">(</span><span class="nx">paseoAssetHubParaID</span><span class="p">)),</span>
-</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="p">});</span>
-</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>
-</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="c1">// Define the xcm message that will be sent to the destination</span>
-</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="kd">const</span><span class="w"> </span><span class="nx">xcm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">XcmVersionedXcm</span><span class="p">.</span><span class="nx">V3</span><span class="p">([</span>
-</span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">ReceiveTeleportedAsset</span><span class="p">([</span>
-</span><span id="__span-11-40"><a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-11-41"><a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="w">      </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">.</span><span class="nx">Concrete</span><span class="p">({</span>
-</span><span id="__span-11-42"><a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a><span class="w">        </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-</span><span id="__span-11-43"><a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a><span class="w">        </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">Here</span><span class="p">(),</span>
-</span><span id="__span-11-44"><a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a><span class="w">      </span><span class="p">}),</span>
-</span><span id="__span-11-45"><a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a><span class="w">      </span><span class="nx">fun</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">.</span><span class="nx">Fungible</span><span class="p">(</span><span class="mi">12000000000n</span><span class="p">),</span>
-</span><span id="__span-11-46"><a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-11-47"><a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a><span class="w">  </span><span class="p">]),</span>
-</span><span id="__span-11-48"><a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">ClearOrigin</span><span class="p">(),</span>
-</span><span id="__span-11-49"><a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">BuyExecution</span><span class="p">({</span>
-</span><span id="__span-11-50"><a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a><span class="w">    </span><span class="nx">fees</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-11-51"><a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a><span class="w">      </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">.</span><span class="nx">Concrete</span><span class="p">({</span>
-</span><span id="__span-11-52"><a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a><span class="w">        </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-</span><span id="__span-11-53"><a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a><span class="w">        </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">Here</span><span class="p">(),</span>
-</span><span id="__span-11-54"><a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a><span class="w">      </span><span class="p">}),</span>
-</span><span id="__span-11-55"><a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a><span class="w">      </span><span class="nx">fun</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">.</span><span class="nx">Fungible</span><span class="p">(</span><span class="nb">BigInt</span><span class="p">(</span><span class="mi">12000000000n</span><span class="p">)),</span>
-</span><span id="__span-11-56"><a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-11-57"><a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a><span class="w">    </span><span class="nx">weight_limit</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3WeightLimit</span><span class="p">.</span><span class="nx">Unlimited</span><span class="p">(),</span>
-</span><span id="__span-11-58"><a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a><span class="w">  </span><span class="p">}),</span>
-</span><span id="__span-11-59"><a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a><span class="w">  </span><span class="nx">XcmV3Instruction</span><span class="p">.</span><span class="nx">DepositAsset</span><span class="p">({</span>
-</span><span id="__span-11-60"><a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a><span class="w">    </span><span class="nx">assets</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetMultiAssetFilter</span><span class="p">.</span><span class="nx">Wild</span><span class="p">(</span>
-</span><span id="__span-11-61"><a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a><span class="w">      </span><span class="nx">XcmV3MultiassetWildMultiAsset</span><span class="p">.</span><span class="nx">All</span><span class="p">(),</span>
-</span><span id="__span-11-62"><a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a><span class="w">    </span><span class="p">),</span>
-</span><span id="__span-11-63"><a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a><span class="w">    </span><span class="nx">beneficiary</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-11-64"><a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a><span class="w">      </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-</span><span id="__span-11-65"><a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a><span class="w">      </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">X1</span><span class="p">(</span>
-</span><span id="__span-11-66"><a id="__codelineno-11-66" name="__codelineno-11-66" href="#__codelineno-11-66"></a><span class="w">        </span><span class="nx">XcmV3Junction</span><span class="p">.</span><span class="nx">AccountId32</span><span class="p">({</span>
-</span><span id="__span-11-67"><a id="__codelineno-11-67" name="__codelineno-11-67" href="#__codelineno-11-67"></a><span class="w">          </span><span class="nx">network</span><span class="o">:</span><span class="w"> </span><span class="kc">undefined</span><span class="p">,</span>
-</span><span id="__span-11-68"><a id="__codelineno-11-68" name="__codelineno-11-68" href="#__codelineno-11-68"></a><span class="w">          </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">idBeneficiary</span><span class="p">,</span>
-</span><span id="__span-11-69"><a id="__codelineno-11-69" name="__codelineno-11-69" href="#__codelineno-11-69"></a><span class="w">        </span><span class="p">}),</span>
-</span><span id="__span-11-70"><a id="__codelineno-11-70" name="__codelineno-11-70" href="#__codelineno-11-70"></a><span class="w">      </span><span class="p">),</span>
-</span><span id="__span-11-71"><a id="__codelineno-11-71" name="__codelineno-11-71" href="#__codelineno-11-71"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-11-72"><a id="__codelineno-11-72" name="__codelineno-11-72" href="#__codelineno-11-72"></a><span class="w">  </span><span class="p">}),</span>
-</span><span id="__span-11-73"><a id="__codelineno-11-73" name="__codelineno-11-73" href="#__codelineno-11-73"></a><span class="p">]);</span>
-</span><span id="__span-11-74"><a id="__codelineno-11-74" name="__codelineno-11-74" href="#__codelineno-11-74"></a>
-</span><span id="__span-11-75"><a id="__codelineno-11-75" name="__codelineno-11-75" href="#__codelineno-11-75"></a><span class="c1">// Execute the query delivery fees runtime call</span>
-</span><span id="__span-11-76"><a id="__codelineno-11-76" name="__codelineno-11-76" href="#__codelineno-11-76"></a><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">paseoApi</span><span class="p">.</span><span class="nx">apis</span><span class="p">.</span><span class="nx">XcmPaymentApi</span><span class="p">.</span><span class="nx">query_delivery_fees</span><span class="p">(</span>
-</span><span id="__span-11-77"><a id="__codelineno-11-77" name="__codelineno-11-77" href="#__codelineno-11-77"></a><span class="w">  </span><span class="nx">destination</span><span class="p">,</span>
-</span><span id="__span-11-78"><a id="__codelineno-11-78" name="__codelineno-11-78" href="#__codelineno-11-78"></a><span class="w">  </span><span class="nx">xcm</span><span class="p">,</span>
-</span><span id="__span-11-79"><a id="__codelineno-11-79" name="__codelineno-11-79" href="#__codelineno-11-79"></a><span class="p">);</span>
-</span><span id="__span-11-80"><a id="__codelineno-11-80" name="__codelineno-11-80" href="#__codelineno-11-80"></a>
-</span><span id="__span-11-81"><a id="__codelineno-11-81" name="__codelineno-11-81" href="#__codelineno-11-81"></a><span class="c1">// Print the results</span>
-</span><span id="__span-11-82"><a id="__codelineno-11-82" name="__codelineno-11-82" href="#__codelineno-11-82"></a><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">depth</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-11-83"><a id="__codelineno-11-83" name="__codelineno-11-83" href="#__codelineno-11-83"></a>
-</span><span id="__span-11-84"><a id="__codelineno-11-84" name="__codelineno-11-84" href="#__codelineno-11-84"></a><span class="nx">client</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/interoperability/xcm-runtime-apis/query-delivery-fees.js&#39;</span>
 </span></code></pre></div>
 <p><strong><em>Output</em></strong></p>
-<p><div id="termynal" data-termynal>
-  <pre>
-    {
-      type: 'V3',
-      value: [
-        {
-          id: {
-            type: 'Concrete',
-            value: { parents: 0, interior: { type: 'Here', value: undefined } }
-          },
-          fun: { type: 'Fungible', value: 396000000n }
-        }
-      ]
-    }
-  </pre>
-</div></p>
-<hr />
+<h2 id="-8-codedevelopinteroperabilityxcm-runtime-apisquery-delivery-fees-outputhtml">--8&lt;-- 'code/develop/interoperability/xcm-runtime-apis/query-delivery-fees-output.html'<a class="headerlink" href="#-8-codedevelopinteroperabilityxcm-runtime-apisquery-delivery-fees-outputhtml" title="Permanent link">&para;</a></h2>
 </details>
   <div class="md-source-file">
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

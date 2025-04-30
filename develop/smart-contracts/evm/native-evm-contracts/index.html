@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3076,7 +3093,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3087,7 +3104,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5019,24 +5036,12 @@
 <ul>
 <li>
 <p>In browsers, providers are available through wallets like <a href="https://metamask.io/" target="_blank">MetaMask</a>, which inject an <code>ethereum</code> object into the <code>window</code>. Ensure that Metamask is installed and connected to Westend Asset Hub</p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;ethers&#39;</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">// Browser wallet will inject the ethereum object into the window object</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">ethereum</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;undefined&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;No wallet installed&#39;</span><span class="p">);</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;An Ethereum wallet is installed!&#39;</span><span class="p">);</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kd">const</span><span class="w"> </span><span class="nx">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BrowserProvider</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">ethereum</span><span class="p">);</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/smart-contracts/native-evm-contracts/ether-js-browser-connection.js&#39;</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>For server-side applications, <code>JsonRpcProvider</code> can connect directly to RPC nodes:</p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">JsonRpcProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;ethers&#39;</span><span class="p">;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">JsonRpcProvider</span><span class="p">(</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="s1">&#39;https://westend-asset-hub-eth-rpc.polkadot.io&#39;</span><span class="p">,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">);</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/smart-contracts/native-evm-contracts/ether-js-server-connection.js&#39;</span>
 </span></code></pre></div>
 </li>
 </ul>
@@ -5047,12 +5052,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

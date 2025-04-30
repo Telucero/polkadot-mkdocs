@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3187,7 +3204,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3198,7 +3215,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5090,21 +5107,19 @@
 <h2 id="xcm-router">XCM Router<a class="headerlink" href="#xcm-router" title="Permanent link">&para;</a></h2>
 <p>The <a href="https://paritytech.github.io/polkadot-sdk/master/pallet_xcm/pallet/trait.Config.html#associatedtype.XcmRouter" target="_blank"><code>XcmRouter</code></a> is a critical component the XCM pallet requires to facilitate sending XCM messages. It defines where messages can be sent and determines the appropriate XCM transport protocol for the operation.</p>
 <p>For instance, the Kusama network employs the <a href="https://paritytech.github.io/polkadot-sdk/master/polkadot_runtime_common/xcm_sender/struct.ChildParachainRouter.html" target="_blank"><code>ChildParachainRouter</code></a>, which restricts routing to <a href="https://wiki.polkadot.network/docs/learn-xcm-transport#dmp-downward-message-passing" target="_blank">Downward Message Passing (DMP)</a> from the relay chain to parachains, ensuring secure and controlled communication.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="c1">// Only one router so far - use DMP to communicate with child parachains.</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">ChildParachainRouter</span><span class="o">&lt;</span><span class="n">Runtime</span><span class="p">,</span><span class="w"> </span><span class="n">XcmPallet</span><span class="p">,</span><span class="w"> </span><span class="n">PriceForChildParachainDelivery</span><span class="o">&gt;</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/polkadot-fellows/runtimes/refs/heads/main/relay/kusama/src/xcm_config.rs:122:125&#39;</span>
 </span></code></pre></div>
 <p>For more details about XCM transport protocols, see the <a href="/polkadot-mkdocs/develop/interoperability/xcm-channels/" target="_blank">XCM Channels</a> page.</p>
   <div class="md-source-file">
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

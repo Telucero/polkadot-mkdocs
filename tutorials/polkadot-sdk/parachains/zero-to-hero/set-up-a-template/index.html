@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3070,7 +3087,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3081,7 +3098,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5064,8 +5081,9 @@ In this tutorial, you will:</p>
 </span></code></pre></div></p>
 </li>
 <li>
-<p>Navigate to the root of the template directory:
+<p>Navigate into the project directory and check out the specific commit:
     <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>parachain-template
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>ecaf71d
 </span></code></pre></div></p>
 </li>
 <li>
@@ -5079,12 +5097,7 @@ In this tutorial, you will:</p>
 </li>
 <li>
 <p>Upon successful compilation, you should see output similar to:
-    <div id="termynal" data-termynal>
-      <span data-ty="input"><span class="file-path"></span>cargo build --release --locked</span>
-      <span data-ty>...</span>
-      <span data-ty>Finished <code>release</code> profile [optimized] target(s) in 1.79s</span>
-      <span data-ty="input"><span class="file-path"></span></span>
-    </div></p>
+    --8&lt;-- 'code/tutorials/polkadot-sdk/parachains/zero-to-hero/set-up-a-template/compilation-output.html'</p>
 </li>
 </ol>
 <h2 id="start-the-local-chain">Start the Local Chain<a class="headerlink" href="#start-the-local-chain" title="Permanent link">&para;</a></h2>
@@ -5112,45 +5125,11 @@ In this tutorial, you will:</p>
 </li>
 <li>
 <p>Verify that your node is running by reviewing the terminal output. You should see something similar to:
-    <div id="termynal" data-termynal>
-      <span data-ty="input"><span class="file-path"></span>polkadot-omni-node --chain ./chain_spec.json --dev</span>
-      <br />
-      <span data-ty>2024-12-12 12:44:02 polkadot-omni-node</span>
-      <span data-ty>2024-12-12 12:44:02 ✌️ version 0.1.0-da2dd9b7737</span>
-      <span data-ty>2024-12-12 12:44:02 ❤️ by Parity Technologies admin@parity.io, 2017-2024</span>
-      <span data-ty>2024-12-12 12:44:02 📋 Chain specification: Custom</span>
-      <span data-ty>2024-12-12 12:44:02 🏷 Node name: grieving-drum-1926</span>
-      <span data-ty>2024-12-12 12:44:02 👤 Role: AUTHORITY</span>
-      <span data-ty>2024-12-12 12:44:02 💾 Database: RocksDb at /var/folders/x0/xl_kjddj3ql3bx7752yr09hc0000gn/T/substrateoUrZMQ/chains/custom/db/full</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] assembling new collators for new session 0 at #0</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] assembling new collators for new session 1 at #0</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] 🔨 Initializing Genesis block/state (state: 0xa6f8…5b46, header-hash: 0x0579…2153)</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] creating SingleState txpool Limit { count: 8192, total_bytes: 20971520 }/Limit { count: 819, total_bytes: 2097152 }.</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] Using default protocol ID "sup" because none is configured in the chain specs</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] 🏷 Local node identity is: 12D3KooWCSXy6rBuJVsn5mx8uyNqkdfNfFzEbToi4hR31v3PwdgX</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] Running libp2p network backend</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] 💻 Operating system: macos</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] 💻 CPU architecture: aarch64</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] 📦 Highest known block at #0</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] 〽️ Prometheus exporter started at 127.0.0.1:9615</span>
-      <span data-ty>2024-12-12 12:44:03 [Parachain] Running JSON-RPC server: addr=127.0.0.1:9944,[::1]:9944</span>
-      <span data-ty>2024-12-12 12:44:06 [Parachain] 🙌 Starting consensus session on top of parent 0x05794f9adcdaa23a5edd335e8310637d3a7e6e9393f2b0794af7d3e219f62153 (#0)</span>
-      <span data-ty>2024-12-12 12:44:06 [Parachain] 🎁 Prepared block for proposing at 1 (2 ms) hash: 0x6fbea46711e9b38bab8e7877071423cd03feab03d3f4a0d578a03ab42dcee34b; parent_hash: 0x0579…2153; end: NoMoreTransactions; extrinsics_count: 2</span>
-      <span data-ty>2024-12-12 12:44:06 [Parachain] 🏆 Imported #1 (0x0579…2153 → 0x6fbe…e34b)</span>
-      <span data-ty>...</span>
-    </div></p>
+    --8&lt;-- 'code/tutorials/polkadot-sdk/parachains/zero-to-hero/set-up-a-template/node-output.html'</p>
 </li>
 <li>
 <p>Confirm that your blockchain is producing new blocks by checking if the number after <code>finalized</code> is increasing
-    <div id="termynal" data-termynal>
-      <span data-ty>...</span>
-      <span data-ty>2024-12-12 12:49:20 [Parachain] 💤 Idle (0 peers), best: #1 (0x6fbe…e34b), finalized #1 (0x6fbe…e34b), ⬇ 0 ⬆ 0</span>
-      <span data-ty>...</span>
-      <span data-ty>2024-12-12 12:49:25 [Parachain] 💤 Idle (0 peers), best: #3 (0x7543…bcfc), finalized #3 (0x7543…bcfc), ⬇ 0 ⬆ 0</span>
-      <span data-ty>...</span>
-      <span data-ty>2024-12-12 12:49:30 [Parachain] 💤 Idle (0 peers), best: #4 (0x0478…8d63), finalized #4 (0x0478…8d63), ⬇ 0 ⬆ 0</span>
-      <span data-ty>...</span>
-    </div></p>
+    --8&lt;-- 'code/tutorials/polkadot-sdk/parachains/zero-to-hero/set-up-a-template/node-block-production.html'</p>
 </li>
 </ol>
 <p>The details of the log output will be explored in a later tutorial. For now, knowing that your node is running and producing blocks is sufficient.</p>
@@ -5204,12 +5183,12 @@ In this tutorial, you will:</p>
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

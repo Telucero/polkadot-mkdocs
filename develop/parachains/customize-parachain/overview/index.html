@@ -1057,6 +1057,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -1120,6 +1123,20 @@
     <li class="md-nav__item">
       <a href="../../deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3198,7 +3215,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3209,7 +3226,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5058,23 +5075,7 @@
 <h4 id="pallet-structure">Pallet Structure<a class="headerlink" href="#pallet-structure" title="Permanent link">&para;</a></h4>
 <p>Polkadot SDK heavily utilizes Rust macros, allowing developers to focus on specific functional requirements when writing pallets instead of dealing with technicalities and scaffolding code.</p>
 <p>A typical pallet skeleton looks like this:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">pallet</span>::<span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">#[frame_support::pallet]</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">pallet</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">frame_support</span>::<span class="n">pallet_prelude</span>::<span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">pallet_prelude</span>::<span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="cp">#[pallet::pallet]</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="cp">#[pallet::generate_store(pub(super) trait Store)]</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Pallet</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span><span class="p">);</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="cp">#[pallet::config]</span><span class="w">  </span><span class="c1">// snip</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="cp">#[pallet::event]</span><span class="w">   </span><span class="c1">// snip</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="cp">#[pallet::error]</span><span class="w">   </span><span class="c1">// snip</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="cp">#[pallet::storage]</span><span class="w"> </span><span class="c1">// snip</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="cp">#[pallet::call]</span><span class="w">    </span><span class="c1">// snip</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">customize</span><span class="o">-</span><span class="n">parachain</span><span class="o">/</span><span class="n">overview</span><span class="o">/</span><span class="n">pallet</span><span class="o">-</span><span class="n">skeleton</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>All pallets, including custom ones, can implement these attribute macros:</p>
 <ul>
@@ -5148,12 +5149,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

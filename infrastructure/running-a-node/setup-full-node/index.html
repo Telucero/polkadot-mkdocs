@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3211,7 +3228,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3222,7 +3239,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5102,25 +5119,7 @@
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>rustup<span class="w"> </span>+nightly<span class="w"> </span>show
 </span></code></pre></div>
 <p>You should see output similar to the following:</p>
-<p><div id="termynal" data-termynal>
-  <span data-ty="input"
-    ><span class="file-path"></span>rustup show <br />
-    rustup +nightly show&lt;/span</p>
-<blockquote>
-<p><span data-ty>active toolchain</span>
-  <span data-ty>----------------</span>
-  <span data-ty></span>
-  <span data-ty>stable-aarch64-apple-darwin (default)</span>
-  <span data-ty>rustc 1.82.0 (f6e511eec 2024-10-15)</span>
-  <span data-ty></span>
-  <span data-ty>active toolchain</span>
-  <span data-ty>----------------</span>
-  <span data-ty></span>
-  <span data-ty>nightly-aarch64-apple-darwin (overridden by +toolchain on the command line) </span>
-  <span data-ty>rustc 1.84.0-nightly (03ee48451 2024-11-18)</span>
-  <span data-ty="input"><span class="file-path"></span></span>
-</div></p>
-</blockquote>
+<p>--8&lt;-- 'code/infrastructure/running-a-node/setup-full-node/setup-full-node-1.html'</p>
 <p>Then, run the following commands to clone and build the Polkadot binary:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/paritytech/polkadot-sdk<span class="w"> </span>polkadot-sdk
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>polkadot-sdk
@@ -5169,18 +5168,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rustup<span class="w"> </span>show
 </span></code></pre></div>
 <p>You should see output similar to the following:</p>
-<p><div id="termynal" data-termynal>
-  <span data-ty="input"
-    ><span class="file-path"></span>rustup show <br />
-    rustup +nightly show&lt;/span</p>
-<blockquote>
-<p><span data-ty>active toolchain</span>
-  <span data-ty>----------------</span>
-  <span data-ty></span>
-  <span data-ty>stable-x86_64-unknown-linux-gnu (default)</span>
-  <span data-ty>rustc 1.82.0 (f6e511eec 2024-10-15)</span>
-</div></p>
-</blockquote>
+<p>--8&lt;-- 'code/infrastructure/running-a-node/setup-full-node/setup-full-node-2.html'</p>
 <p>Once Rust is configured, run the following commands to clone and build Polkadot:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/paritytech/polkadot-sdk<span class="w"> </span>polkadot-sdk
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">cd</span><span class="w"> </span>polkadot-sdk
@@ -5271,39 +5259,7 @@
 <h2 id="sync-your-node">Sync Your Node<a class="headerlink" href="#sync-your-node" title="Permanent link">&para;</a></h2>
 <p>The syncing process will take a while, depending on your capacity, processing power, disk speed, and RAM. The process may be completed on a $10 DigitalOcean droplet in about ~36 hours. While syncing, your node name should be visible in gray on Polkadot Telemetry, and once it is fully synced, your node name will appear in white on <a href="https://telemetry.polkadot.io/#list/Polkadot" target="_blank">Polkadot Telemetry</a>.</p>
 <p>A healthy node syncing blocks will output logs like the following:</p>
-<div id="termynal" data-termynal>
-  <span data-ty>2024-11-19 23:49:57 Parity Polkadot</span>
-  <span data-ty>2024-11-19 23:49:57 ✌️ version 1.14.1-7c4cd60da6d</span>
-  <span data-ty>2024-11-19 23:49:57 ❤️ by Parity Technologies &lt;admin@parity.io&gt;, 2017-2024</span>
-  <span data-ty>2024-11-19 23:49:57 📋 Chain specification: Polkadot</span>
-  <span data-ty>2024-11-19 23:49:57 🏷 Node name: myPolkadotNode</span>
-  <span data-ty>2024-11-19 23:49:57 👤 Role: FULL</span>
-  <span data-ty>2024-11-19 23:49:57 💾 Database: RocksDb at /home/ubuntu/.local/share/polkadot/chains/polkadot/db/full</span>
-  <span data-ty>2024-11-19 23:50:00 🏷 Local node identity is: 12D3KooWDmhHEgPRJUJnUpJ4TFWn28EENqvKWH4dZGCN9TS51y9h</span>
-  <span data-ty>2024-11-19 23:50:00 Running libp2p network backend</span>
-  <span data-ty>2024-11-19 23:50:00 💻 Operating system: linux</span>
-  <span data-ty>2024-11-19 23:50:00 💻 CPU architecture: x86_64</span>
-  <span data-ty>2024-11-19 23:50:00 💻 Target environment: gnu</span>
-  <span data-ty>2024-11-19 23:50:00 💻 CPU: Intel(R) Xeon(R) CPU E3-1245 V2 @ 3.40GHz</span>
-  <span data-ty>2024-11-19 23:50:00 💻 CPU cores: 4</span>
-  <span data-ty>2024-11-19 23:50:00 💻 Memory: 32001MB</span>
-  <span data-ty>2024-11-19 23:50:00 💻 Kernel: 5.15.0-113-generic</span>
-  <span data-ty>2024-11-19 23:50:00 💻 Linux distribution: Ubuntu 22.04.5 LTS</span>
-  <span data-ty>2024-11-19 23:50:00 💻 Virtual machine: no</span>
-  <span data-ty>2024-11-19 23:50:00 📦 Highest known block at #9319</span>
-  <span data-ty>2024-11-19 23:50:00 〽️ Prometheus exporter started at 127.0.0.1:9615</span>
-  <span data-ty>2024-11-19 23:50:00 Running JSON-RPC server: addr=127.0.0.1:9944, allowed origins=["http://localhost:*", "http://127.0.0.1:*", "https://localhost:*", "https://127.0.0.1:*", "https://polkadot.js.org"]</span>
-  <span data-ty>2024-11-19 23:50:00 🏁 CPU score: 671.67 MiBs</span>
-  <span data-ty>2024-11-19 23:50:00 🏁 Memory score: 7.96 GiBs</span>
-  <span data-ty>2024-11-19 23:50:00 🏁 Disk score (seq. writes): 377.87 MiBs</span>
-  <span data-ty>2024-11-19 23:50:00 🏁 Disk score (rand. writes): 147.92 MiBs</span>
-  <span data-ty>2024-11-19 23:50:00 🥩 BEEFY gadget waiting for BEEFY pallet to become available...</span>
-  <span data-ty>2024-11-19 23:50:00 🔍 Discovered new external address for our node: /ip4/37.187.93.17/tcp/30333/ws/p2p/12D3KooWDmhHEgPRJUJnUpJ4TFWn28EENqvKWH4dZGCN9TS51y9h</span>
-  <span data-ty>2024-11-19 23:50:01 🔍 Discovered new external address for our node: /ip6/2001:41d0:a:3511::1/tcp/30333/ws/p2p/12D3KooWDmhHEgPRJUJnUpJ4TFWn28EENqvKWH4dZGCN9TS51y9h</span>
-  <span data-ty>2024-11-19 23:50:05 ⚙️ Syncing, target=#23486325 (5 peers), best: #12262 (0x8fb5…f310), finalized #11776 (0x9de1…32fb), ⬇ 430.5kiB/s ⬆ 17.8kiB/s</span>
-  <span data-ty>2024-11-19 23:50:10 ⚙️ Syncing 628.8 bps, target=#23486326 (6 peers), best: #15406 (0x9ce1…2d76), finalized #15360 (0x0e41…a064), ⬇ 255.0kiB/s ⬆ 1.8kiB/s</span>
-</div>
-
+<p>--8&lt;-- 'code/infrastructure/running-a-node/setup-full-node/run-node.html'</p>
 <p>Congratulations, you're now syncing a Polkadot full node! Remember that the process is identical when using any other Polkadot SDK-based chain, although individual chains may have chain-specific flag requirements.</p>
 <h3 id="connect-to-your-node">Connect to Your Node<a class="headerlink" href="#connect-to-your-node" title="Permanent link">&para;</a></h3>
 <p>Open <a href="https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9944#/explorer" target="_blank">Polkadot.js Apps</a> and click the logo in the top left to switch the node. Activate the <strong>Development</strong> toggle and input your node's domain or IP address. The default WSS endpoint for a local node is:</p>
@@ -5313,12 +5269,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3183,7 +3200,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3194,7 +3211,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5022,23 +5039,12 @@
 <p>Install the library using <code>pip</code>:</p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pip</span> <span class="n">install</span> <span class="n">substrate</span><span class="o">-</span><span class="n">interface</span>
 </span></code></pre></div>
-<p>For more installation details, see the <a href="https://polkascan.github.io/py-substrate-interface/getting-started/installation/" target="_blank">Installation</a> section in the official Python Substrate Interface documentation.</p>
+<p>For more installation details, see the <a href="https://jamdottech.github.io/py-polkadot-sdk/getting-started/installation/" target="_blank">Installation</a> section in the official Python Substrate Interface documentation.</p>
 <h2 id="get-started">Get Started<a class="headerlink" href="#get-started" title="Permanent link">&para;</a></h2>
 <p>This guide will walk you through the basic operations with the Python Substrate Interface: connecting to a node, reading chain state, and submitting transactions.</p>
 <h3 id="establishing-connection">Establishing Connection<a class="headerlink" href="#establishing-connection" title="Permanent link">&para;</a></h3>
 <p>The first step is to establish a connection to a Polkadot SDK-based node. You can connect to either a local or remote node:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">substrateinterface</span> <span class="kn">import</span> <span class="n">SubstrateInterface</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Connect to a node using websocket</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">substrate</span> <span class="o">=</span> <span class="n">SubstrateInterface</span><span class="p">(</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="c1"># For local node: &quot;ws://127.0.0.1:9944&quot;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="c1"># For Polkadot: &quot;wss://rpc.polkadot.io&quot;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="c1"># For Kusama: &quot;wss://kusama-rpc.polkadot.io&quot;</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;INSERT_WS_URL&quot;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">)</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># Verify connection</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected to chain: </span><span class="si">{</span><span class="n">substrate</span><span class="o">.</span><span class="n">chain</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span> <span class="s1">&#39;code/develop/toolkit/api-libraries/py-substrate-interface/substrate_interface.py&#39;</span>
 </span></code></pre></div>
 <h3 id="reading-chain-state">Reading Chain State<a class="headerlink" href="#reading-chain-state" title="Permanent link">&para;</a></h3>
 <p>You can query various on-chain storage items. To retrieve data, you need to specify three key pieces of information:</p>
@@ -5048,28 +5054,7 @@
 <li><strong>Required parameters</strong> - any parameters needed to retrieve the desired data</li>
 </ul>
 <p>Here's an example of how to check an account's balance and other details:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># ...</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Query account balance and info</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">account_info</span> <span class="o">=</span> <span class="n">substrate</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">module</span><span class="o">=</span><span class="s2">&quot;System&quot;</span><span class="p">,</span>  <span class="c1"># The pallet name</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">storage_function</span><span class="o">=</span><span class="s2">&quot;Account&quot;</span><span class="p">,</span>  <span class="c1"># The storage item</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;INSERT_ADDRESS&quot;</span><span class="p">],</span>  <span class="c1"># Account address in SS58 format</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">)</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Access account details from the result</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">free_balance</span> <span class="o">=</span> <span class="n">account_info</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;free&quot;</span><span class="p">]</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">reserved</span> <span class="o">=</span> <span class="n">account_info</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;reserved&quot;</span><span class="p">]</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">nonce</span> <span class="o">=</span> <span class="n">account_info</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="s2">&quot;nonce&quot;</span><span class="p">]</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nb">print</span><span class="p">(</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="s2">    Account Details:</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="s2">    - Free Balance: </span><span class="si">{</span><span class="n">free_balance</span><span class="si">}</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="s2">    - Reserved: </span><span class="si">{</span><span class="n">reserved</span><span class="si">}</span><span class="s2"> </span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="s2">    - Nonce: </span><span class="si">{</span><span class="n">nonce</span><span class="si">}</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="s2">    &quot;&quot;&quot;</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span> <span class="s1">&#39;code/develop/toolkit/api-libraries/py-substrate-interface/read_state.py&#39;</span>
 </span></code></pre></div>
 <h3 id="submitting-transactions">Submitting Transactions<a class="headerlink" href="#submitting-transactions" title="Permanent link">&para;</a></h3>
 <p>To modify the chain state, you need to submit transactions (extrinsics). Before proceeding, ensure you have:</p>
@@ -5078,40 +5063,9 @@
 <li>Access to the account's keypair</li>
 </ul>
 <p>Here's how to create and submit a balance transfer:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">#...</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Compose the transfer call</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">call</span> <span class="o">=</span> <span class="n">substrate</span><span class="o">.</span><span class="n">compose_call</span><span class="p">(</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">call_module</span><span class="o">=</span><span class="s2">&quot;Balances&quot;</span><span class="p">,</span>  <span class="c1"># The pallet name</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">call_function</span><span class="o">=</span><span class="s2">&quot;transfer_keep_alive&quot;</span><span class="p">,</span>  <span class="c1"># The extrinsic function</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">call_params</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="s1">&#39;dest&#39;</span><span class="p">:</span> <span class="s1">&#39;INSERT_ADDRESS&#39;</span><span class="p">,</span>  <span class="c1"># Recipient&#39;s address</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;INSERT_VALUE&#39;</span>  <span class="c1"># Amount in smallest unit (e.g., Planck for DOT)</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="p">}</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">)</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># Create a signed extrinsic</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">extrinsic</span> <span class="o">=</span> <span class="n">substrate</span><span class="o">.</span><span class="n">create_signed_extrinsic</span><span class="p">(</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="n">call</span><span class="o">=</span><span class="n">call</span><span class="p">,</span> <span class="n">keypair</span><span class="o">=</span><span class="n">keypair</span>  <span class="c1"># Your keypair for signing</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">)</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="c1"># Submit and wait for inclusion</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="n">receipt</span> <span class="o">=</span> <span class="n">substrate</span><span class="o">.</span><span class="n">submit_extrinsic</span><span class="p">(</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="n">extrinsic</span><span class="p">,</span> <span class="n">wait_for_inclusion</span><span class="o">=</span><span class="kc">True</span>  <span class="c1"># Wait until the transaction is in a block</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">)</span>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="k">if</span> <span class="n">receipt</span><span class="o">.</span><span class="n">is_success</span><span class="p">:</span>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="nb">print</span><span class="p">(</span>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="s2">        Transaction successful:</span>
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="s2">        - Extrinsic Hash: </span><span class="si">{</span><span class="n">receipt</span><span class="o">.</span><span class="n">extrinsic_hash</span><span class="si">}</span>
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="s2">        - Block Hash: </span><span class="si">{</span><span class="n">receipt</span><span class="o">.</span><span class="n">block_hash</span><span class="si">}</span>
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="s2">        &quot;&quot;&quot;</span>
-</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    <span class="p">)</span>
-</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transaction failed: </span><span class="si">{</span><span class="n">receipt</span><span class="o">.</span><span class="n">error_message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span> <span class="s1">&#39;code/develop/toolkit/api-libraries/py-substrate-interface/send_tx.py&#39;</span>
 </span></code></pre></div>
-<p>The <code>keypair</code> object is essential for signing transactions. See the <a href="https://polkascan.github.io/py-substrate-interface/usage/keypair-creation-and-signing/" target="_blank">Keypair</a> documentation for more details.</p>
+<p>The <code>keypair</code> object is essential for signing transactions. See the <a href="https://jamdottech.github.io/py-polkadot-sdk/reference/keypair/" target="_blank">Keypair</a> documentation for more details.</p>
 <h2 id="where-to-go-next">Where to Go Next<a class="headerlink" href="#where-to-go-next" title="Permanent link">&para;</a></h2>
 <p>Now that you understand the basics, you can:</p>
 <ul>
@@ -5119,17 +5073,17 @@
 <li>Learn about batch transactions and utility functions</li>
 <li>Discover how to work with custom pallets and types</li>
 </ul>
-<p>For comprehensive reference materials and advanced features, see the <a href="https://polkascan.github.io/py-substrate-interface/" target="_blank">Python Substrate Interface</a> documentation.</p>
+<p>For comprehensive reference materials and advanced features, see the <a href="https://jamdottech.github.io/py-polkadot-sdk/" target="_blank">Python Substrate Interface</a> documentation.</p>
   <div class="md-source-file">
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

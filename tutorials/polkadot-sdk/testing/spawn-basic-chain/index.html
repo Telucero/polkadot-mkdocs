@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3070,7 +3087,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3081,7 +3098,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5079,24 +5096,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>touch<span class="w"> </span>spawn-a-basic-network.toml
 </span></code></pre></div></li>
 <li>Add the following code to the file you just created:
-<div class="language-toml highlight"><span class="filename">spawn-a-basic-network.toml</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[settings]</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">[relaychain]</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">[[relaychain.nodes]]</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">validator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">[[relaychain.nodes]]</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bob&quot;</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">validator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="k">[[parachains]]</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="k">[parachains.collator]</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;collator01&quot;</span>
+<div class="language-toml highlight"><span class="filename">spawn-a-basic-network.toml</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/tutorials/polkadot-sdk/testing/spawn-basic-chain/spawn-a-basic-network.toml&#39;</span>
 </span></code></pre></div></li>
 </ol>
 <p>This configuration file defines a network with the following chains:</p>
@@ -5111,90 +5111,7 @@
 </span></code></pre></div>
 <p>This command will spawn the network defined in the <code>spawn-a-basic-network.toml</code> configuration file. The <code>-p native</code> flag specifies that the network will be spawned using the native provider.</p>
 <p>If successful, you will see the following output:</p>
-<div id="termynal" class="table-termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>zombienet -p native spawn spawn-a-basic-network.toml</span>
-  <table>
-    <thead>
-      <tr>
-        <th colspan="2" class="center-header">Network launched 🚀🚀</th>
-      </tr>
-    </thead>
-    <tr>
-      <th class="left-header">Namespace</th>
-      <td>zombie-75a01b93c92d571f6198a67bcb380fcd</td>
-    </tr>
-    <tr>
-      <th class="left-header">Provider</th>
-      <td>native</td>
-    </tr>
-    <tr>
-      <th colspan="3" class="center-header">Node Information</th>
-    </tr>
-    <tr>
-      <th class="left-header">Name</th>
-      <td>alice</td>
-    </tr>
-    <tr>
-      <th class="left-header">Direct Link</th>
-      <td><a href="https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:55308#explorer">https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:55308#explorer</a></td>
-    </tr>
-    <tr>
-      <th class="left-header">Prometheus Link</th>
-      <td>http://127.0.0.1:55310/metrics</td>
-    </tr>
-    <tr>
-      <th class="left-header">Log Cmd</th>
-      <td>tail -f /tmp/zombie-794af21178672e1ff32c612c3c7408dc_-2397036-6717MXDxcS55/alice.log</td>
-    </tr>
-    <tr>
-      <th colspan="3" class="center-header">Node Information</th>
-    </tr>
-    <tr>
-      <th class="left-header">Name</th>
-      <td>bob</td>
-    </tr>
-    <tr>
-      <th class="left-header">Direct Link</th>
-      <td><a href="https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:50312#explorer">https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:55312#explorer</a></td>
-    </tr>
-    <tr>
-      <th class="left-header">Prometheus Link</th>
-      <td>http://127.0.0.1:50634/metrics</td>
-    </tr>
-    <tr>
-      <th class="left-header">Log Cmd</th>
-      <td>tail -f /tmp/zombie-794af21178672e1ff32c612c3c7408dc_-2397036-6717MXDxcS55/bob.log</td>
-    </tr>
-    <tr>
-      <th colspan="3" class="center-header">Node Information</th>
-    </tr>
-    <tr>
-      <th class="left-header">Name</th>
-      <td>collator01</td>
-    </tr>
-    <tr>
-      <th class="left-header">Direct Link</th>
-      <td><a href="https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:55316#explorer">https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:55316#explorer</a></td>
-    </tr>
-    <tr>
-      <th class="left-header">Prometheus Link</th>
-      <td>http://127.0.0.1:55318/metrics</td>
-    </tr>
-    <tr>
-      <th class="left-header">Log Cmd</th>
-      <td>tail -f /tmp/zombie-794af21178672e1ff32c612c3c7408dc_-2397036-6717MXDxcS55/collator01.log</td>
-    </tr>
-    <tr>
-      <th class="left-header">Parachain ID</th>
-      <td>100</td>
-    </tr>
-    <tr>
-      <th class="left-header">ChainSpec Path</th>
-      <td>/tmp/zombie-794af21178672e1ff32c612c3c7408dc_-2397036-6717MXDxcS55/100-rococo-local.json</td>
-    </tr>
-  </table>
-</div>
-
+<p>--8&lt;-- 'code/tutorials/polkadot-sdk/testing/spawn-basic-chain/spawn-network-terminal-01.html'</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If the IPs and ports aren't explicitly defined in the configuration file, they may change each time the network is started, causing the links provided in the output to differ from the example.</p>
@@ -5204,27 +5121,7 @@
 <h3 id="connect-to-the-nodes">Connect to the Nodes<a class="headerlink" href="#connect-to-the-nodes" title="Permanent link">&para;</a></h3>
 <p>Use the <a href="https://polkadot.js.org/apps/?rpc=ws://127.0.0.1:55308#explorer" target="_blank">55308 port address</a> to interact with the same <code>alice</code> node used for this tutorial. Ports can change from spawn to spawn so be sure to locate the link in the output when spawning your own node to ensure you are accessing the correct port.</p>
 <p>If you want to interact with the nodes more programmatically, you can also use the <a href="https://polkadot.js.org/docs/api/" target="_blank">Polkadot.js API</a>. For example, the following code snippet shows how to connect to the <code>alice</code> node using the Polkadot.js API and log some information about the chain and node:</p>
-<div class="language-typescript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ApiPromise</span><span class="p">,</span><span class="w"> </span><span class="nx">WsProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot/api&#39;</span><span class="p">;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">wsProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WsProvider</span><span class="p">(</span><span class="s1">&#39;ws://127.0.0.1:55308&#39;</span><span class="p">);</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ApiPromise</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="w"> </span><span class="nx">provider</span><span class="o">:</span><span class="w"> </span><span class="kt">wsProvider</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="c1">// Retrieve the chain &amp; node information via rpc calls</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">chain</span><span class="p">,</span><span class="w"> </span><span class="nx">nodeName</span><span class="p">,</span><span class="w"> </span><span class="nx">nodeVersion</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nx">api</span><span class="p">.</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">system</span><span class="p">.</span><span class="nx">chain</span><span class="p">(),</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nx">api</span><span class="p">.</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">system</span><span class="p">.</span><span class="nx">name</span><span class="p">(),</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nx">api</span><span class="p">.</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">system</span><span class="p">.</span><span class="nx">version</span><span class="p">(),</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="p">]);</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="sb">`You are connected to chain </span><span class="si">${</span><span class="nx">chain</span><span class="si">}</span><span class="sb"> using </span><span class="si">${</span><span class="nx">nodeName</span><span class="si">}</span><span class="sb"> v</span><span class="si">${</span><span class="nx">nodeVersion</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="nx">main</span><span class="p">()</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">  </span><span class="p">.</span><span class="k">finally</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">());</span>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/tutorials/polkadot-sdk/testing/spawn-basic-chain/connect-to-alice-01.js&#39;</span>
 </span></code></pre></div>
 <p>Both methods allow you to interact easily with the network and its nodes.</p>
 <h3 id="check-metrics">Check Metrics<a class="headerlink" href="#check-metrics" title="Permanent link">&para;</a></h3>
@@ -5239,12 +5136,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

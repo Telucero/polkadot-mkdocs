@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3182,7 +3199,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3193,7 +3210,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5032,13 +5049,7 @@
 <h4 id="create-transfer-transaction">Create Transfer Transaction<a class="headerlink" href="#create-transfer-transaction" title="Permanent link">&para;</a></h4>
 <p>Generates an XCM transaction for transferring assets between chains. It simplifies the process by inferring what type of transaction is required given the inputs, ensuring that the assets are valid, and that the transaction details are correctly formatted.</p>
 <p>After obtaining the transaction, you must handle the signing and submission process separately.</p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">createTransferTransaction</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Format</span><span class="o">&gt;</span><span class="p">(</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nx">destChainId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">destAddr</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">assetIds</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[],</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nx">amounts</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[],</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nx">opts</span><span class="o">:</span><span class="w"> </span><span class="kt">TransferArgsOpts</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">TxResult</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/paritytech/asset-transfer-api/refs/tags/v0.6.0/src/AssetTransferApi.ts:186:192&#39;</span>
 </span></code></pre></div>
 <details class="interface">
 <summary>Request parameters</summary>
@@ -5056,253 +5067,24 @@
 <p>Array of amounts corresponding to each asset in <code>assetIds</code>.</p>
 <hr />
 <p><code>opts</code> <span class="keys"><kbd>TransferArgsOpts&lt;T&gt;</kbd></span></p>
-<p>Options for customizing the claim assets transaction. These options allow you to specify the transaction format, fee payment details, weight limits, XCM versions, and more.</p>
-<details class="child">
-<summary>Show more</summary>
-<p><code>format</code> <span class="keys"><kbd>T extends Format</kbd></span> </p>
-<p>Specifies the format for returning a transaction.</p>
-<details class="child">
-<summary>Type <code>Format</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;payload&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;submittable&#39;</span><span class="p">;</span>
-</span></code></pre></div>
-</details>
-<hr />
-<p><code>paysWithFeeOrigin</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The Asset ID to pay fees on the current common good parachain. The defaults are as follows:</p>
-<ul>
-<li>Polkadot Asset Hub - <code>'DOT'</code></li>
-<li>Kusama Asset Hub - <code>'KSM'</code></li>
-</ul>
-<hr />
-<p><code>paysWithFeeDest</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>Asset ID to pay fees on the destination parachain.</p>
-<hr />
-<p><code>weightLimit</code> <span class="keys"><kbd>{ refTime?: string, proofSize?: string }</kbd></span></p>
-<p>Custom weight limit option. If not provided, it will default to unlimited.</p>
-<hr />
-<p><code>xcmVersion</code> <span class="keys"><kbd>number</kbd></span></p>
-<p>Sets the XCM version for message construction. If this is not present a supported version will be queried, and if there is no supported version a safe version will be queried.</p>
-<hr />
-<p><code>keepAlive</code> <span class="keys"><kbd>boolean</kbd></span></p>
-<p>Enables <code>transferKeepAlive</code> for local asset transfers. For creating local asset transfers, if <code>true</code> this will allow for a <code>transferKeepAlive</code> as opposed to a <code>transfer</code>.</p>
-<hr />
-<p><code>transferLiquidToken</code> <span class="keys"><kbd>boolean</kbd></span></p>
-<p>Declares if this will transfer liquidity tokens. Default is <code>false</code>.</p>
-<hr />
-<p><code>assetTransferType</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The XCM transfer type used to transfer assets. The <code>AssetTransferType</code> type defines the possible values for this parameter.</p>
-<details class="child">
-<summary>Type <code>AssetTransferType</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">AssetTransferType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LocalReserve</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">DestinationReserve</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">Teleport</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">RemoteReserve</span><span class="p">;</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To use the <code>assetTransferType</code> parameter, which is a string, you should use the <code>AssetTransferType</code> type as if each of its variants are strings. For example: <code>assetTransferType = 'LocalReserve'</code>.</p>
-</div>
-</details>
-<hr />
-<p><code>remoteReserveAssetTransferTypeLocation</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The remove reserve location for the XCM transfer. Should be provided when specifying an <code>assetTransferType</code> of <code>RemoteReserve</code>.</p>
-<hr />
-<p><code>feesTransferType</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>XCM TransferType used to pay fees for XCM transfer. The <code>AssetTransferType</code> type defines the possible values for this parameter.</p>
-<details class="child">
-<summary>Type <code>AssetTransferType</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">AssetTransferType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LocalReserve</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">DestinationReserve</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">Teleport</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">RemoteReserve</span><span class="p">;</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To use the <code>feesTransferType</code> parameter, which is a string, you should use the <code>AssetTransferType</code> type as if each of its variants are strings. For example: <code>feesTransferType = 'LocalReserve'</code>.</p>
-</div>
-</details>
-<hr />
-<p><code>remoteReserveFeesTransferTypeLocation</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The remote reserve location for the XCM transfer fees. Should be provided when specifying a <code>feesTransferType</code> of <code>RemoteReserve</code>.</p>
-<hr />
-<p><code>customXcmOnDest</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>A custom XCM message to be executed on the destination chain. Should be provided if a custom XCM message is needed after transferring assets. Defaults to:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Xcm<span class="o">(</span>vec!<span class="o">[</span>DepositAsset<span class="w"> </span><span class="o">{</span><span class="w"> </span>assets:<span class="w"> </span>Wild<span class="o">(</span>AllCounted<span class="o">(</span>assets.len<span class="o">()))</span>,<span class="w"> </span>beneficiary<span class="w"> </span><span class="o">}])</span>
-</span></code></pre></div>
-</details>
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/reference/transfer-arg-opts.md'</p>
 </details>
 <details class="interface">
 <summary>Response parameters</summary>
 <p><span class="keys"><kbd>Promise&lt;TxResult&lt;T&gt;</kbd></span></p>
-<p>A promise containing the result of constructing the transaction.</p>
-<details class="child">
-<summary>Show more</summary>
-<p><code>dest</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The destination <code>specName</code> of the transaction.</p>
-<hr />
-<p><code>origin</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The origin <code>specName</code> of the transaction.</p>
-<hr />
-<p><code>format</code> <span class="keys"><kbd>Format | 'local'</kbd></span></p>
-<p>The format type the transaction is outputted in.</p>
-<details class="child">
-<summary>Type <code>Format</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;payload&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;submittable&#39;</span><span class="p">;</span>
-</span></code></pre></div>
-</details>
-<hr />
-<p><code>xcmVersion</code> <span class="keys"><kbd>number | null</kbd></span></p>
-<p>The XCM version that was used to construct the transaction.</p>
-<hr />
-<p><code>direction</code> <span class="keys"><kbd>Direction | 'local'</kbd></span></p>
-<p>The direction of the cross-chain transfer.</p>
-<details class="child">
-<summary>Enum <code>Direction</code> values</summary>
-<p><code>Local</code></p>
-<p>Local transaction.</p>
-<hr />
-<p><code>SystemToPara</code></p>
-<p>System parachain to parachain.</p>
-<hr />
-<p><code>SystemToRelay</code></p>
-<p>System paracahin to system relay chain.</p>
-<hr />
-<p><code>SystemToSystem</code></p>
-<p>System parachain to System parachain chain.</p>
-<hr />
-<p><code>SystemToBridge</code></p>
-<p>System parachain to an external <code>GlobalConsensus</code> chain.</p>
-<hr />
-<p><code>ParaToPara</code></p>
-<p>Parachain to Parachain.</p>
-<hr />
-<p><code>ParaToRelay</code></p>
-<p>Parachain to Relay chain.</p>
-<hr />
-<p><code>ParaToSystem</code></p>
-<p>Parachain to System parachain.</p>
-<hr />
-<p><code>RelayToSystem</code></p>
-<p>Relay to System Parachain.</p>
-<hr />
-<p><code>RelayToPara</code></p>
-<p>Relay chain to Parachain.</p>
-<hr />
-<p><code>RelayToBridge</code></p>
-<p>Relay chain to an external <code>GlobalConsensus</code> chain.</p>
-</details>
-<p><code>method</code> <span class="keys"><kbd>Methods</kbd></span></p>
-<p>The method used in the transaction.</p>
-<details class="child">
-<summary>Type <code>Methods</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Methods</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="nx">LocalTransferTypes</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;transferAssets&#39;</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;transferAssetsUsingTypeAndThen&#39;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;limitedReserveTransferAssets&#39;</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;limitedTeleportAssets&#39;</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;transferMultiasset&#39;</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;transferMultiassets&#39;</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;transferMultiassetWithFee&#39;</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;claimAssets&#39;</span><span class="p">;</span>
-</span></code></pre></div>
-<details class="child">
-<summary>Type <code>LocalTransferTypes</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">LocalTransferTypes</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;assets::transfer&#39;</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;assets::transferKeepAlive&#39;</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;assets::transferAll&#39;</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;foreignAssets::transfer&#39;</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;foreignAssets::transferKeepAlive&#39;</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;foreignAssets::transferAll&#39;</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;balances::transfer&#39;</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;balances::transferKeepAlive&#39;</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;balances::transferAll&#39;</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;poolAssets::transfer&#39;</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;poolAssets::transferKeepAlive&#39;</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;poolAssets::transferAll&#39;</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;tokens::transfer&#39;</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;tokens::transferKeepAlive&#39;</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;tokens::transferAll&#39;</span><span class="p">;</span>
-</span></code></pre></div>
-</details>
-</details>
-<hr />
-<p><code>tx</code> <span class="keys"><kbd>ConstructedFormat&lt;T&gt;</kbd></span></p>
-<p>The constructed transaction.</p>
-<details class="child">
-<summary>Type <code>ConstructedFormat&lt;T&gt;</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">ConstructedFormat</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="s1">&#39;payload&#39;</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="nx">GenericExtrinsicPayload</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="s1">&#39;call&#39;</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="o">?</span><span class="w"> </span><span class="sb">`0x</span><span class="si">${</span><span class="kt">string</span><span class="si">}</span><span class="sb">`</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="s1">&#39;submittable&#39;</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="nx">SubmittableExtrinsic</span><span class="o">&lt;</span><span class="s1">&#39;promise&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">ISubmittableResult</span><span class="o">&gt;</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="nx">never</span><span class="p">;</span>
-</span></code></pre></div>
-<p>The <code>ConstructedFormat</code> type is a conditional type that returns a specific type based on the value of the TxResult <code>format</code> field.</p>
-<ul>
-<li><strong>Payload format</strong> - if the format field is set to <code>'payload'</code>, the <code>ConstructedFormat</code> type will return a <a href="https://github.com/polkadot-js/api/blob/v15.8.1/packages/types/src/extrinsic/ExtrinsicPayload.ts#L87" target="_blank"><code>GenericExtrinsicPayload</code></a></li>
-<li><strong>Call format</strong> - if the format field is set to <code>'call'</code>, the <code>ConstructedFormat</code> type will return a hexadecimal string (<code>0x${string}</code>). This is the encoded representation of the extrinsic call</li>
-<li><strong>Submittable format</strong> - if the format field is set to <code>'submittable'</code>, the <code>ConstructedFormat</code> type will return a <a href="https://github.com/polkadot-js/api/blob/v15.8.1/packages/api-base/src/types/submittable.ts#L56" target="_blank"><code>SubmittableExtrinsic</code></a>. This is a Polkadot.js type that represents a transaction that can be submitted to the blockchain</li>
-</ul>
-</details>
-</details>
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/reference/tx-result.md'</p>
 </details>
 <details class="interface">
 <summary>Example</summary>
 <p><strong><em>Request</em></strong></p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nx">AssetTransferApi</span><span class="p">,</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nx">constructApiPromise</span><span class="p">,</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@substrate/asset-transfer-api&#39;</span><span class="p">;</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">constructApiPromise</span><span class="p">(</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="s1">&#39;wss://wss.api.moonbeam.network&#39;</span><span class="p">,</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">assetsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AssetTransferApi</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="p">);</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">callInfo</span><span class="p">;</span>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="nx">callInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">assetsApi</span><span class="p">.</span><span class="nx">createTransferTransaction</span><span class="p">(</span>
-</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">      </span><span class="s1">&#39;2004&#39;</span><span class="p">,</span>
-</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">      </span><span class="s1">&#39;0xF977814e90dA44bFA03b6295A0616a897441aceC&#39;</span><span class="p">,</span>
-</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">      </span><span class="p">[],</span>
-</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">      </span><span class="p">[</span><span class="s1">&#39;1000000000000000000&#39;</span><span class="p">],</span>
-</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">      </span><span class="p">{</span>
-</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">        </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="p">,</span>
-</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">        </span><span class="nx">keepAlive</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
-</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">      </span><span class="p">},</span>
-</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">    </span><span class="p">);</span>
-</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>
-</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Call data:\n</span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">callInfo</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kt">string</span><span class="p">);</span>
-</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="p">}</span>
-</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>
-</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="nx">main</span><span class="p">()</span>
-</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="w">  </span><span class="p">.</span><span class="k">finally</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">());</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/interoperability/asset-transfer-api/reference/ctt-example-request.ts&#39;</span>
 </span></code></pre></div>
 <p><strong><em>Response</em></strong></p>
-<p><div id="termynal" data-termynal>
-    <span data-ty>Call data:</span>
-    <span data-ty>{</span>
-    <span data-ty>    "origin": "moonbeam",</span>
-    <span data-ty>    "dest": "moonbeam",</span>
-    <span data-ty>    "direction": "local",</span>
-    <span data-ty>    "xcmVersion": null,</span>
-    <span data-ty>    "method": "balances::transferKeepAlive",</span>
-    <span data-ty>    "format": "call",</span>
-    <span data-ty>    "tx": "0x0a03f977814e90da44bfa03b6295a0616a897441acec821a0600"</span>
-    <span data-ty>}</span>
-<div></p>
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/reference/ctt-example-response.md'</p>
 </details>
 <h4 id="claim-assets">Claim Assets<a class="headerlink" href="#claim-assets" title="Permanent link">&para;</a></h4>
 <p>Creates a local XCM transaction to retrieve trapped assets. This function can be used to claim assets either locally on a system parachain, on the relay chain, or on any chain that supports the <code>claimAssets</code> runtime call.</p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">claimAssets</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Format</span><span class="o">&gt;</span><span class="p">(</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nx">assetIds</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[],</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nx">amounts</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[],</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nx">beneficiary</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nx">opts</span><span class="o">:</span><span class="w"> </span><span class="kt">TransferArgsOpts</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">,</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">TxResult</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/paritytech/asset-transfer-api/refs/tags/v0.6.0/src/AssetTransferApi.ts:370:375&#39;</span>
 </span></code></pre></div>
 <details class="interface">
 <summary>Request parameters</summary>
@@ -5316,249 +5098,24 @@
 <p>Address of the account to receive the trapped assets.</p>
 <hr />
 <p><code>opts</code> <span class="keys"><kbd>TransferArgsOpts&lt;T&gt;</kbd></span></p>
-<p>Options for customizing the claim assets transaction. These options allow you to specify the transaction format, fee payment details, weight limits, XCM versions, and more.</p>
-<details class="child">
-<summary>Show more</summary>
-<p><code>format</code> <span class="keys"><kbd>T extends Format</kbd></span> </p>
-<p>Specifies the format for returning a transaction.</p>
-<details class="child">
-<summary>Type <code>Format</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;payload&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;submittable&#39;</span><span class="p">;</span>
-</span></code></pre></div>
-</details>
-<hr />
-<p><code>paysWithFeeOrigin</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The Asset ID to pay fees on the current common good parachain. The defaults are as follows:</p>
-<ul>
-<li>Polkadot Asset Hub - <code>'DOT'</code></li>
-<li>Kusama Asset Hub - <code>'KSM'</code></li>
-</ul>
-<hr />
-<p><code>paysWithFeeDest</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>Asset ID to pay fees on the destination parachain.</p>
-<hr />
-<p><code>weightLimit</code> <span class="keys"><kbd>{ refTime?: string, proofSize?: string }</kbd></span></p>
-<p>Custom weight limit option. If not provided, it will default to unlimited.</p>
-<hr />
-<p><code>xcmVersion</code> <span class="keys"><kbd>number</kbd></span></p>
-<p>Sets the XCM version for message construction. If this is not present a supported version will be queried, and if there is no supported version a safe version will be queried.</p>
-<hr />
-<p><code>keepAlive</code> <span class="keys"><kbd>boolean</kbd></span></p>
-<p>Enables <code>transferKeepAlive</code> for local asset transfers. For creating local asset transfers, if <code>true</code> this will allow for a <code>transferKeepAlive</code> as opposed to a <code>transfer</code>.</p>
-<hr />
-<p><code>transferLiquidToken</code> <span class="keys"><kbd>boolean</kbd></span></p>
-<p>Declares if this will transfer liquidity tokens. Default is <code>false</code>.</p>
-<hr />
-<p><code>assetTransferType</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The XCM transfer type used to transfer assets. The <code>AssetTransferType</code> type defines the possible values for this parameter.</p>
-<details class="child">
-<summary>Type <code>AssetTransferType</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">AssetTransferType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LocalReserve</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">DestinationReserve</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">Teleport</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">RemoteReserve</span><span class="p">;</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To use the <code>assetTransferType</code> parameter, which is a string, you should use the <code>AssetTransferType</code> type as if each of its variants are strings. For example: <code>assetTransferType = 'LocalReserve'</code>.</p>
-</div>
-</details>
-<hr />
-<p><code>remoteReserveAssetTransferTypeLocation</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The remove reserve location for the XCM transfer. Should be provided when specifying an <code>assetTransferType</code> of <code>RemoteReserve</code>.</p>
-<hr />
-<p><code>feesTransferType</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>XCM TransferType used to pay fees for XCM transfer. The <code>AssetTransferType</code> type defines the possible values for this parameter.</p>
-<details class="child">
-<summary>Type <code>AssetTransferType</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">AssetTransferType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LocalReserve</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">DestinationReserve</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">Teleport</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">RemoteReserve</span><span class="p">;</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To use the <code>feesTransferType</code> parameter, which is a string, you should use the <code>AssetTransferType</code> type as if each of its variants are strings. For example: <code>feesTransferType = 'LocalReserve'</code>.</p>
-</div>
-</details>
-<hr />
-<p><code>remoteReserveFeesTransferTypeLocation</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The remote reserve location for the XCM transfer fees. Should be provided when specifying a <code>feesTransferType</code> of <code>RemoteReserve</code>.</p>
-<hr />
-<p><code>customXcmOnDest</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>A custom XCM message to be executed on the destination chain. Should be provided if a custom XCM message is needed after transferring assets. Defaults to:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Xcm<span class="o">(</span>vec!<span class="o">[</span>DepositAsset<span class="w"> </span><span class="o">{</span><span class="w"> </span>assets:<span class="w"> </span>Wild<span class="o">(</span>AllCounted<span class="o">(</span>assets.len<span class="o">()))</span>,<span class="w"> </span>beneficiary<span class="w"> </span><span class="o">}])</span>
-</span></code></pre></div>
-</details>
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/reference/transfer-arg-opts.md'</p>
 </details>
 <details class="interface">
 <summary>Response parameters</summary>
 <p><span class="keys"><kbd>Promise&lt;TxResult&lt;T&gt;&gt;</kbd></span></p>
-<p>A promise containing the result of constructing the transaction.</p>
-<details class="child">
-<summary>Show more</summary>
-<p><code>dest</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The destination <code>specName</code> of the transaction.</p>
-<hr />
-<p><code>origin</code> <span class="keys"><kbd>string</kbd></span></p>
-<p>The origin <code>specName</code> of the transaction.</p>
-<hr />
-<p><code>format</code> <span class="keys"><kbd>Format | 'local'</kbd></span></p>
-<p>The format type the transaction is outputted in.</p>
-<details class="child">
-<summary>Type <code>Format</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;payload&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;submittable&#39;</span><span class="p">;</span>
-</span></code></pre></div>
-</details>
-<hr />
-<p><code>xcmVersion</code> <span class="keys"><kbd>number | null</kbd></span></p>
-<p>The XCM version that was used to construct the transaction.</p>
-<hr />
-<p><code>direction</code> <span class="keys"><kbd>Direction | 'local'</kbd></span></p>
-<p>The direction of the cross-chain transfer.</p>
-<details class="child">
-<summary>Enum <code>Direction</code> values</summary>
-<p><code>Local</code></p>
-<p>Local transaction.</p>
-<hr />
-<p><code>SystemToPara</code></p>
-<p>System parachain to parachain.</p>
-<hr />
-<p><code>SystemToRelay</code></p>
-<p>System paracahin to system relay chain.</p>
-<hr />
-<p><code>SystemToSystem</code></p>
-<p>System parachain to System parachain chain.</p>
-<hr />
-<p><code>SystemToBridge</code></p>
-<p>System parachain to an external <code>GlobalConsensus</code> chain.</p>
-<hr />
-<p><code>ParaToPara</code></p>
-<p>Parachain to Parachain.</p>
-<hr />
-<p><code>ParaToRelay</code></p>
-<p>Parachain to Relay chain.</p>
-<hr />
-<p><code>ParaToSystem</code></p>
-<p>Parachain to System parachain.</p>
-<hr />
-<p><code>RelayToSystem</code></p>
-<p>Relay to System Parachain.</p>
-<hr />
-<p><code>RelayToPara</code></p>
-<p>Relay chain to Parachain.</p>
-<hr />
-<p><code>RelayToBridge</code></p>
-<p>Relay chain to an external <code>GlobalConsensus</code> chain.</p>
-</details>
-<p><code>method</code> <span class="keys"><kbd>Methods</kbd></span></p>
-<p>The method used in the transaction.</p>
-<details class="child">
-<summary>Type <code>Methods</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Methods</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="nx">LocalTransferTypes</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;transferAssets&#39;</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;transferAssetsUsingTypeAndThen&#39;</span>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;limitedReserveTransferAssets&#39;</span>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;limitedTeleportAssets&#39;</span>
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;transferMultiasset&#39;</span>
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;transferMultiassets&#39;</span>
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;transferMultiassetWithFee&#39;</span>
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;claimAssets&#39;</span><span class="p">;</span>
-</span></code></pre></div>
-<details class="child">
-<summary>Type <code>LocalTransferTypes</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">LocalTransferTypes</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;assets::transfer&#39;</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;assets::transferKeepAlive&#39;</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;assets::transferAll&#39;</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;foreignAssets::transfer&#39;</span>
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;foreignAssets::transferKeepAlive&#39;</span>
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;foreignAssets::transferAll&#39;</span>
-</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;balances::transfer&#39;</span>
-</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;balances::transferKeepAlive&#39;</span>
-</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;balances::transferAll&#39;</span>
-</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;poolAssets::transfer&#39;</span>
-</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;poolAssets::transferKeepAlive&#39;</span>
-</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;poolAssets::transferAll&#39;</span>
-</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;tokens::transfer&#39;</span>
-</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;tokens::transferKeepAlive&#39;</span>
-</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;tokens::transferAll&#39;</span><span class="p">;</span>
-</span></code></pre></div>
-</details>
-</details>
-<hr />
-<p><code>tx</code> <span class="keys"><kbd>ConstructedFormat&lt;T&gt;</kbd></span></p>
-<p>The constructed transaction.</p>
-<details class="child">
-<summary>Type <code>ConstructedFormat&lt;T&gt;</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">ConstructedFormat</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="s1">&#39;payload&#39;</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="nx">GenericExtrinsicPayload</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="s1">&#39;call&#39;</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">        </span><span class="o">?</span><span class="w"> </span><span class="sb">`0x</span><span class="si">${</span><span class="kt">string</span><span class="si">}</span><span class="sb">`</span>
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="s1">&#39;submittable&#39;</span>
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="nx">SubmittableExtrinsic</span><span class="o">&lt;</span><span class="s1">&#39;promise&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">ISubmittableResult</span><span class="o">&gt;</span>
-</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="nx">never</span><span class="p">;</span>
-</span></code></pre></div>
-<p>The <code>ConstructedFormat</code> type is a conditional type that returns a specific type based on the value of the TxResult <code>format</code> field.</p>
-<ul>
-<li><strong>Payload format</strong> - if the format field is set to <code>'payload'</code>, the <code>ConstructedFormat</code> type will return a <a href="https://github.com/polkadot-js/api/blob/v15.8.1/packages/types/src/extrinsic/ExtrinsicPayload.ts#L87" target="_blank"><code>GenericExtrinsicPayload</code></a></li>
-<li><strong>Call format</strong> - if the format field is set to <code>'call'</code>, the <code>ConstructedFormat</code> type will return a hexadecimal string (<code>0x${string}</code>). This is the encoded representation of the extrinsic call</li>
-<li><strong>Submittable format</strong> - if the format field is set to <code>'submittable'</code>, the <code>ConstructedFormat</code> type will return a <a href="https://github.com/polkadot-js/api/blob/v15.8.1/packages/api-base/src/types/submittable.ts#L56" target="_blank"><code>SubmittableExtrinsic</code></a>. This is a Polkadot.js type that represents a transaction that can be submitted to the blockchain</li>
-</ul>
-</details>
-</details>
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/reference/tx-result.md'</p>
 </details>
 <details class="interface">
 <summary>Example</summary>
 <p><strong><em>Request</em></strong></p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nx">AssetTransferApi</span><span class="p">,</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nx">constructApiPromise</span><span class="p">,</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@substrate/asset-transfer-api&#39;</span><span class="p">;</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">constructApiPromise</span><span class="p">(</span>
-</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="s1">&#39;wss://westend-rpc.polkadot.io&#39;</span><span class="p">,</span>
-</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">assetsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AssetTransferApi</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="p">);</span>
-</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>
-</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">callInfo</span><span class="p">;</span>
-</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">    </span><span class="nx">callInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">assetsApi</span><span class="p">.</span><span class="nx">claimAssets</span><span class="p">(</span>
-</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">      </span><span class="p">[</span>
-</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">        </span><span class="sb">`{&quot;parents&quot;:&quot;0&quot;,&quot;interior&quot;:{&quot;X2&quot;:[{&quot;PalletInstance&quot;:&quot;50&quot;},{&quot;GeneralIndex&quot;:&quot;1984&quot;}]}}`</span><span class="p">,</span>
-</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">      </span><span class="p">],</span>
-</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">      </span><span class="p">[</span><span class="s1">&#39;1000000000000&#39;</span><span class="p">],</span>
-</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="w">      </span><span class="s1">&#39;0xf5d5714c084c112843aca74f8c498da06cc5a2d63153b825189baa51043b1f0b&#39;</span><span class="p">,</span>
-</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="w">      </span><span class="p">{</span>
-</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="w">        </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="p">,</span>
-</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="w">        </span><span class="nx">xcmVersion</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">,</span>
-</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="w">      </span><span class="p">},</span>
-</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a><span class="w">    </span><span class="p">);</span>
-</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>
-</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Call data:\n</span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">callInfo</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-19-28"><a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-</span><span id="__span-19-29"><a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kt">string</span><span class="p">);</span>
-</span><span id="__span-19-30"><a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-19-31"><a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a><span class="p">}</span>
-</span><span id="__span-19-32"><a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>
-</span><span id="__span-19-33"><a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a><span class="nx">main</span><span class="p">()</span>
-</span><span id="__span-19-34"><a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</span><span id="__span-19-35"><a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a><span class="w">  </span><span class="p">.</span><span class="k">finally</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">());</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/interoperability/asset-transfer-api/reference/ca-example-request.ts&#39;</span>
 </span></code></pre></div>
 <p><strong><em>Response</em></strong></p>
-<p><div id="termynal" data-termynal>
-    <span data-ty>Call data:</span>
-    <span data-ty>{</span>
-    <span data-ty>    "origin": "0",</span>
-    <span data-ty>    "dest": "westend",</span>
-    <span data-ty>    "direction": "local",</span>
-    <span data-ty>    "xcmVersion": 2,</span>
-    <span data-ty>    "method": "claimAssets",</span>
-    <span data-ty>    "format": "call",</span>
-    <span data-ty>    "tx": "0x630c0104000002043205011f00070010a5d4e80100010100f5d5714c084c112843aca74f8c498da06cc5a2d63153b825189baa51043b1f0b"</span>
-    <span data-ty>}</span>
-<div></p>
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/reference/ca-example-response.md'</p>
 </details>
 <h4 id="decode-extrinsic">Decode Extrinsic<a class="headerlink" href="#decode-extrinsic" title="Permanent link">&para;</a></h4>
 <p>Decodes the hex of an extrinsic into a string readable format.</p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">public</span><span class="w"> </span><span class="nx">decodeExtrinsic</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Format</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">encodedTransaction</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/paritytech/asset-transfer-api/refs/tags/v0.6.0/src/AssetTransferApi.ts:531:531&#39;</span>
 </span></code></pre></div>
 <details class="interface">
 <summary>Request parameters</summary>
@@ -5569,7 +5126,7 @@
 <p>Specifies the format for returning a transaction.</p>
 <details class="child">
 <summary>Type <code>Format</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;payload&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;submittable&#39;</span><span class="p">;</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/paritytech/asset-transfer-api/refs/tags/v0.6.0/src/types.ts:132:132&#39;</span>
 </span></code></pre></div>
 </details>
 </details>
@@ -5581,53 +5138,14 @@
 <details class="interface">
 <summary>Example</summary>
 <p><strong><em>Request</em></strong></p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nx">AssetTransferApi</span><span class="p">,</span>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="nx">constructApiPromise</span><span class="p">,</span>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@substrate/asset-transfer-api&#39;</span><span class="p">;</span>
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">constructApiPromise</span><span class="p">(</span>
-</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="s1">&#39;wss://wss.api.moonbeam.network&#39;</span><span class="p">,</span>
-</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">assetsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AssetTransferApi</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="p">);</span>
-</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
-</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">encodedExt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0x0a03f977814e90da44bfa03b6295a0616a897441acec821a0600&#39;</span><span class="p">;</span>
-</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>
-</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">decodedExt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">assetsApi</span><span class="p">.</span><span class="nx">decodeExtrinsic</span><span class="p">(</span><span class="nx">encodedExt</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="p">);</span>
-</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
-</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w">      </span><span class="sb">`Decoded tx:\n </span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">decodedExt</span><span class="p">),</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
-</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="w">    </span><span class="p">);</span>
-</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-</span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kt">string</span><span class="p">);</span>
-</span><span id="__span-22-22"><a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-22-23"><a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="p">}</span>
-</span><span id="__span-22-24"><a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>
-</span><span id="__span-22-25"><a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="nx">main</span><span class="p">()</span>
-</span><span id="__span-22-26"><a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</span><span id="__span-22-27"><a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a><span class="w">  </span><span class="p">.</span><span class="k">finally</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">());</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/interoperability/asset-transfer-api/reference/de-example-request.ts&#39;</span>
 </span></code></pre></div>
 <p><strong><em>Response</em></strong></p>
-<p><div id='termynal' data-termynal>
-    <span data-ty>Decoded tx:</span>
-    <span data-ty> {</span>
-    <span data-ty>    "args": {</span>
-    <span data-ty>        "dest": "0xF977814e90dA44bFA03b6295A0616a897441aceC",</span>
-    <span data-ty>        "value": "100,000"</span>
-    <span data-ty>    },</span>
-    <span data-ty>    "method": "transferKeepAlive",</span>
-    <span data-ty>    "section": "balances"</span>
-    <span data-ty>}</span>
-</div></p>
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/reference/de-example-response.md'</p>
 </details>
 <h4 id="fetch-fee-info">Fetch Fee Info<a class="headerlink" href="#fetch-fee-info" title="Permanent link">&para;</a></h4>
 <p>Fetch estimated fee information for an extrinsic.</p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">fetchFeeInfo</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Format</span><span class="o">&gt;</span><span class="p">(</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="nx">tx</span><span class="o">:</span><span class="w"> </span><span class="kt">ConstructedFormat</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">,</span>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">,</span>
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">RuntimeDispatchInfo</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">RuntimeDispatchInfoV1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/paritytech/asset-transfer-api/refs/tags/v0.6.0/src/AssetTransferApi.ts:446:449&#39;</span>
 </span></code></pre></div>
 <details class="interface">
 <summary>Request parameters</summary>
@@ -5635,13 +5153,7 @@
 <p>The constructed transaction.</p>
 <details class="child">
 <summary>Type <code>ConstructedFormat&lt;T&gt;</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">ConstructedFormat</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="s1">&#39;payload&#39;</span>
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="nx">GenericExtrinsicPayload</span>
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="s1">&#39;call&#39;</span>
-</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">        </span><span class="o">?</span><span class="w"> </span><span class="sb">`0x</span><span class="si">${</span><span class="kt">string</span><span class="si">}</span><span class="sb">`</span>
-</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="s1">&#39;submittable&#39;</span>
-</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="nx">SubmittableExtrinsic</span><span class="o">&lt;</span><span class="s1">&#39;promise&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">ISubmittableResult</span><span class="o">&gt;</span>
-</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="nx">never</span><span class="p">;</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/paritytech/asset-transfer-api/refs/tags/v0.6.0/src/types.ts:137:143&#39;</span>
 </span></code></pre></div>
 <p>The <code>ConstructedFormat</code> type is a conditional type that returns a specific type based on the value of the TxResult <code>format</code> field.</p>
 <ul>
@@ -5655,7 +5167,7 @@
 <p>Specifies the format for returning a transaction.</p>
 <details class="child">
 <summary>Type <code>Format</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;payload&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;submittable&#39;</span><span class="p">;</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/paritytech/asset-transfer-api/refs/tags/v0.6.0/src/types.ts:132:132&#39;</span>
 </span></code></pre></div>
 </details>
 </details>
@@ -5665,21 +5177,21 @@
 <p>A promise containing the estimated fee information for the provided extrinsic.</p>
 <details class="child">
 <summary>Type <code>RuntimeDispatchInfo</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">RuntimeDispatchInfo</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Struct</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">Weight</span><span class="p">;</span>
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">class</span><span class="o">:</span><span class="w"> </span><span class="kt">DispatchClass</span><span class="p">;</span>
-</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">partialFee</span><span class="o">:</span><span class="w"> </span><span class="kt">Balance</span><span class="p">;</span>
-</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="p">}</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">RuntimeDispatchInfo</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">Weight</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">class</span><span class="o">:</span><span class="w"> </span><span class="kt">DispatchClass</span><span class="p">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">partialFee</span><span class="o">:</span><span class="w"> </span><span class="kt">Balance</span><span class="p">;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>For more information on the underlying types and fields of <code>RuntimeDispatchInfo</code>, check the <a href="https://github.com/polkadot-js/api/blob/v15.8.1/packages/types/src/interfaces/payment/types.ts#L21" target="_blank"><code>RuntimeDispatchInfo</code></a> source code.</p>
 </details>
 <details class="child">
 <summary>Type <code>RuntimeDispatchInfoV1</code></summary>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">RuntimeDispatchInfoV1</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Struct</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">WeightV1</span><span class="p">;</span>
-</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">class</span><span class="o">:</span><span class="w"> </span><span class="kt">DispatchClass</span><span class="p">;</span>
-</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">partialFee</span><span class="o">:</span><span class="w"> </span><span class="kt">Balance</span><span class="p">;</span>
-</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="p">}</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">RuntimeDispatchInfoV1</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">WeightV1</span><span class="p">;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">class</span><span class="o">:</span><span class="w"> </span><span class="kt">DispatchClass</span><span class="p">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">partialFee</span><span class="o">:</span><span class="w"> </span><span class="kt">Balance</span><span class="p">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>For more information on the underlying types and fields of <code>RuntimeDispatchInfoV1</code>, check the <a href="https://github.com/polkadot-js/api/blob/v15.8.1/packages/types/src/interfaces/payment/types.ts#L28" target="_blank"><code>RuntimeDispatchInfoV1</code></a> source code.</p>
 </details>
@@ -5687,55 +5199,21 @@
 <details class="interface">
 <summary>Example</summary>
 <p><strong><em>Request</em></strong></p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="nx">AssetTransferApi</span><span class="p">,</span>
-</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span><span class="nx">constructApiPromise</span><span class="p">,</span>
-</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@substrate/asset-transfer-api&#39;</span><span class="p">;</span>
-</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>
-</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">constructApiPromise</span><span class="p">(</span>
-</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">    </span><span class="s1">&#39;wss://wss.api.moonbeam.network&#39;</span><span class="p">,</span>
-</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">assetsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AssetTransferApi</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="p">);</span>
-</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>
-</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">encodedExt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0x0a03f977814e90da44bfa03b6295a0616a897441acec821a0600&#39;</span><span class="p">;</span>
-</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>
-</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">decodedExt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">assetsApi</span><span class="p">.</span><span class="nx">fetchFeeInfo</span><span class="p">(</span><span class="nx">encodedExt</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="p">);</span>
-</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Fee info:\n</span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">decodedExt</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kt">string</span><span class="p">);</span>
-</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a><span class="p">}</span>
-</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a>
-</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a><span class="nx">main</span><span class="p">()</span>
-</span><span id="__span-28-24"><a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</span><span id="__span-28-25"><a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a><span class="w">  </span><span class="p">.</span><span class="k">finally</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">());</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/interoperability/asset-transfer-api/reference/ffi-example-request.ts&#39;</span>
 </span></code></pre></div>
 <p><strong><em>Response</em></strong></p>
-<p><div id='termynal' data-termynal>
-    <span data-ty>Fee info:</span>
-    <span data-ty>{</span>
-    <span data-ty>    "weight": {</span>
-    <span data-ty>        "refTime": 163777000,</span>
-    <span data-ty>        "proofSize": 3581</span>
-    <span data-ty>    },</span>
-    <span data-ty>    "class": "Normal",</span>
-    <span data-ty>    "partialFee": 0</span>
-    <span data-ty>}</span>
-</div></p>
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/reference/ffi-example-response.md'</p>
 </details>
   <div class="md-source-file">
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

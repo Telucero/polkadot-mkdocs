@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3255,7 +3272,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3266,7 +3283,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5189,22 +5206,7 @@
 </li>
 <li>
 <p><strong>Monitor sync progress</strong> - once the sync starts, you will see a stream of logs providing information about the node's status and progress. Here's an example of what the output might look like:</p>
-<p><div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>polkadot</span>
-  <span data-ty>2021-06-17 03:07:07 Parity Polkadot</span>
-  <span data-ty>2021-06-17 03:07:07 ✌️ version 0.9.5-95f6aa201-x86_64-linux-gnu</span>
-  <span data-ty>2021-06-17 03:07:07 ❤️ by Parity Technologies &lt;admin@parity.io&gt;, 2017-2021</span>
-  <span data-ty>2021-06-17 03:07:07 📋 Chain specification: Polkadot</span>
-  <span data-ty>2021-06-17 03:07:07 🏷 Node name: boiling-pet-7554</span>
-  <span data-ty>2021-06-17 03:07:07 👤 Role: FULL</span>
-  <span data-ty>2021-06-17 03:07:07 💾 Database: RocksDb at /root/.local/share/polkadot/chains/polkadot/db</span>
-  <span data-ty>2021-06-17 03:07:07 ⛓ Native runtime: polkadot-9050 (parity-polkadot-0.tx7.au0)</span>
-  <span data-ty>2021-06-17 03:07:10 🏷 Local node identity is: 12D3KooWLtXFWf1oGrnxMGmPKPW54xWCHAXHbFh4Eap6KXmxoi9u</span>
-  <span data-ty>2021-06-17 03:07:10 📦 Highest known block at #17914</span>
-  <span data-ty>2021-06-17 03:07:10 〽️ Prometheus server started at 127.0.0.1:9615</span>
-  <span data-ty>2021-06-17 03:07:10 Listening for new connections on 127.0.0.1:9944</span>
-  <span data-ty>...</span>
-</div></p>
+<p>--8&lt;-- 'code/infrastructure/running-a-validator/onboarding-and-offboarding/set-up-a-validator/terminal-output-02.html'</p>
 <p>The output logs provide information such as the current block number, node name, and network connections. Monitor the sync progress and any errors that might occur during the process. Look for information about the latest processed block and compare it with the current highest block using tools like <a href="https://telemetry.polkadot.io/#list/Polkadot%20CC1" target="_blank">Telemetry</a> or <a href="https://polkadot.js.org/apps/#/explorer" target="_blank">Polkadot.js Apps Explorer</a>.</p>
 </li>
 </ol>
@@ -5219,17 +5221,7 @@
 <p class="admonition-title">Warning</p>
 <p>Although snapshots are convenient, syncing from scratch is recommended for security purposes. If snapshots become corrupted and most nodes rely on them, the network could inadvertently run on a non-canonical chain.</p>
 </div>
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>polkadot</span>
-  <span data-ty>2021-06-17 03:07:07 Idle (0 peers), best: #0 (0x3fd7...5baf), finalized #0 (0x3fd7...5baf), ⬇ 2.9kiB/s ⬆ 3.7kiB/s</span>
-  <span data-ty>2021-06-17 03:07:12 Idle (0 peers), best: #0 (0x3fd7...5baf), finalized #0 (0x3fd7...5baf), ⬇ 1.7kiB/s ⬆ 2.0kiB/s</span>
-  <span data-ty>2021-06-17 03:07:17 Idle (0 peers), best: #0 (0x3fd7...5baf), finalized #0 (0x3fd7...5baf), ⬇ 0.9kiB/s ⬆ 1.2kiB/s</span>
-  <span data-ty>2021-06-17 03:07:19 Libp2p => Random Kademlia query has yielded empty results</span>
-  <span data-ty>2021-06-17 03:08:00 Idle (0 peers), best: #0 (0x3fd7...5baf), finalized #0 (0x3fd7...5baf), ⬇ 1.6kiB/s ⬆ 1.9kiB/s</span>
-  <span data-ty>2021-06-17 03:08:05 Idle (0 peers), best: #0 (0x3fd7...5baf), finalized #0 (0x3fd7...5baf), ⬇ 0.6kiB/s ⬆ 0.9kiB/s</span>
-  <span data-ty>...</span>
-</div>
-
+<p>--8&lt;-- 'code/infrastructure/running-a-validator/onboarding-and-offboarding/set-up-a-validator/terminal-output-03.html'</p>
 <p>If you see terminal output similar to the preceding, and you are unable to synchronize the chain due to having zero peers, make sure you have libp2p port <code>30333</code> activated. It will take some time to discover other peers over the network.</p>
 <h2 id="bond-dot">Bond DOT<a class="headerlink" href="#bond-dot" title="Permanent link">&para;</a></h2>
 <p>Once your validator node is synced, the next step is bonding DOT. A bonded account, or stash, holds your staked tokens (DOT) that back your validator node. Bonding your DOT means locking it for a period, during which it cannot be transferred or spent but is used to secure your validator's role in the network. Visit the <a href="/polkadot-mkdocs/infrastructure/running-a-validator/requirements/#minimum-bond-requirement">Minimum Bond Requirement</a> section for details on how much DOT is required.</p>
@@ -5265,6 +5257,10 @@
 <p>Once everything is configured, select <strong>Bond &amp; Validate</strong> to activate your validator status</p>
 <p><img alt="" src="/polkadot-mkdocs/images/infrastructure/running-a-validator/onboarding-and-offboarding/set-up-validator/set-up-a-validator-04.webp" /></p>
 </li>
+<li>
+<p>Edit the <strong>commission</strong> and the <strong>blocked</strong> option via <code>staking.validate</code> extrinsic. By default, the blocked option is set to FALSE (i.e., the validator accepts nominations)
+    <img alt="" src="/polkadot-mkdocs/images/infrastructure/running-a-validator/onboarding-and-offboarding/set-up-validator/set-up-a-validator-06.webp" /></p>
+</li>
 </ol>
 <h3 id="monitor-validation-status-and-slots">Monitor Validation Status and Slots<a class="headerlink" href="#monitor-validation-status-and-slots" title="Permanent link">&para;</a></h3>
 <p>On the <a href="https://polkadot.js.org/apps/#/staking" target="_blank"><strong>Staking</strong></a> tab in Polkadot.js Apps, you can see your validator's status, the number of available validator slots, and the nodes that have signaled their intent to validate. Your node may initially appear in the waiting queue, especially if the validator slots are full. The following is an example view of the <strong>Staking</strong> tab:</p>
@@ -5284,44 +5280,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>touch<span class="w"> </span>/etc/systemd/system/polkadot-validator.service
 </span></code></pre></div>
 <p>In this unit file, you will write the commands that you want to run on server boot/restart:</p>
-<div class="language-systemd highlight"><span class="filename">/etc/systemd/system/polkadot-validator.service</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[Unit]</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">Description</span><span class="o">=</span><span class="s">Polkadot Node</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="na">Documentation</span><span class="o">=</span><span class="s">https://github.com/paritytech/polkadot</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">[Service]</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="na">EnvironmentFile</span><span class="o">=</span><span class="s">-/etc/default/polkadot</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/polkadot $POLKADOT_CLI_ARGS</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="na">User</span><span class="o">=</span><span class="s">polkadot</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="na">Group</span><span class="o">=</span><span class="s">polkadot</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="na">RestartSec</span><span class="o">=</span><span class="s">120</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="na">CapabilityBoundingSet</span><span class="o">=</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="na">LockPersonality</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="na">NoNewPrivileges</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="na">PrivateDevices</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="na">PrivateMounts</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="na">PrivateTmp</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="na">PrivateUsers</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="na">ProtectClock</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="na">ProtectControlGroups</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="na">ProtectHostname</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="na">ProtectKernelModules</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="na">ProtectKernelTunables</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="na">ProtectSystem</span><span class="o">=</span><span class="s">strict</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="na">RemoveIPC</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="na">RestrictAddressFamilies</span><span class="o">=</span><span class="s">AF_INET AF_INET6 AF_NETLINK AF_UNIX</span>
-</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="na">RestrictNamespaces</span><span class="o">=</span><span class="s">false</span>
-</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="na">RestrictSUIDSGID</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="na">SystemCallArchitectures</span><span class="o">=</span><span class="s">native</span>
-</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="na">SystemCallFilter</span><span class="o">=</span><span class="s">@system-service</span>
-</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="na">SystemCallFilter</span><span class="o">=</span><span class="s">landlock_add_rule landlock_create_ruleset landlock_restrict_self seccomp mount umount2</span>
-</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="na">SystemCallFilter</span><span class="o">=</span><span class="s">~@clock @module @reboot @swap @privileged</span>
-</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="na">SystemCallFilter</span><span class="o">=</span><span class="s">pivot_root</span>
-</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="na">UMask</span><span class="o">=</span><span class="s">0027</span>
-</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>
-</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="k">[Install]</span>
-</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+<div class="language-systemd highlight"><span class="filename">/etc/systemd/system/polkadot-validator.service</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="err">--8&lt;-- &#39;https://raw.githubusercontent.com/paritytech/polkadot-sdk/refs/heads/master/polkadot/scripts/packaging/polkadot.service&#39;</span>
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Restart delay and equivocation risk</p>
@@ -5346,12 +5305,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

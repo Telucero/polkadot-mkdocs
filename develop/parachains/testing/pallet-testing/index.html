@@ -1042,6 +1042,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -1105,6 +1108,20 @@
     <li class="md-nav__item">
       <a href="../../deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3183,7 +3200,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3194,7 +3211,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5025,66 +5042,21 @@
 <p>This approach provides a comprehensive view of the runtime's functionality, ensuring the blockchain is stable and reliable.</p>
 <h3 id="test-initialization">Test Initialization<a class="headerlink" href="#test-initialization" title="Permanent link">&para;</a></h3>
 <p>Each test starts by initializing the runtime environment, typically using the <code>new_test_ext()</code> function, which sets up the mock storage and environment.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#[test]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">fn</span> <span class="nf">test_pallet_functionality</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">new_test_ext</span><span class="p">().</span><span class="n">execute_with</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="c1">// Test logic goes here</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="p">});</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">pallet</span><span class="o">-</span><span class="n">testing</span><span class="o">/</span><span class="n">test</span><span class="o">-</span><span class="n">initialization</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h3 id="function-call-testing">Function Call Testing<a class="headerlink" href="#function-call-testing" title="Permanent link">&para;</a></h3>
 <p>Call the pallet's extrinsics or functions to simulate user interaction or internal logic. Use the <code>assert_ok!</code> macro to check for successful execution and <code>assert_err!</code> to verify that errors are correctly handled.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#[test]</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">fn</span> <span class="nf">it_works_for_valid_input</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">new_test_ext</span><span class="p">().</span><span class="n">execute_with</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="c1">// Call an extrinsic or function</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="n">assert_ok</span><span class="o">!</span><span class="p">(</span><span class="n">TemplateModule</span>::<span class="n">some_function</span><span class="p">(</span><span class="n">Origin</span>::<span class="n">signed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">valid_param</span><span class="p">));</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">});</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="cp">#[test]</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">fn</span> <span class="nf">it_fails_for_invalid_input</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="n">new_test_ext</span><span class="p">().</span><span class="n">execute_with</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="c1">// Call an extrinsic with invalid input and expect an error</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="n">assert_err</span><span class="o">!</span><span class="p">(</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">            </span><span class="n">TemplateModule</span>::<span class="n">some_function</span><span class="p">(</span><span class="n">Origin</span>::<span class="n">signed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">invalid_param</span><span class="p">),</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">            </span><span class="n">Error</span>::<span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span>::<span class="n">InvalidInput</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="p">);</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">});</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">pallet</span><span class="o">-</span><span class="n">testing</span><span class="o">/</span><span class="n">function</span><span class="o">-</span><span class="n">call</span><span class="o">-</span><span class="n">testing</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h3 id="storage-testing">Storage Testing<a class="headerlink" href="#storage-testing" title="Permanent link">&para;</a></h3>
 <p>After calling a function or extrinsic in your pallet, it's essential to verify that the state changes in the pallet's storage match the expected behavior to ensure data is updated correctly based on the actions taken.</p>
 <p>The following example shows how to test the storage behavior before and after the function call:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#[test]</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">fn</span> <span class="nf">test_storage_update_on_extrinsic_call</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">new_test_ext</span><span class="p">().</span><span class="n">execute_with</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="c1">// Check the initial storage state (before the call)</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">Something</span>::<span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span>::<span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="nb">None</span><span class="p">);</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="c1">// Dispatch a signed extrinsic, which modifies storage</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="n">assert_ok</span><span class="o">!</span><span class="p">(</span><span class="n">TemplateModule</span>::<span class="n">do_something</span><span class="p">(</span><span class="n">RuntimeOrigin</span>::<span class="n">signed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="mi">42</span><span class="p">));</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="c1">// Validate that the storage has been updated as expected (after the call)</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">Something</span>::<span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span>::<span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">});</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">pallet</span><span class="o">-</span><span class="n">testing</span><span class="o">/</span><span class="n">storage</span><span class="o">-</span><span class="n">testing</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h3 id="event-testing">Event Testing<a class="headerlink" href="#event-testing" title="Permanent link">&para;</a></h3>
 <p>It's also crucial to test the events that your pallet emits during execution. By default, events generated in a pallet using the <a href="https://paritytech.github.io/polkadot-sdk/master/frame_support/pallet_macros/attr.generate_deposit.html" target="_blank"><code>#generate_deposit</code></a> macro are stored under the system's event storage key (system/events) as <a href="https://paritytech.github.io/polkadot-sdk/master/frame_system/struct.EventRecord.html" target="_blank"><code>EventRecord</code></a> entries. These can be accessed using <a href="https://paritytech.github.io/polkadot-sdk/master/frame_system/pallet/struct.Pallet.html#method.events" target="_blank"><code>System::events()</code></a> or verified with specific helper methods provided by the system pallet, such as <a href="https://paritytech.github.io/polkadot-sdk/master/frame_system/pallet/struct.Pallet.html#method.assert_has_event" target="_blank"><code>assert_has_event</code></a> and <a href="https://paritytech.github.io/polkadot-sdk/master/frame_system/pallet/struct.Pallet.html#method.assert_last_event" target="_blank"><code>assert_last_event</code></a>.</p>
 <p>Here's an example of testing events in a mock runtime:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#[test]</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">fn</span> <span class="nf">it_emits_events_on_success</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">new_test_ext</span><span class="p">().</span><span class="n">execute_with</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="c1">// Call an extrinsic or function</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">assert_ok</span><span class="o">!</span><span class="p">(</span><span class="n">TemplateModule</span>::<span class="n">some_function</span><span class="p">(</span><span class="n">Origin</span>::<span class="n">signed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">valid_param</span><span class="p">));</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="c1">// Verify that the expected event was emitted</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="fm">assert!</span><span class="p">(</span><span class="n">System</span>::<span class="n">events</span><span class="p">().</span><span class="n">iter</span><span class="p">().</span><span class="n">any</span><span class="p">(</span><span class="o">|</span><span class="n">record</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">            </span><span class="n">record</span><span class="p">.</span><span class="n">event</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Event</span>::<span class="n">TemplateModule</span><span class="p">(</span><span class="n">TemplateEvent</span>::<span class="n">SomeEvent</span><span class="p">)</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="p">}));</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">});</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">pallet</span><span class="o">-</span><span class="n">testing</span><span class="o">/</span><span class="n">event</span><span class="o">-</span><span class="n">testing</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>Some key considerations are:</p>
 <ul>
@@ -5109,12 +5081,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

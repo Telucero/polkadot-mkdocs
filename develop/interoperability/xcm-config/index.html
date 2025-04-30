@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3172,7 +3189,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3183,7 +3200,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -4996,37 +5013,7 @@
 <h2 id="xcm-executor-configuration">XCM Executor Configuration<a class="headerlink" href="#xcm-executor-configuration" title="Permanent link">&para;</a></h2>
 <p>The <code>Config</code> trait defines the XCM executor’s configuration, which requires several associated types. Each type has specific trait bounds that the concrete implementation must fulfill. Some types, such as <code>RuntimeCall</code>, come with a default implementation in most cases, while others use the unit type <code>()</code> as the default. For many of these types, selecting the appropriate implementation carefully is crucial. Predefined solutions and building blocks can be adapted to your specific needs. These solutions can be found in the <a href="https://github.com/paritytech/polkadot-sdk/tree/polkadot-stable2412/polkadot/xcm/xcm-builder" target="_blank"><code>xcm-builder</code></a> folder.</p>
 <p>Each type is explained below, along with an overview of some of its implementations:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">type</span> <span class="nc">RuntimeCall</span>: <span class="nc">Parameter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Dispatchable</span><span class="o">&lt;</span><span class="n">PostInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PostDispatchInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">GetDispatchInfo</span><span class="p">;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">type</span> <span class="nc">XcmSender</span>: <span class="nc">SendXcm</span><span class="p">;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">type</span> <span class="nc">AssetTransactor</span>: <span class="nc">TransactAsset</span><span class="p">;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">type</span> <span class="nc">OriginConverter</span>: <span class="nc">ConvertOrigin</span><span class="o">&lt;&lt;</span><span class="bp">Self</span>::<span class="n">RuntimeCall</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Dispatchable</span><span class="o">&gt;</span>::<span class="n">RuntimeOrigin</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">type</span> <span class="nc">IsReserve</span>: <span class="nc">ContainsPair</span><span class="o">&lt;</span><span class="n">MultiAsset</span><span class="p">,</span><span class="w"> </span><span class="n">MultiLocation</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">type</span> <span class="nc">IsTeleporter</span>: <span class="nc">ContainsPair</span><span class="o">&lt;</span><span class="n">MultiAsset</span><span class="p">,</span><span class="w"> </span><span class="n">MultiLocation</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">type</span> <span class="nc">Aliasers</span>: <span class="nc">ContainsPair</span><span class="o">&lt;</span><span class="n">Location</span><span class="p">,</span><span class="w"> </span><span class="n">Location</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">type</span> <span class="nc">UniversalLocation</span>: <span class="nc">Get</span><span class="o">&lt;</span><span class="n">InteriorMultiLocation</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">type</span> <span class="nc">Barrier</span>: <span class="nc">ShouldExecute</span><span class="p">;</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="k">type</span> <span class="nc">Weigher</span>: <span class="nc">WeightBounds</span><span class="o">&lt;</span><span class="bp">Self</span>::<span class="n">RuntimeCall</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">type</span> <span class="nc">Trader</span>: <span class="nc">WeightTrader</span><span class="p">;</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="k">type</span> <span class="nc">ResponseHandler</span>: <span class="nc">OnResponse</span><span class="p">;</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">type</span> <span class="nc">AssetTrap</span>: <span class="nc">DropAssets</span><span class="p">;</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="k">type</span> <span class="nc">AssetClaims</span>: <span class="nc">ClaimAssets</span><span class="p">;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="k">type</span> <span class="nc">AssetLocker</span>: <span class="nc">AssetLock</span><span class="p">;</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">type</span> <span class="nc">AssetExchanger</span>: <span class="nc">AssetExchange</span><span class="p">;</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="k">type</span> <span class="nc">SubscriptionService</span>: <span class="nc">VersionChangeNotifier</span><span class="p">;</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">type</span> <span class="nc">PalletInstancesInfo</span>: <span class="nc">PalletsInfoAccess</span><span class="p">;</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="k">type</span> <span class="nc">MaxAssetsIntoHolding</span>: <span class="nc">Get</span><span class="o">&lt;</span><span class="kt">u32</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="k">type</span> <span class="nc">FeeManager</span>: <span class="nc">FeeManager</span><span class="p">;</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="k">type</span> <span class="nc">MessageExporter</span>: <span class="nc">ExportXcm</span><span class="p">;</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="k">type</span> <span class="nc">UniversalAliases</span>: <span class="nc">Contains</span><span class="o">&lt;</span><span class="p">(</span><span class="n">MultiLocation</span><span class="p">,</span><span class="w"> </span><span class="n">Junction</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="k">type</span> <span class="nc">CallDispatcher</span>: <span class="nc">CallDispatcher</span><span class="o">&lt;</span><span class="bp">Self</span>::<span class="n">RuntimeCall</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="k">type</span> <span class="nc">SafeCallFilter</span>: <span class="nc">Contains</span><span class="o">&lt;</span><span class="bp">Self</span>::<span class="n">RuntimeCall</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="k">type</span> <span class="nc">TransactionalProcessor</span>: <span class="nc">ProcessTransaction</span><span class="p">;</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="k">type</span> <span class="nc">HrmpNewChannelOpenRequestHandler</span>: <span class="nc">HandleHrmpNewChannelOpenRequest</span><span class="p">;</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="k">type</span> <span class="nc">HrmpChannelAcceptedHandler</span>: <span class="nc">HandleHrmpChannelAccepted</span><span class="p">;</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="k">type</span> <span class="nc">HrmpChannelClosingHandler</span>: <span class="nc">HandleHrmpChannelClosing</span><span class="p">;</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="k">type</span> <span class="nc">XcmRecorder</span>: <span class="nc">RecordXcm</span><span class="p">;</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">interoperability</span><span class="o">/</span><span class="n">xcm</span><span class="o">-</span><span class="n">config</span><span class="o">/</span><span class="n">xcm</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="k">trait</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h2 id="config-items">Config Items<a class="headerlink" href="#config-items" title="Permanent link">&para;</a></h2>
 <p>Each configuration item is explained below, detailing the associated type’s purpose and role in the XCM executor. Many of these types have predefined solutions available in the <code>xcm-builder</code>. Therefore, the available configuration items are:</p>
@@ -5244,30 +5231,18 @@
 <h2 id="multiple-implementations">Multiple Implementations<a class="headerlink" href="#multiple-implementations" title="Permanent link">&para;</a></h2>
 <p>Some associated types in the <code>Config</code> trait are highly configurable and may have multiple implementations (e.g., Barrier). These implementations are organized into a tuple <code>(impl_1, impl_2, ..., impl_n)</code>, and the execution follows a sequential order. Each item in the tuple is evaluated individually, each being checked to see if it fails. If an item passes (e.g., returns <code>Ok</code> or <code>true</code>), the execution stops, and the remaining items are not evaluated. The following example of the <code>Barrier</code> type demonstrates how this grouping operates (understanding each item in the tuple is unnecessary for this explanation).</p>
 <p>In the following example, the system will first check the <code>TakeWeightCredit</code> type when evaluating the barrier. If it fails, it will check <code>AllowTopLevelPaidExecutionFrom</code>, and so on, until one of them returns a positive result. If all checks fail, a Barrier error will be triggered.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">type</span> <span class="nc">Barrier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">    </span><span class="n">TakeWeightCredit</span><span class="p">,</span>
-</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span><span class="n">AllowTopLevelPaidExecutionFrom</span><span class="o">&lt;</span><span class="n">Everything</span><span class="o">&gt;</span><span class="p">,</span>
-</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="n">AllowKnownQueryResponses</span><span class="o">&lt;</span><span class="n">XcmPallet</span><span class="o">&gt;</span><span class="p">,</span>
-</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">    </span><span class="n">AllowSubscriptionsFrom</span><span class="o">&lt;</span><span class="n">Everything</span><span class="o">&gt;</span><span class="p">,</span>
-</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="p">);</span>
-</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>
-</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">XcmConfig</span><span class="p">;</span>
-</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="k">impl</span><span class="w"> </span><span class="n">xcm_executor</span>::<span class="n">Config</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">XcmConfig</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">    </span><span class="o">..</span><span class="p">.</span>
-</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">    </span><span class="k">type</span> <span class="nc">Barrier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Barrier</span><span class="p">;</span>
-</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="w">    </span><span class="o">..</span><span class="p">.</span>
-</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">interoperability</span><span class="o">/</span><span class="n">xcm</span><span class="o">-</span><span class="n">config</span><span class="o">/</span><span class="n">barrier</span><span class="o">-</span><span class="n">example</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
   <div class="md-source-file">
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

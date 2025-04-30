@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3218,7 +3235,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3229,7 +3246,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5121,22 +5138,7 @@
 </ul>
 <h3 id="using-helper-function-from-library">Using Helper Function from Library<a class="headerlink" href="#using-helper-function-from-library" title="Permanent link">&para;</a></h3>
 <p>Leverage the <code>constructApiPromise</code> helper function provided by the library for the simplest setup process. It not only constructs a Polkadot.js <code>ApiPromise</code> but also automatically retrieves the chain's <code>specName</code> and fetches a safe XCM version. By using this function, developers can significantly reduce boilerplate code and potential configuration errors, making the initial setup both quicker and more robust.</p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nx">AssetTransferApi</span><span class="p">,</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nx">constructApiPromise</span><span class="p">,</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@substrate/asset-transfer-api&#39;</span><span class="p">;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">constructApiPromise</span><span class="p">(</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="s1">&#39;INSERT_WEBSOCKET_URL&#39;</span><span class="p">,</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">assetsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AssetTransferApi</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="p">);</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="c1">// Your code using assetsApi goes here</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="nx">main</span><span class="p">();</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/interoperability/asset-transfer-api/overview/setup.ts&#39;</span>
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -5147,310 +5149,32 @@
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <h3 id="relay-to-system-parachain-transfer">Relay to System Parachain Transfer<a class="headerlink" href="#relay-to-system-parachain-transfer" title="Permanent link">&para;</a></h3>
 <p>This example demonstrates how to initiate a cross-chain token transfer from a relay chain to a system parachain. Specifically, 1 WND will be transferred from a Westend (relay chain) account to a Westmint (system parachain) account.</p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nx">AssetTransferApi</span><span class="p">,</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nx">constructApiPromise</span><span class="p">,</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@substrate/asset-transfer-api&#39;</span><span class="p">;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">constructApiPromise</span><span class="p">(</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="s1">&#39;wss://westend-rpc.polkadot.io&#39;</span><span class="p">,</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">assetApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AssetTransferApi</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="p">);</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">callInfo</span><span class="p">;</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nx">callInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">assetApi</span><span class="p">.</span><span class="nx">createTransferTransaction</span><span class="p">(</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">      </span><span class="s1">&#39;1000&#39;</span><span class="p">,</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">      </span><span class="s1">&#39;5EWNeodpcQ6iYibJ3jmWVe85nsok1EDG8Kk3aFg8ZzpfY1qX&#39;</span><span class="p">,</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">      </span><span class="p">[</span><span class="s1">&#39;WND&#39;</span><span class="p">],</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">      </span><span class="p">[</span><span class="s1">&#39;1000000000000&#39;</span><span class="p">],</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">      </span><span class="p">{</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="p">,</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">        </span><span class="nx">xcmVersion</span><span class="o">:</span><span class="w"> </span><span class="kt">safeXcmVersion</span><span class="p">,</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">      </span><span class="p">},</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="p">);</span>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Call data:\n</span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">callInfo</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kt">string</span><span class="p">);</span>
-</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>
-</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">decoded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">assetApi</span><span class="p">.</span><span class="nx">decodeExtrinsic</span><span class="p">(</span><span class="nx">callInfo</span><span class="p">.</span><span class="nx">tx</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="p">);</span>
-</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`\nDecoded tx:\n</span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">decoded</span><span class="p">),</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="p">}</span>
-</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>
-</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="nx">main</span><span class="p">()</span>
-</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">  </span><span class="p">.</span><span class="k">finally</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">());</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/interoperability/asset-transfer-api/overview/relayToSystem.ts&#39;</span>
 </span></code></pre></div>
 <p>After running the script, you'll see the following output in the terminal, which shows the call data for the cross-chain transfer and its decoded extrinsic details:</p>
-<div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>ts-node relayToSystem.ts</span>
-    <br>
-    <span data-ty>Call data:</span>
-    <span data-ty>{</span>
-    <span data-ty>    "origin": "westend",</span>
-    <span data-ty>    "dest": "westmint",</span>
-    <span data-ty>    "direction": "RelayToSystem",</span>
-    <span data-ty>    "xcmVersion": 3,</span>
-    <span data-ty>    "method": "transferAssets",</span>
-    <span data-ty>    "format": "call",</span>
-    <span data-ty>    "tx": "0x630b03000100a10f03000101006c0c32faf970eacb2d4d8e538ac0dab3642492561a1be6f241c645876c056c1d030400000000070010a5d4e80000000000"</span>
-    <span data-ty>}</span>
-    <span data-ty></span>
-    <span data-ty>Decoded tx:</span>
-    <span data-ty>{</span>
-    <span data-ty>    "args": {</span>
-    <span data-ty>        "dest": {</span>
-    <span data-ty>            "V3": {</span>
-    <span data-ty>                "parents": "0",</span>
-    <span data-ty>                "interior": {</span>
-    <span data-ty>                    "X1": {</span>
-    <span data-ty>                        "Parachain": "1,000"</span>
-    <span data-ty>                    }</span>
-    <span data-ty>                }</span>
-    <span data-ty>            }</span>
-    <span data-ty>        },</span>
-    <span data-ty>        "beneficiary": {</span>
-    <span data-ty>            "V3": {</span>
-    <span data-ty>                "parents": "0",</span>
-    <span data-ty>                "interior": {</span>
-    <span data-ty>                    "X1": {</span>
-    <span data-ty>                        "AccountId32": {</span>
-    <span data-ty>                            "network": null,</span>
-    <span data-ty>                            "id": "0x6c0c32faf970eacb2d4d8e538ac0dab3642492561a1be6f241c645876c056c1d"</span>
-    <span data-ty>                        }</span>
-    <span data-ty>                    }</span>
-    <span data-ty>                }</span>
-    <span data-ty>            }</span>
-    <span data-ty>        },</span>
-    <span data-ty>        "assets": {</span>
-    <span data-ty>            "V3": [</span>
-    <span data-ty>                {</span>
-    <span data-ty>                    "id": {</span>
-    <span data-ty>                        "Concrete": {</span>
-    <span data-ty>                            "parents": "0",</span>
-    <span data-ty>                            "interior": "Here"</span>
-    <span data-ty>                        }</span>
-    <span data-ty>                    },</span>
-    <span data-ty>                    "fun": {</span>
-    <span data-ty>                        "Fungible": "1,000,000,000,000"</span>
-    <span data-ty>                    }</span>
-    <span data-ty>                }</span>
-    <span data-ty>            ]</span>
-    <span data-ty>        },</span>
-    <span data-ty>        "fee_asset_item": "0",</span>
-    <span data-ty>        "weight_limit": "Unlimited"</span>
-    <span data-ty>    },</span>
-    <span data-ty>    "method": "transferAssets",</span>
-    <span data-ty>    "section": "xcmPallet"</span>
-    <span data-ty>}</span>
-</div>
-
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/overview/relayToSystem.md'</p>
 <h3 id="local-parachain-transfer">Local Parachain Transfer<a class="headerlink" href="#local-parachain-transfer" title="Permanent link">&para;</a></h3>
 <p>The following example demonstrates a local GLMR transfer within Moonbeam, using the <code>balances</code> pallet. It transfers 1 GLMR token from one account to another account, where both the sender and recipient accounts are located on the same parachain.</p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nx">AssetTransferApi</span><span class="p">,</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nx">constructApiPromise</span><span class="p">,</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@substrate/asset-transfer-api&#39;</span><span class="p">;</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">constructApiPromise</span><span class="p">(</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="s1">&#39;wss://wss.api.moonbeam.network&#39;</span><span class="p">,</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">assetApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AssetTransferApi</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="p">);</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">callInfo</span><span class="p">;</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nx">callInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">assetApi</span><span class="p">.</span><span class="nx">createTransferTransaction</span><span class="p">(</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">      </span><span class="s1">&#39;2004&#39;</span><span class="p">,</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">      </span><span class="s1">&#39;0xF977814e90dA44bFA03b6295A0616a897441aceC&#39;</span><span class="p">,</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">      </span><span class="p">[],</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">      </span><span class="p">[</span><span class="s1">&#39;1000000000000000000&#39;</span><span class="p">],</span>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">      </span><span class="p">{</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">        </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="p">,</span>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">        </span><span class="nx">keepAlive</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">      </span><span class="p">},</span>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="p">);</span>
-</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
-</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Call data:\n</span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">callInfo</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kt">string</span><span class="p">);</span>
-</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>
-</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">decoded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">assetApi</span><span class="p">.</span><span class="nx">decodeExtrinsic</span><span class="p">(</span><span class="nx">callInfo</span><span class="p">.</span><span class="nx">tx</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="p">);</span>
-</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`\nDecoded tx:\n</span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">decoded</span><span class="p">),</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="p">}</span>
-</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>
-</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="nx">main</span><span class="p">()</span>
-</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="w">  </span><span class="p">.</span><span class="k">finally</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">());</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/interoperability/asset-transfer-api/overview/localParachainTx.ts&#39;</span>
 </span></code></pre></div>
 <p>Upon executing this script, the terminal will display the following output, illustrating the encoded extrinsic for the cross-chain message and its corresponding decoded format:</p>
-<div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>ts-node localParachainTx.ts</span>
-    <br>
-    <span data-ty>Call data:</span>
-    <span data-ty>{</span>
-    <span data-ty>    "origin": "moonbeam",</span>
-    <span data-ty>    "dest": "moonbeam",</span>
-    <span data-ty>    "direction": "local",</span>
-    <span data-ty>    "xcmVersion": null,</span>
-    <span data-ty>    "method": "balances::transferKeepAlive",</span>
-    <span data-ty>    "format": "call",</span>
-    <span data-ty>    "tx": "0x0a03f977814e90da44bfa03b6295a0616a897441acec821a0600"</span>
-    <span data-ty>}</span>
-    <span data-ty></span>
-    <span data-ty>Decoded tx:</span>
-    <span data-ty>{</span>
-    <span data-ty>    "args": {</span>
-    <span data-ty>        "dest": "0xF977814e90dA44bFA03b6295A0616a897441aceC",</span>
-    <span data-ty>        "value": "1,000,000,000,000,000,000"</span>
-    <span data-ty>    },</span>
-    <span data-ty>    "method": "transferKeepAlive",</span>
-    <span data-ty>    "section": "balances"</span>
-    <span data-ty>}</span>
-</div>
-
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/overview/localParachainTx.md'</p>
 <h3 id="parachain-to-parachain-transfer">Parachain to Parachain Transfer<a class="headerlink" href="#parachain-to-parachain-transfer" title="Permanent link">&para;</a></h3>
 <p>This example demonstrates creating a cross-chain asset transfer between two parachains. It shows how to send vMOVR and vBNC from a Moonriver account to a Bifrost Kusama account using the safe XCM version. It connects to Moonriver, initializes the API, and uses the <code>createTransferTransaction</code> method to prepare a transaction.</p>
-<div class="language-ts highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nx">AssetTransferApi</span><span class="p">,</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nx">constructApiPromise</span><span class="p">,</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@substrate/asset-transfer-api&#39;</span><span class="p">;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">constructApiPromise</span><span class="p">(</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="s1">&#39;wss://moonriver.public.blastapi.io&#39;</span><span class="p">,</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="p">);</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">assetApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AssetTransferApi</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">specName</span><span class="p">,</span><span class="w"> </span><span class="nx">safeXcmVersion</span><span class="p">);</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">callInfo</span><span class="p">;</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="nx">callInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">assetApi</span><span class="p">.</span><span class="nx">createTransferTransaction</span><span class="p">(</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">      </span><span class="s1">&#39;2001&#39;</span><span class="p">,</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">      </span><span class="s1">&#39;0xc4db7bcb733e117c0b34ac96354b10d47e84a006b9e7e66a229d174e8ff2a063&#39;</span><span class="p">,</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">      </span><span class="p">[</span><span class="s1">&#39;vMOVR&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;72145018963825376852137222787619937732&#39;</span><span class="p">],</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="p">[</span><span class="s1">&#39;1000000&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;10000000000&#39;</span><span class="p">],</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">      </span><span class="p">{</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">        </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="p">,</span>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">        </span><span class="nx">xcmVersion</span><span class="o">:</span><span class="w"> </span><span class="kt">safeXcmVersion</span><span class="p">,</span>
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">      </span><span class="p">},</span>
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="p">);</span>
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
-</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Call data:\n</span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">callInfo</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kt">string</span><span class="p">);</span>
-</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
-</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">decoded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">assetApi</span><span class="p">.</span><span class="nx">decodeExtrinsic</span><span class="p">(</span><span class="nx">callInfo</span><span class="p">.</span><span class="nx">tx</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;call&#39;</span><span class="p">);</span>
-</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`\nDecoded tx:\n</span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">decoded</span><span class="p">),</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="p">}</span>
-</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>
-</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="nx">main</span><span class="p">()</span>
-</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="w">  </span><span class="p">.</span><span class="k">finally</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">());</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/interoperability/asset-transfer-api/overview/paraToPara.ts&#39;</span>
 </span></code></pre></div>
 <p>After running this script, you'll see the following output in your terminal. This output presents the encoded extrinsic for the cross-chain message, along with its decoded format, providing a clear view of the transaction details.</p>
-<div id='termynal' data-termynal>
-    <span data-ty='input'><span class='file-path'></span>ts-node paraToPara.ts</span>
-
-    <br>
-    <span data-ty>Call data:</span>
-    <span data-ty>{</span>
-    <span data-ty>    "origin": "moonriver",</span>
-    <span data-ty>    "dest": "bifrost",</span>
-    <span data-ty>    "direction": "ParaToPara",</span>
-    <span data-ty>    "xcmVersion": 2,</span>
-    <span data-ty>    "method": "transferMultiassets",</span>
-    <span data-ty>    "format": "call",</span>
-    <span data-ty>    "tx": "0x6a05010800010200451f06080101000700e40b540200010200451f0608010a0002093d000000000001010200451f0100c4db7bcb733e117c0b34ac96354b10d47e84a006b9e7e66a229d174e8ff2a06300"</span>
-    <span data-ty>}</span>
-    <span data-ty></span>
-    <span data-ty>Decoded tx:</span>
-    <span data-ty>{</span>
-    <span data-ty>    "args": {</span>
-    <span data-ty>        "assets": {</span>
-    <span data-ty>            "V2": [</span>
-    <span data-ty>                {</span>
-    <span data-ty>                    "id": {</span>
-    <span data-ty>                        "Concrete": {</span>
-    <span data-ty>                            "parents": "1",</span>
-    <span data-ty>                            "interior": {</span>
-    <span data-ty>                                "X2": [</span>
-    <span data-ty>                                    {</span>
-    <span data-ty>                                        "Parachain": "2,001"</span>
-    <span data-ty>                                    },</span>
-    <span data-ty>                                    {</span>
-    <span data-ty>                                        "GeneralKey": "0x0101"</span>
-    <span data-ty>                                    }</span>
-    <span data-ty>                                ]</span>
-    <span data-ty>                            }</span>
-    <span data-ty>                        }</span>
-    <span data-ty>                    },</span>
-    <span data-ty>                    "fun": {</span>
-    <span data-ty>                        "Fungible": "10,000,000,000"</span>
-    <span data-ty>                    }</span>
-    <span data-ty>                },</span>
-    <span data-ty>                {</span>
-    <span data-ty>                    "id": {</span>
-    <span data-ty>                        "Concrete": {</span>
-    <span data-ty>                            "parents": "1",</span>
-    <span data-ty>                            "interior": {</span>
-    <span data-ty>                                "X2": [</span>
-    <span data-ty>                                    {</span>
-    <span data-ty>                                        "Parachain": "2,001"</span>
-    <span data-ty>                                    },</span>
-    <span data-ty>                                    {</span>
-    <span data-ty>                                        "GeneralKey": "0x010a"</span>
-    <span data-ty>                                    }</span>
-    <span data-ty>                                ]</span>
-    <span data-ty>                            }</span>
-    <span data-ty>                        }</span>
-    <span data-ty>                    },</span>
-    <span data-ty>                    "fun": {</span>
-    <span data-ty>                        "Fungible": "1,000,000"</span>
-    <span data-ty>                    }</span>
-    <span data-ty>                }</span>
-    <span data-ty>            ]</span>
-    <span data-ty>        },</span>
-    <span data-ty>        "fee_item": "0",</span>
-    <span data-ty>        "dest": {</span>
-    <span data-ty>            "V2": {</span>
-    <span data-ty>                "parents": "1",</span>
-    <span data-ty>                "interior": {</span>
-    <span data-ty>                    "X2": [</span>
-    <span data-ty>                        {</span>
-    <span data-ty>                            "Parachain": "2,001"</span>
-    <span data-ty>                        },</span>
-    <span data-ty>                        {</span>
-    <span data-ty>                            "AccountId32": {</span>
-    <span data-ty>                                "network": "Any",</span>
-    <span data-ty>                                "id": "0xc4db7bcb733e117c0b34ac96354b10d47e84a006b9e7e66a229d174e8ff2a063"</span>
-    <span data-ty>                            }</span>
-    <span data-ty>                        }</span>
-    <span data-ty>                    ]</span>
-    <span data-ty>                }</span>
-    <span data-ty>            }</span>
-    <span data-ty>        },</span>
-    <span data-ty>        "dest_weight_limit": "Unlimited"</span>
-    <span data-ty>    },</span>
-    <span data-ty>    "method": "transferMultiassets",</span>
-    <span data-ty>    "section": "xTokens"</span>
-    <span data-ty>}</span>
-</div>
+<p>--8&lt;-- 'code/develop/toolkit/interoperability/asset-transfer-api/overview/paraToPara.md'</p>
   <div class="md-source-file">
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3318,7 +3335,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3329,7 +3346,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5302,12 +5319,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/default/grub
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Add to GRUB_CMDLINE_LINUX_DEFAULT</span>
 </span></code></pre></div>
-<div class="language-text highlight"><span class="filename">/etc/default/grub</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GRUB_HIDDEN_TIMEOUT = 0;
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>GRUB_HIDDEN_TIMEOUT_QUIET = true;
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>GRUB_TIMEOUT = 10;
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>GRUB_DISTRIBUTOR = `lsb_release -i -s 2&gt; /dev/null || echo Debian`;
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>GRUB_CMDLINE_LINUX_DEFAULT = &#39;nosmt=force&#39;;
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>GRUB_CMDLINE_LINUX = &#39;&#39;;
+<div class="language-text highlight"><span class="filename">/etc/default/grub</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>-8&lt;-- &#39;code/infrastructure/running-a-validator/operational-tasks/general-management/grub-config-01.js:1:7&#39;
 </span></code></pre></div>
 </li>
 <li>
@@ -5335,13 +5347,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/default/grub
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># Add to GRUB_CMDLINE_LINUX_DEFAULT</span>
 </span></code></pre></div>
-<div class="language-text highlight"><span class="filename">/etc/default/grub</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>GRUB_DEFAULT = 0;
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>GRUB_HIDDEN_TIMEOUT = 0;
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>GRUB_HIDDEN_TIMEOUT_QUIET = true;
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>GRUB_TIMEOUT = 10;
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>GRUB_DISTRIBUTOR = `lsb_release -i -s 2&gt; /dev/null || echo Debian`;
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>GRUB_CMDLINE_LINUX_DEFAULT = &#39;numa_balancing=disable&#39;;
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>GRUB_CMDLINE_LINUX = &#39;&#39;;
+<div class="language-text highlight"><span class="filename">/etc/default/grub</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>-8&lt;-- &#39;code/infrastructure/running-a-validator/operational-tasks/general-management/grub-config-01.js:9:15&#39;
 </span></code></pre></div>
 </li>
 <li>
@@ -5366,13 +5372,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/default/grub
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1"># Add to GRUB_CMDLINE_LINUX_DEFAULT</span>
 </span></code></pre></div>
-<div class="language-text highlight"><span class="filename">/etc/default/grub</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>GRUB_DEFAULT = 0;
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>GRUB_HIDDEN_TIMEOUT = 0;
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>GRUB_HIDDEN_TIMEOUT_QUIET = true;
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>GRUB_TIMEOUT = 10;
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>GRUB_DISTRIBUTOR = `lsb_release -i -s 2&gt; /dev/null || echo Debian`;
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>GRUB_CMDLINE_LINUX_DEFAULT =
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  &#39;spec_store_bypass_disable=prctl spectre_v2_user=prctl&#39;;
+<div class="language-text highlight"><span class="filename">/etc/default/grub</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>-8&lt;-- &#39;code/infrastructure/running-a-validator/operational-tasks/general-management/grub-config-01.js:17:23&#39;
 </span></code></pre></div>
 </li>
 <li>
@@ -5453,23 +5453,7 @@
 <p>Create <code>prometheus.yml</code> to define global settings, rule files, and scrape targets:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/prometheus/prometheus.yml
 </span></code></pre></div>
-<div class="language-yaml highlight"><span class="filename">prometheus-config.yml</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">global</span><span class="p">:</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span>
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nt">evaluation_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span>
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
-</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nt">rule_files</span><span class="p">:</span>
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="c1"># - &quot;first.rules&quot;</span>
-</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="c1"># - &quot;second.rules&quot;</span>
-</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
-</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="nt">scrape_configs</span><span class="p">:</span>
-</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;prometheus&#39;</span>
-</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">    </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
-</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
-</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;localhost:9090&#39;</span><span class="p p-Indicator">]</span>
-</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;substrate_node&#39;</span>
-</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">    </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
-</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
-</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;localhost:9615&#39;</span><span class="p p-Indicator">]</span>
+<div class="language-yaml highlight"><span class="filename">prometheus-config.yml</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="l l-Scalar l-Scalar-Plain">--8&lt;-- &#39;code/infrastructure/running-a-validator/operational-tasks/general-management/prometheus-config.yml&#39;</span>
 </span></code></pre></div>
 <p>Prometheus is scraped every 5 seconds in this example configuration file, ensuring detailed internal metrics. Node metrics with customizable intervals are scraped from port <code>9615</code> by default.</p>
 </li>
@@ -5494,6 +5478,7 @@
 </span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>--web.console.libraries<span class="o">=</span>/etc/prometheus/console_libraries
 </span></code></pre></div>
 <p>If you set the server up properly, you should see terminal output similar to the following:</p>
+<p>-8&lt;-- 'code/infrastructure/running-a-validator/operational-tasks/general-management/terminal-ouput-01.html'</p>
 </li>
 <li>
 <p>Verify you can access the Prometheus interface by navigating to:</p>
@@ -5505,24 +5490,7 @@
 <p>Create a systemd service file to ensure Prometheus starts on boot:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/prometheus.service
 </span></code></pre></div>
-<div class="language-bash highlight"><span class="filename">prometheus.service</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="o">[</span>Unit<span class="o">]</span>
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nv">Description</span><span class="o">=</span>Prometheus<span class="w"> </span>Monitoring
-</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="nv">Wants</span><span class="o">=</span>network-online.target
-</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="nv">After</span><span class="o">=</span>network-online.target
-</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>
-</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="o">[</span>Service<span class="o">]</span>
-</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="nv">User</span><span class="o">=</span>prometheus
-</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="nv">Group</span><span class="o">=</span>prometheus
-</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="nv">Type</span><span class="o">=</span>simple
-</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/prometheus<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="w"> </span>--config.file<span class="w"> </span>/etc/prometheus/prometheus.yml<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="w"> </span>--storage.tsdb.path<span class="w"> </span>/var/lib/prometheus/<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a><span class="w"> </span>--web.console.templates<span class="o">=</span>/etc/prometheus/consoles<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a><span class="w"> </span>--web.console.libraries<span class="o">=</span>/etc/prometheus/console_libraries
-</span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a><span class="nv">ExecReload</span><span class="o">=</span>/bin/kill<span class="w"> </span>-HUP<span class="w"> </span><span class="nv">$MAINPID</span>
-</span><span id="__span-27-16"><a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>
-</span><span id="__span-27-17"><a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a><span class="o">[</span>Install<span class="o">]</span>
-</span><span id="__span-27-18"><a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+<div class="language-bash highlight"><span class="filename">prometheus.service</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>--8&lt;--<span class="w"> </span><span class="s1">&#39;code/infrastructure/running-a-validator/operational-tasks/general-management/systemd-config.md&#39;</span>
 </span></code></pre></div>
 </li>
 <li>
@@ -5646,22 +5614,7 @@
 </span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/alertmanager/alertmanager.yml
 </span></code></pre></div>
 <p>Generate an <a href="https://support.google.com/accounts/answer/185833?hl=en" target="_blank">app password in your Google account</a> to enable email notifications from Alertmanager. Then, add the following code to the configuration file to define email notifications using your  email and app password: </p>
-<div class="language-text highlight"><span class="filename">alertmanager.yml</span><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>global:
-</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>  resolve_timeout: 1m
-</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>
-</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>route:
-</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>  receiver: &#39;gmail-notifications&#39;
-</span><span id="__span-43-6"><a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>
-</span><span id="__span-43-7"><a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>receivers:
-</span><span id="__span-43-8"><a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>  - name: &#39;gmail-notifications&#39;
-</span><span id="__span-43-9"><a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a>    email_configs:
-</span><span id="__span-43-10"><a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a>      - to: INSERT_YOUR_EMAIL
-</span><span id="__span-43-11"><a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a>        from: INSERT_YOUR_EMAIL
-</span><span id="__span-43-12"><a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a>        smarthost: smtp.gmail.com:587
-</span><span id="__span-43-13"><a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a>        auth_username: INSERT_YOUR_EMAIL
-</span><span id="__span-43-14"><a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a>        auth_identity: INSERT_YOUR_EMAIL
-</span><span id="__span-43-15"><a id="__codelineno-43-15" name="__codelineno-43-15" href="#__codelineno-43-15"></a>        auth_password: INSERT_YOUR_APP_PASSWORD
-</span><span id="__span-43-16"><a id="__codelineno-43-16" name="__codelineno-43-16" href="#__codelineno-43-16"></a>        send_resolved: true
+<div class="language-text highlight"><span class="filename">alertmanager.yml</span><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>-8&lt;-- &#39;code/infrastructure/running-a-validator/operational-tasks/general-management/alertmanager.yml&#39;
 </span></code></pre></div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>prometheus:prometheus<span class="w"> </span>/etc/alertmanager
 </span></code></pre></div>
@@ -5670,19 +5623,7 @@
 <p>Configure Alertmanager as a service by creating a systemd service file:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/alertmanager.service
 </span></code></pre></div>
-<div class="language-text highlight"><span class="filename">alertmanager.service</span><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>[Unit]
-</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>Description=AlertManager Server Service
-</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>Wants=network-online.target
-</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>After=network-online.target
-</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>
-</span><span id="__span-46-6"><a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>[Service]
-</span><span id="__span-46-7"><a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>User=root
-</span><span id="__span-46-8"><a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a>Group=root
-</span><span id="__span-46-9"><a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a>Type=simple
-</span><span id="__span-46-10"><a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a>ExecStart=/usr/local/bin/alertmanager --config.file /etc/alertmanager/alertmanager.yml --web.external-url=http://SERVER_IP:9093 --cluster.advertise-address=&#39;0.0.0.0:9093&#39;
-</span><span id="__span-46-11"><a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a>
-</span><span id="__span-46-12"><a id="__codelineno-46-12" name="__codelineno-46-12" href="#__codelineno-46-12"></a>[Install]
-</span><span id="__span-46-13"><a id="__codelineno-46-13" name="__codelineno-46-13" href="#__codelineno-46-13"></a>WantedBy=multi-user.target
+<div class="language-text highlight"><span class="filename">alertmanager.service</span><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>-8&lt;-- &#39;code/infrastructure/running-a-validator/operational-tasks/general-management/systemd-alert-config.md&#39;
 </span></code></pre></div>
 </li>
 <li>
@@ -5697,16 +5638,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>alertmanager
 </span></code></pre></div>
 <p>If you have configured Alertmanager properly, the <strong>Active</strong> field should display <strong>active (running)</strong> similar to below:</p>
-<p><div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>sudo systemctl status alertmanager</span>
-  <span data-ty>alertmanager.service - AlertManager Server Service</span>
-  <span data-ty>Loaded: loaded (/etc/systemd/system/alertmanager.service; enabled; vendor preset: enabled)</span>
-  <span data-ty>Active: active (running) since Thu 2020-08-20 22:01:21 CEST; 3 days ago</span>
-  <span data-ty>Main PID: 20592 (alertmanager)</span>
-  <span data-ty>Tasks: 70 (limit: 9830)</span>
-  <span data-ty>CGroup: /system.slice/alertmanager.service</span>
-  <span data-ty="input"><span class="file-path"></span></span>
-</div></p>
+<p>-8&lt;-- 'code/infrastructure/running-a-validator/operational-tasks/general-management/alertmanager-status.html'</p>
 </li>
 </ol>
 <h4 id="grafana-plugin">Grafana Plugin<a class="headerlink" href="#grafana-plugin" title="Permanent link">&para;</a></h4>
@@ -5739,40 +5671,12 @@
 <ol>
 <li>
 <p>Update the <code>etc/prometheus/prometheus.yml</code> configuration file to include the following code:</p>
-<div class="language-text highlight"><span class="filename">prometheus.yml</span><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>rule_files:
-</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>  - &#39;rules.yml&#39;
-</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>
-</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>alerting:
-</span><span id="__span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>  alertmanagers:
-</span><span id="__span-51-6"><a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>    - static_configs:
-</span><span id="__span-51-7"><a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>        - targets:
-</span><span id="__span-51-8"><a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>            - localhost:9093
+<div class="language-text highlight"><span class="filename">prometheus.yml</span><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>--8&lt;-- &#39;code/infrastructure/running-a-validator/operational-tasks/general-management/update-prometheus.yml:5:12&#39;
 </span></code></pre></div>
 <p>Expand the following item to view the complete <code>prometheus.yml</code> file.</p>
 <details class="code">
 <summary>prometheus.yml</summary>
-<div class="language-text highlight"><span class="filename">prometheus.yml</span><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>global:
-</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>  scrape_interval: 15s
-</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>  evaluation_interval: 15s
-</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>
-</span><span id="__span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>rule_files:
-</span><span id="__span-52-6"><a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>  - &#39;rules.yml&#39;
-</span><span id="__span-52-7"><a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a>
-</span><span id="__span-52-8"><a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a>alerting:
-</span><span id="__span-52-9"><a id="__codelineno-52-9" name="__codelineno-52-9" href="#__codelineno-52-9"></a>  alertmanagers:
-</span><span id="__span-52-10"><a id="__codelineno-52-10" name="__codelineno-52-10" href="#__codelineno-52-10"></a>    - static_configs:
-</span><span id="__span-52-11"><a id="__codelineno-52-11" name="__codelineno-52-11" href="#__codelineno-52-11"></a>        - targets:
-</span><span id="__span-52-12"><a id="__codelineno-52-12" name="__codelineno-52-12" href="#__codelineno-52-12"></a>            - localhost:9093
-</span><span id="__span-52-13"><a id="__codelineno-52-13" name="__codelineno-52-13" href="#__codelineno-52-13"></a>
-</span><span id="__span-52-14"><a id="__codelineno-52-14" name="__codelineno-52-14" href="#__codelineno-52-14"></a>scrape_configs:
-</span><span id="__span-52-15"><a id="__codelineno-52-15" name="__codelineno-52-15" href="#__codelineno-52-15"></a>  - job_name: &#39;prometheus&#39;
-</span><span id="__span-52-16"><a id="__codelineno-52-16" name="__codelineno-52-16" href="#__codelineno-52-16"></a>    scrape_interval: 5s
-</span><span id="__span-52-17"><a id="__codelineno-52-17" name="__codelineno-52-17" href="#__codelineno-52-17"></a>    static_configs:
-</span><span id="__span-52-18"><a id="__codelineno-52-18" name="__codelineno-52-18" href="#__codelineno-52-18"></a>      - targets: [&#39;localhost:9090&#39;]
-</span><span id="__span-52-19"><a id="__codelineno-52-19" name="__codelineno-52-19" href="#__codelineno-52-19"></a>  - job_name: &#39;substrate_node&#39;
-</span><span id="__span-52-20"><a id="__codelineno-52-20" name="__codelineno-52-20" href="#__codelineno-52-20"></a>    scrape_interval: 5s
-</span><span id="__span-52-21"><a id="__codelineno-52-21" name="__codelineno-52-21" href="#__codelineno-52-21"></a>    static_configs:
-</span><span id="__span-52-22"><a id="__codelineno-52-22" name="__codelineno-52-22" href="#__codelineno-52-22"></a>      - targets: [&#39;localhost:9615&#39;]
+<div class="language-text highlight"><span class="filename">prometheus.yml</span><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>--8&lt;-- &#39;code/infrastructure/running-a-validator/operational-tasks/general-management/update-prometheus.yml&#39;
 </span></code></pre></div>
 </details>
 </li>
@@ -5781,17 +5685,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/prometheus/rules.yml
 </span></code></pre></div>
 <p>Add a sample rule to trigger email notifications for node downtime over five minutes:</p>
-<div class="language-text highlight"><span class="filename">rules.yml</span><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>groups:
-</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>  - name: alert_rules
-</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>    rules:
-</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>      - alert: InstanceDown
-</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a>        expr: up == 0
-</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a>        for: 5m
-</span><span id="__span-54-7"><a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a>        labels:
-</span><span id="__span-54-8"><a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a>          severity: critical
-</span><span id="__span-54-9"><a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a>        annotations:
-</span><span id="__span-54-10"><a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a>          summary: &#39;Instance [{{ $labels.instance }}] down&#39;
-</span><span id="__span-54-11"><a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a>          description: &#39;[{{ $labels.instance }}] of job [{{ $labels.job }}] has been down for more than 5 minutes.&#39;
+<div class="language-text highlight"><span class="filename">rules.yml</span><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>-8&lt;-- &#39;code/infrastructure/running-a-validator/operational-tasks/general-management/instance-down.yml&#39;
 </span></code></pre></div>
 <p>If any of the conditions defined in the rules file are met, an alert will be triggered. For more on alert rules, refer to <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/" target="_blank">Alerting Rules</a> and <a href="https://awesome-prometheus-alerts.grep.to/rules.html" target="_blank">additional alerts</a>.</p>
 </li>
@@ -5877,12 +5771,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

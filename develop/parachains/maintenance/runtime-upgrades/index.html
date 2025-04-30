@@ -933,6 +933,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -996,6 +999,20 @@
     <li class="md-nav__item">
       <a href="../../deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3189,7 +3206,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3200,7 +3217,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5031,15 +5048,7 @@
 <h3 id="runtime-versioning">Runtime Versioning<a class="headerlink" href="#runtime-versioning" title="Permanent link">&para;</a></h3>
 <p>The executor is the component that selects the runtime execution environment to communicate with. Although you can override the default execution strategies for custom scenarios, in most cases, the executor selects the appropriate binary to use by evaluating and comparing key parameters from the native and Wasm runtime binaries.</p>
 <p>The runtime includes a <a href="https://paritytech.github.io/polkadot-sdk/master/sp_version/struct.RuntimeVersion.html" target="_blank">runtime version struct</a> to provide the needed parameter information to the executor process. A sample runtime version struct might look as follows:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VERSION</span>: <span class="nc">RuntimeVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RuntimeVersion</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">spec_name</span>: <span class="nc">create_runtime_str</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;node-template&quot;</span><span class="p">),</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">impl_name</span>: <span class="nc">create_runtime_str</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;node-template&quot;</span><span class="p">),</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">authoring_version</span>: <span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">spec_version</span>: <span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">impl_version</span>: <span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">apis</span>: <span class="nc">RUNTIME_API_VERSIONS</span><span class="p">,</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">transaction_version</span>: <span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">};</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">maintenance</span><span class="o">/</span><span class="n">runtime</span><span class="o">-</span><span class="n">upgrades</span><span class="o">/</span><span class="n">runtime_version</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>The struct provides the following parameter information to the executor:</p>
 <ul>
@@ -5087,12 +5096,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

@@ -1051,6 +1051,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -1114,6 +1117,20 @@
     <li class="md-nav__item">
       <a href="../../deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3192,7 +3209,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3203,7 +3220,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5092,90 +5109,26 @@
 <p>Consequently, a runtime that wants to include this pallet must implement this trait.</p>
 <p>You can inspect any pallet’s <code>Config</code> trait by reviewing its Rust documentation or source code. The <code>Config</code> trait ensures the pallet has access to the necessary types (like events, calls, or origins) and integrates smoothly with the rest of the runtime.</p>
 <p>At its core, the <code>Config</code> trait typically looks like this:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#[pallet::config]</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="n">Config</span>: <span class="nc">frame_system</span>::<span class="n">Config</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="sd">/// Event type used by the pallet.</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">type</span> <span class="nc">RuntimeEvent</span>: <span class="nb">From</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">IsType</span><span class="o">&lt;&lt;</span><span class="bp">Self</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">Config</span><span class="o">&gt;</span>::<span class="n">RuntimeEvent</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="sd">/// Weight information for controlling extrinsic execution costs.</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="k">type</span> <span class="nc">WeightInfo</span>: <span class="nc">WeightInfo</span><span class="p">;</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">customize</span><span class="o">-</span><span class="n">parachain</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">existing</span><span class="o">-</span><span class="n">pallets</span><span class="o">/</span><span class="n">pallet</span><span class="o">-</span><span class="n">basic</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="k">trait</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>This basic structure shows that every pallet must define certain types, such as <code>RuntimeEvent</code> and <code>WeightInfo</code>, to function within the runtime. The actual implementation can vary depending on the pallet’s specific needs.</p>
 <h3 id="utility-pallet-example">Utility Pallet Example<a class="headerlink" href="#utility-pallet-example" title="Permanent link">&para;</a></h3>
 <p>For instance, in the <a href="https://github.com/paritytech/polkadot-sdk/tree/polkadot-stable2412/substrate/frame/utility" target="_blank"><code>utility</code></a> pallet, the <code>Config</code> trait is implemented with the following types:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cp">#[pallet::config]</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="n">Config</span>: <span class="nc">frame_system</span>::<span class="n">Config</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="sd">/// The overarching event type.</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">type</span> <span class="nc">RuntimeEvent</span>: <span class="nb">From</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">IsType</span><span class="o">&lt;&lt;</span><span class="bp">Self</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">Config</span><span class="o">&gt;</span>::<span class="n">RuntimeEvent</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="sd">/// The overarching call type.</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="k">type</span> <span class="nc">RuntimeCall</span>: <span class="nc">Parameter</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">Dispatchable</span><span class="o">&lt;</span><span class="n">RuntimeOrigin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">Self</span>::<span class="n">RuntimeOrigin</span><span class="p">,</span><span class="w"> </span><span class="n">PostInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PostDispatchInfo</span><span class="o">&gt;</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">GetDispatchInfo</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nb">From</span><span class="o">&lt;</span><span class="n">frame_system</span>::<span class="n">Call</span><span class="o">&lt;</span><span class="bp">Self</span><span class="o">&gt;&gt;</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">UnfilteredDispatchable</span><span class="o">&lt;</span><span class="n">RuntimeOrigin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">Self</span>::<span class="n">RuntimeOrigin</span><span class="o">&gt;</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">IsSubType</span><span class="o">&lt;</span><span class="n">Call</span><span class="o">&lt;</span><span class="bp">Self</span><span class="o">&gt;&gt;</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">IsType</span><span class="o">&lt;&lt;</span><span class="bp">Self</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">Config</span><span class="o">&gt;</span>::<span class="n">RuntimeCall</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="sd">/// The caller origin, overarching type of all pallets origins.</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="k">type</span> <span class="nc">PalletsOrigin</span>: <span class="nc">Parameter</span><span class="w"> </span><span class="o">+</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="nb">Into</span><span class="o">&lt;&lt;</span><span class="bp">Self</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">Config</span><span class="o">&gt;</span>::<span class="n">RuntimeOrigin</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="n">IsType</span><span class="o">&lt;&lt;&lt;</span><span class="bp">Self</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">Config</span><span class="o">&gt;</span>::<span class="n">RuntimeOrigin</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">frame_support</span>::<span class="n">traits</span>::<span class="n">OriginTrait</span><span class="o">&gt;</span>::<span class="n">PalletsOrigin</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="sd">/// Weight information for extrinsics in this pallet.</span>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="k">type</span> <span class="nc">WeightInfo</span>: <span class="nc">WeightInfo</span><span class="p">;</span>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">customize</span><span class="o">-</span><span class="n">parachain</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">existing</span><span class="o">-</span><span class="n">pallets</span><span class="o">/</span><span class="n">utility</span><span class="o">-</span><span class="n">pallet</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="k">trait</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>This example shows how the <code>Config</code> trait defines types like <code>RuntimeEvent</code>, <code>RuntimeCall</code>, <code>PalletsOrigin</code>, and <code>WeightInfo</code>, which the pallet will use when interacting with the runtime.</p>
 <h2 id="parameter-configuration-for-pallets">Parameter Configuration for Pallets<a class="headerlink" href="#parameter-configuration-for-pallets" title="Permanent link">&para;</a></h2>
 <p>Traits in Rust define shared behavior, and within the Polkadot SDK, they allow runtimes to integrate and utilize a pallet's functionality by implementing its associated configuration trait and parameters. Some of these parameters may require constant values, which can be defined using the <a href="https://paritytech.github.io/polkadot-sdk/master/frame_support/macro.parameter_types.html" target="_blank"><code>parameter_types!</code></a> macro. This macro simplifies development by expanding the constants into the appropriate struct types with functions that the runtime can use to access their types and values in a consistent manner.</p>
 <p>For example, the following code snippet shows how the solochain template configures certain parameters through the <a href="https://github.com/paritytech/polkadot-sdk-solochain-template/blob/v0.0.2/runtime/src/lib.rs#L138" target="_blank"><code>parameter_types!</code></a> macro in the <code>runtime/lib.rs</code> file:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">parameter_types</span><span class="o">!</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">BlockHashCount</span>: <span class="nc">BlockNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2400</span><span class="p">;</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Version</span>: <span class="nc">RuntimeVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VERSION</span><span class="p">;</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="sd">/// We allow for 2 seconds of compute with a 6 second average block time.</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">BlockWeights</span>: <span class="nc">frame_system</span>::<span class="n">limits</span>::<span class="n">BlockWeights</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="n">frame_system</span>::<span class="n">limits</span>::<span class="n">BlockWeights</span>::<span class="n">with_sensible_defaults</span><span class="p">(</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">            </span><span class="n">Weight</span>::<span class="n">from_parts</span><span class="p">(</span><span class="mi">2</span><span class="k">u64</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">WEIGHT_REF_TIME_PER_SECOND</span><span class="p">,</span><span class="w"> </span><span class="kt">u64</span>::<span class="n">MAX</span><span class="p">),</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">            </span><span class="n">NORMAL_DISPATCH_RATIO</span><span class="p">,</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="p">);</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">BlockLength</span>: <span class="nc">frame_system</span>::<span class="n">limits</span>::<span class="n">BlockLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">limits</span>::<span class="n">BlockLength</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span>::<span class="n">max_with_normal_ratio</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">NORMAL_DISPATCH_RATIO</span><span class="p">);</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">SS58Prefix</span>: <span class="kt">u8</span> <span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">customize</span><span class="o">-</span><span class="n">parachain</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">existing</span><span class="o">-</span><span class="n">pallets</span><span class="o">/</span><span class="n">parameter</span><span class="o">-</span><span class="n">types</span><span class="o">-</span><span class="n">example</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h2 id="pallet-config-in-the-runtime">Pallet Config in the Runtime<a class="headerlink" href="#pallet-config-in-the-runtime" title="Permanent link">&para;</a></h2>
 <p>To integrate a new pallet into the runtime, you must implement its <code>Config</code> trait in the <code>runtime/lib.rs</code> file. This is done by specifying the necessary types and parameters in Rust, as shown below:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">impl</span><span class="w"> </span><span class="n">pallet_example</span>::<span class="n">Config</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Runtime</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="k">type</span> <span class="nc">RuntimeEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RuntimeEvent</span><span class="p">;</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">type</span> <span class="nc">WeightInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pallet_template</span>::<span class="n">weights</span>::<span class="n">SubstrateWeight</span><span class="o">&lt;</span><span class="n">Runtime</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="o">..</span><span class="p">.</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">customize</span><span class="o">-</span><span class="n">parachain</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">existing</span><span class="o">-</span><span class="n">pallets</span><span class="o">/</span><span class="k">impl</span><span class="o">-</span><span class="n">pallet</span><span class="o">-</span><span class="n">example</span><span class="o">-</span><span class="k">in</span><span class="o">-</span><span class="n">runtime</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>Finally, to compose the runtime, update the list of pallets in the same file by modifying the <a href="https://paritytech.github.io/polkadot-sdk/master/frame_support/attr.runtime.html" target="_blank"><code>#[frame_support::runtime]</code></a> section. This Rust macro constructs the runtime with your specified name and pallets, wraps the runtime's configuration, and automatically generates boilerplate code for pallet inclusion. </p>
 <p>Use the following format when adding your pallet:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cp">#[frame_support::runtime]</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">mod</span> <span class="nn">runtime</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="cp">#[runtime::runtime]</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="cp">#[runtime::derive(</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="cp">        RuntimeCall,</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="cp">        RuntimeEvent,</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="cp">        RuntimeError,</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="cp">        RuntimeOrigin,</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="cp">        RuntimeFreezeReason,</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="cp">        RuntimeHoldReason,</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="cp">        RuntimeSlashReason,</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="cp">        RuntimeLockId,</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="cp">        RuntimeTask</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="cp">    )]</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Runtime</span><span class="p">;</span>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="cp">#[runtime::pallet_index(0)]</span>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">type</span> <span class="nc">System</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame_system</span><span class="p">;</span>
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
-</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="cp">#[runtime::pallet_index(1)]</span>
-</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">type</span> <span class="nc">Example</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pallet_example</span><span class="p">;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">customize</span><span class="o">-</span><span class="n">parachain</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">existing</span><span class="o">-</span><span class="n">pallets</span><span class="o">/</span><span class="n">frame</span><span class="o">-</span><span class="n">support</span><span class="o">-</span><span class="n">runtime</span><span class="o">-</span><span class="kr">macro</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h2 id="where-to-go-next">Where to Go Next<a class="headerlink" href="#where-to-go-next" title="Permanent link">&para;</a></h2>
 <p>With the pallet successfully added and configured, the runtime is ready to be compiled and used. Following this guide’s steps, you’ve integrated a new pallet into the runtime, set up its dependencies, and ensured proper configuration. You can now proceed to any of the following points:</p>
@@ -5199,12 +5152,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

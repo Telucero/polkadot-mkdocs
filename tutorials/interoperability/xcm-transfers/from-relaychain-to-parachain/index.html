@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3070,7 +3087,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3081,7 +3098,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5146,124 +5163,7 @@ After executing this command, the relay chain and parachain will expose the foll
 </li>
 <li>
 <p>Create a <code>index.js</code> file and insert the following code to configure the clients and handle the asset transfer</p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Import necessary modules from Polkadot API and helpers</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nx">astar</span><span class="p">,</span><span class="w"> </span><span class="c1">// Astar chain metadata</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nx">dot</span><span class="p">,</span><span class="w"> </span><span class="c1">// Polkadot chain metadata</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nx">XcmVersionedLocation</span><span class="p">,</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nx">XcmVersionedAssets</span><span class="p">,</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nx">XcmV3Junction</span><span class="p">,</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="nx">XcmV3Junctions</span><span class="p">,</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="nx">XcmV3WeightLimit</span><span class="p">,</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">,</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">,</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-api/descriptors&#39;</span><span class="p">;</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">sr25519CreateDerive</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-labs/hdkd&#39;</span><span class="p">;</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">  </span><span class="nx">DEV_PHRASE</span><span class="p">,</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">  </span><span class="nx">entropyToMiniSecret</span><span class="p">,</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">  </span><span class="nx">mnemonicToEntropy</span><span class="p">,</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">  </span><span class="nx">ss58Decode</span><span class="p">,</span>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot-labs/hdkd-helpers&#39;</span><span class="p">;</span>
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getPolkadotSigner</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/signer&#39;</span><span class="p">;</span>
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getWsProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/ws-provider/web&#39;</span><span class="p">;</span>
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">withPolkadotSdkCompat</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api/polkadot-sdk-compat&#39;</span><span class="p">;</span>
-</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Binary</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;polkadot-api&#39;</span><span class="p">;</span>
-</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
-</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="c1">// Create Polkadot client using WebSocket provider for Polkadot chain</span>
-</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="kd">const</span><span class="w"> </span><span class="nx">polkadotClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClient</span><span class="p">(</span>
-</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">  </span><span class="nx">withPolkadotSdkCompat</span><span class="p">(</span><span class="nx">getWsProvider</span><span class="p">(</span><span class="s1">&#39;ws://127.0.0.1:8001&#39;</span><span class="p">)),</span>
-</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="p">);</span>
-</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="kd">const</span><span class="w"> </span><span class="nx">dotApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">polkadotClient</span><span class="p">.</span><span class="nx">getTypedApi</span><span class="p">(</span><span class="nx">dot</span><span class="p">);</span>
-</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>
-</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="c1">// Create Astar client using WebSocket provider for Astar chain</span>
-</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="kd">const</span><span class="w"> </span><span class="nx">astarClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClient</span><span class="p">(</span>
-</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="w">  </span><span class="nx">withPolkadotSdkCompat</span><span class="p">(</span><span class="nx">getWsProvider</span><span class="p">(</span><span class="s1">&#39;ws://localhost:8000&#39;</span><span class="p">)),</span>
-</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="p">);</span>
-</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="kd">const</span><span class="w"> </span><span class="nx">astarApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">astarClient</span><span class="p">.</span><span class="nx">getTypedApi</span><span class="p">(</span><span class="nx">astar</span><span class="p">);</span>
-</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>
-</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a><span class="c1">// Create keypair for Alice using dev phrase to sign transactions</span>
-</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a><span class="kd">const</span><span class="w"> </span><span class="nx">miniSecret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">entropyToMiniSecret</span><span class="p">(</span><span class="nx">mnemonicToEntropy</span><span class="p">(</span><span class="nx">DEV_PHRASE</span><span class="p">));</span>
-</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="kd">const</span><span class="w"> </span><span class="nx">derive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sr25519CreateDerive</span><span class="p">(</span><span class="nx">miniSecret</span><span class="p">);</span>
-</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a><span class="kd">const</span><span class="w"> </span><span class="nx">aliceKeyPair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">derive</span><span class="p">(</span><span class="s1">&#39;//Alice&#39;</span><span class="p">);</span>
-</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a><span class="kd">const</span><span class="w"> </span><span class="nx">alice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getPolkadotSigner</span><span class="p">(</span>
-</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a><span class="w">  </span><span class="nx">aliceKeyPair</span><span class="p">.</span><span class="nx">publicKey</span><span class="p">,</span>
-</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a><span class="w">  </span><span class="s1">&#39;Sr25519&#39;</span><span class="p">,</span>
-</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a><span class="w">  </span><span class="nx">aliceKeyPair</span><span class="p">.</span><span class="nx">sign</span><span class="p">,</span>
-</span><span id="__span-6-46"><a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a><span class="p">);</span>
-</span><span id="__span-6-47"><a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a>
-</span><span id="__span-6-48"><a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a><span class="c1">// Define recipient (Dave) address on Astar chain</span>
-</span><span id="__span-6-49"><a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a><span class="kd">const</span><span class="w"> </span><span class="nx">daveAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;X2mE9hCGX771c3zzV6tPa8U2cDz4U4zkqUdmBrQn83M3cm7&#39;</span><span class="p">;</span>
-</span><span id="__span-6-50"><a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a><span class="kd">const</span><span class="w"> </span><span class="nx">davePublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss58Decode</span><span class="p">(</span><span class="nx">daveAddress</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
-</span><span id="__span-6-51"><a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a><span class="kd">const</span><span class="w"> </span><span class="nx">idBenef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Binary</span><span class="p">.</span><span class="nx">fromBytes</span><span class="p">(</span><span class="nx">davePublicKey</span><span class="p">);</span>
-</span><span id="__span-6-52"><a id="__codelineno-6-52" name="__codelineno-6-52" href="#__codelineno-6-52"></a>
-</span><span id="__span-6-53"><a id="__codelineno-6-53" name="__codelineno-6-53" href="#__codelineno-6-53"></a><span class="c1">// Define Polkadot Asset ID on Astar chain (example)</span>
-</span><span id="__span-6-54"><a id="__codelineno-6-54" name="__codelineno-6-54" href="#__codelineno-6-54"></a><span class="kd">const</span><span class="w"> </span><span class="nx">polkadotAssetId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">340282366920938463463374607431768211455n</span><span class="p">;</span>
-</span><span id="__span-6-55"><a id="__codelineno-6-55" name="__codelineno-6-55" href="#__codelineno-6-55"></a>
-</span><span id="__span-6-56"><a id="__codelineno-6-56" name="__codelineno-6-56" href="#__codelineno-6-56"></a><span class="c1">// Fetch asset balance of recipient (Dave) before transaction</span>
-</span><span id="__span-6-57"><a id="__codelineno-6-57" name="__codelineno-6-57" href="#__codelineno-6-57"></a><span class="kd">let</span><span class="w"> </span><span class="nx">assetMetadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">astarApi</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">Assets</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span>
-</span><span id="__span-6-58"><a id="__codelineno-6-58" name="__codelineno-6-58" href="#__codelineno-6-58"></a><span class="w">  </span><span class="nx">polkadotAssetId</span><span class="p">,</span>
-</span><span id="__span-6-59"><a id="__codelineno-6-59" name="__codelineno-6-59" href="#__codelineno-6-59"></a><span class="w">  </span><span class="nx">daveAddress</span><span class="p">,</span>
-</span><span id="__span-6-60"><a id="__codelineno-6-60" name="__codelineno-6-60" href="#__codelineno-6-60"></a><span class="p">);</span>
-</span><span id="__span-6-61"><a id="__codelineno-6-61" name="__codelineno-6-61" href="#__codelineno-6-61"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Asset balance before tx:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">assetMetadata</span><span class="o">?</span><span class="p">.</span><span class="nx">balance</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
-</span><span id="__span-6-62"><a id="__codelineno-6-62" name="__codelineno-6-62" href="#__codelineno-6-62"></a>
-</span><span id="__span-6-63"><a id="__codelineno-6-63" name="__codelineno-6-63" href="#__codelineno-6-63"></a><span class="c1">// Prepare and submit transaction to transfer assets from Polkadot to Astar</span>
-</span><span id="__span-6-64"><a id="__codelineno-6-64" name="__codelineno-6-64" href="#__codelineno-6-64"></a><span class="kd">const</span><span class="w"> </span><span class="nx">tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dotApi</span><span class="p">.</span><span class="nx">tx</span><span class="p">.</span><span class="nx">XcmPallet</span><span class="p">.</span><span class="nx">limited_reserve_transfer_assets</span><span class="p">({</span>
-</span><span id="__span-6-65"><a id="__codelineno-6-65" name="__codelineno-6-65" href="#__codelineno-6-65"></a><span class="w">  </span><span class="nx">dest</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmVersionedLocation</span><span class="p">.</span><span class="nx">V3</span><span class="p">({</span>
-</span><span id="__span-6-66"><a id="__codelineno-6-66" name="__codelineno-6-66" href="#__codelineno-6-66"></a><span class="w">    </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-</span><span id="__span-6-67"><a id="__codelineno-6-67" name="__codelineno-6-67" href="#__codelineno-6-67"></a><span class="w">    </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">X1</span><span class="p">(</span>
-</span><span id="__span-6-68"><a id="__codelineno-6-68" name="__codelineno-6-68" href="#__codelineno-6-68"></a><span class="w">      </span><span class="nx">XcmV3Junction</span><span class="p">.</span><span class="nx">Parachain</span><span class="p">(</span><span class="mf">2006</span><span class="p">),</span><span class="w"> </span><span class="c1">// Destination is the Astar parachain</span>
-</span><span id="__span-6-69"><a id="__codelineno-6-69" name="__codelineno-6-69" href="#__codelineno-6-69"></a><span class="w">    </span><span class="p">),</span>
-</span><span id="__span-6-70"><a id="__codelineno-6-70" name="__codelineno-6-70" href="#__codelineno-6-70"></a><span class="w">  </span><span class="p">}),</span>
-</span><span id="__span-6-71"><a id="__codelineno-6-71" name="__codelineno-6-71" href="#__codelineno-6-71"></a><span class="w">  </span><span class="nx">beneficiary</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmVersionedLocation</span><span class="p">.</span><span class="nx">V3</span><span class="p">({</span>
-</span><span id="__span-6-72"><a id="__codelineno-6-72" name="__codelineno-6-72" href="#__codelineno-6-72"></a><span class="w">    </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-</span><span id="__span-6-73"><a id="__codelineno-6-73" name="__codelineno-6-73" href="#__codelineno-6-73"></a><span class="w">    </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">X1</span><span class="p">(</span>
-</span><span id="__span-6-74"><a id="__codelineno-6-74" name="__codelineno-6-74" href="#__codelineno-6-74"></a><span class="w">      </span><span class="nx">XcmV3Junction</span><span class="p">.</span><span class="nx">AccountId32</span><span class="p">({</span>
-</span><span id="__span-6-75"><a id="__codelineno-6-75" name="__codelineno-6-75" href="#__codelineno-6-75"></a><span class="w">        </span><span class="c1">// Beneficiary address on Astar</span>
-</span><span id="__span-6-76"><a id="__codelineno-6-76" name="__codelineno-6-76" href="#__codelineno-6-76"></a><span class="w">        </span><span class="nx">network</span><span class="o">:</span><span class="w"> </span><span class="kc">undefined</span><span class="p">,</span>
-</span><span id="__span-6-77"><a id="__codelineno-6-77" name="__codelineno-6-77" href="#__codelineno-6-77"></a><span class="w">        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">idBenef</span><span class="p">,</span>
-</span><span id="__span-6-78"><a id="__codelineno-6-78" name="__codelineno-6-78" href="#__codelineno-6-78"></a><span class="w">      </span><span class="p">}),</span>
-</span><span id="__span-6-79"><a id="__codelineno-6-79" name="__codelineno-6-79" href="#__codelineno-6-79"></a><span class="w">    </span><span class="p">),</span>
-</span><span id="__span-6-80"><a id="__codelineno-6-80" name="__codelineno-6-80" href="#__codelineno-6-80"></a><span class="w">  </span><span class="p">}),</span>
-</span><span id="__span-6-81"><a id="__codelineno-6-81" name="__codelineno-6-81" href="#__codelineno-6-81"></a><span class="w">  </span><span class="nx">assets</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmVersionedAssets</span><span class="p">.</span><span class="nx">V3</span><span class="p">([</span>
-</span><span id="__span-6-82"><a id="__codelineno-6-82" name="__codelineno-6-82" href="#__codelineno-6-82"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-6-83"><a id="__codelineno-6-83" name="__codelineno-6-83" href="#__codelineno-6-83"></a><span class="w">      </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetAssetId</span><span class="p">.</span><span class="nx">Concrete</span><span class="p">({</span>
-</span><span id="__span-6-84"><a id="__codelineno-6-84" name="__codelineno-6-84" href="#__codelineno-6-84"></a><span class="w">        </span><span class="nx">parents</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-</span><span id="__span-6-85"><a id="__codelineno-6-85" name="__codelineno-6-85" href="#__codelineno-6-85"></a><span class="w">        </span><span class="nx">interior</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3Junctions</span><span class="p">.</span><span class="nx">Here</span><span class="p">(),</span><span class="w"> </span><span class="c1">// Asset from the sender&#39;s location</span>
-</span><span id="__span-6-86"><a id="__codelineno-6-86" name="__codelineno-6-86" href="#__codelineno-6-86"></a><span class="w">      </span><span class="p">}),</span>
-</span><span id="__span-6-87"><a id="__codelineno-6-87" name="__codelineno-6-87" href="#__codelineno-6-87"></a><span class="w">      </span><span class="nx">fun</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3MultiassetFungibility</span><span class="p">.</span><span class="nx">Fungible</span><span class="p">(</span><span class="mf">120000000000</span><span class="p">),</span><span class="w"> </span><span class="c1">// Asset amount to transfer</span>
-</span><span id="__span-6-88"><a id="__codelineno-6-88" name="__codelineno-6-88" href="#__codelineno-6-88"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-6-89"><a id="__codelineno-6-89" name="__codelineno-6-89" href="#__codelineno-6-89"></a><span class="w">  </span><span class="p">]),</span>
-</span><span id="__span-6-90"><a id="__codelineno-6-90" name="__codelineno-6-90" href="#__codelineno-6-90"></a><span class="w">  </span><span class="nx">fee_asset_item</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="c1">// Asset used to pay transaction fees</span>
-</span><span id="__span-6-91"><a id="__codelineno-6-91" name="__codelineno-6-91" href="#__codelineno-6-91"></a><span class="w">  </span><span class="nx">weight_limit</span><span class="o">:</span><span class="w"> </span><span class="nx">XcmV3WeightLimit</span><span class="p">.</span><span class="nx">Unlimited</span><span class="p">(),</span><span class="w"> </span><span class="c1">// No weight limit on transaction</span>
-</span><span id="__span-6-92"><a id="__codelineno-6-92" name="__codelineno-6-92" href="#__codelineno-6-92"></a><span class="p">});</span>
-</span><span id="__span-6-93"><a id="__codelineno-6-93" name="__codelineno-6-93" href="#__codelineno-6-93"></a>
-</span><span id="__span-6-94"><a id="__codelineno-6-94" name="__codelineno-6-94" href="#__codelineno-6-94"></a><span class="c1">// Sign and submit the transaction</span>
-</span><span id="__span-6-95"><a id="__codelineno-6-95" name="__codelineno-6-95" href="#__codelineno-6-95"></a><span class="nx">tx</span><span class="p">.</span><span class="nx">signSubmitAndWatch</span><span class="p">(</span><span class="nx">alice</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">({</span>
-</span><span id="__span-6-96"><a id="__codelineno-6-96" name="__codelineno-6-96" href="#__codelineno-6-96"></a><span class="w">  </span><span class="nx">next</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-97"><a id="__codelineno-6-97" name="__codelineno-6-97" href="#__codelineno-6-97"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;finalized&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-98"><a id="__codelineno-6-98" name="__codelineno-6-98" href="#__codelineno-6-98"></a><span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Transaction completed successfully&#39;</span><span class="p">);</span>
-</span><span id="__span-6-99"><a id="__codelineno-6-99" name="__codelineno-6-99" href="#__codelineno-6-99"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-6-100"><a id="__codelineno-6-100" name="__codelineno-6-100" href="#__codelineno-6-100"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-6-101"><a id="__codelineno-6-101" name="__codelineno-6-101" href="#__codelineno-6-101"></a><span class="w">  </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">,</span>
-</span><span id="__span-6-102"><a id="__codelineno-6-102" name="__codelineno-6-102" href="#__codelineno-6-102"></a><span class="w">  </span><span class="nx">complete</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-103"><a id="__codelineno-6-103" name="__codelineno-6-103" href="#__codelineno-6-103"></a><span class="w">    </span><span class="nx">polkadotClient</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span><span class="w"> </span><span class="c1">// Clean up after transaction</span>
-</span><span id="__span-6-104"><a id="__codelineno-6-104" name="__codelineno-6-104" href="#__codelineno-6-104"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-6-105"><a id="__codelineno-6-105" name="__codelineno-6-105" href="#__codelineno-6-105"></a><span class="p">});</span>
-</span><span id="__span-6-106"><a id="__codelineno-6-106" name="__codelineno-6-106" href="#__codelineno-6-106"></a>
-</span><span id="__span-6-107"><a id="__codelineno-6-107" name="__codelineno-6-107" href="#__codelineno-6-107"></a><span class="c1">// Wait for transaction to complete</span>
-</span><span id="__span-6-108"><a id="__codelineno-6-108" name="__codelineno-6-108" href="#__codelineno-6-108"></a><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">20000</span><span class="p">));</span>
-</span><span id="__span-6-109"><a id="__codelineno-6-109" name="__codelineno-6-109" href="#__codelineno-6-109"></a>
-</span><span id="__span-6-110"><a id="__codelineno-6-110" name="__codelineno-6-110" href="#__codelineno-6-110"></a><span class="c1">// Fetch asset balance of recipient (Dave) after transaction</span>
-</span><span id="__span-6-111"><a id="__codelineno-6-111" name="__codelineno-6-111" href="#__codelineno-6-111"></a><span class="nx">assetMetadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">astarApi</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">Assets</span><span class="p">.</span><span class="nx">Account</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span>
-</span><span id="__span-6-112"><a id="__codelineno-6-112" name="__codelineno-6-112" href="#__codelineno-6-112"></a><span class="w">  </span><span class="nx">polkadotAssetId</span><span class="p">,</span>
-</span><span id="__span-6-113"><a id="__codelineno-6-113" name="__codelineno-6-113" href="#__codelineno-6-113"></a><span class="w">  </span><span class="nx">daveAddress</span><span class="p">,</span>
-</span><span id="__span-6-114"><a id="__codelineno-6-114" name="__codelineno-6-114" href="#__codelineno-6-114"></a><span class="p">);</span>
-</span><span id="__span-6-115"><a id="__codelineno-6-115" name="__codelineno-6-115" href="#__codelineno-6-115"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Asset balance after tx:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">assetMetadata</span><span class="o">?</span><span class="p">.</span><span class="nx">balance</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
-</span><span id="__span-6-116"><a id="__codelineno-6-116" name="__codelineno-6-116" href="#__codelineno-6-116"></a>
-</span><span id="__span-6-117"><a id="__codelineno-6-117" name="__codelineno-6-117" href="#__codelineno-6-117"></a><span class="c1">// Exit the process</span>
-</span><span id="__span-6-118"><a id="__codelineno-6-118" name="__codelineno-6-118" href="#__codelineno-6-118"></a><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/tutorials/interoperability/xcm-transfers/from-relaychain-to-parachain/reserve-backed-transfer.js&#39;</span>
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -5277,12 +5177,7 @@ After executing this command, the relay chain and parachain will expose the foll
 </li>
 <li>
 <p>Check the terminal output. If the operation is successful, you should see the following message:</p>
-<p><div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>node index.js</span>
-  <span data-ty> Asset balance before tx: 0</span>
-  <span data-ty> Transaction completed successfully</span>
-  <span data-ty> Asset balance after tx: 119999114907n</span>
-</div></p>
+<p>--8&lt;-- 'code/tutorials/interoperability/xcm-transfers/from-relaychain-to-parachain/output.html'</p>
 </li>
 </ol>
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
@@ -5291,12 +5186,12 @@ After executing this command, the relay chain and parachain will expose the foll
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

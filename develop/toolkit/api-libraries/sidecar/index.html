@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3174,7 +3191,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3185,7 +3202,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5042,65 +5059,16 @@
 </li>
 </ul>
 <p>Once the Sidecar API is running, you’ll see output similar to this:</p>
-<div id="termynal" data-termynal>
-    <span data-ty='input'><span class='file-path'></span>SAS_SUBSTRATE_URL=wss://polkadot-asset-hub-rpc.polkadot.io substrate-api-sidecar</span>
-    <br>
-    <span data-ty>SAS:</span>
-    <span data-ty>📦 LOG:</span>
-    <span data-ty>   ✅ LEVEL: "info"</span>
-    <span data-ty>   ✅ JSON: false</span>
-    <span data-ty>   ✅ FILTER_RPC: false</span>
-    <span data-ty>   ✅ STRIP_ANSI: false</span>
-    <span data-ty>   ✅ WRITE: false</span>
-    <span data-ty>   ✅ WRITE_PATH: "/opt/homebrew/lib/node_modules/@substrate/api-sidecar/build/src/logs"</span>
-    <span data-ty>   ✅ WRITE_MAX_FILE_SIZE: 5242880</span>
-    <span data-ty>   ✅ WRITE_MAX_FILES: 5</span>
-    <span data-ty>📦 SUBSTRATE:</span>
-    <span data-ty>   ✅ URL: "wss://polkadot-asset-hub-rpc.polkadot.io"</span>
-    <span data-ty>   ✅ TYPES_BUNDLE: undefined</span>
-    <span data-ty>   ✅ TYPES_CHAIN: undefined</span>
-    <span data-ty>   ✅ TYPES_SPEC: undefined</span>
-    <span data-ty>   ✅ TYPES: undefined</span>
-    <span data-ty>   ✅ CACHE_CAPACITY: undefined</span>
-    <span data-ty>📦 EXPRESS:</span>
-    <span data-ty>   ✅ BIND_HOST: "127.0.0.1"</span>
-    <span data-ty>   ✅ PORT: 8080</span>
-    <span data-ty>   ✅ KEEP_ALIVE_TIMEOUT: 5000</span>
-    <span data-ty>📦 METRICS:</span>
-    <span data-ty>   ✅ ENABLED: false</span>
-    <span data-ty>   ✅ PROM_HOST: "127.0.0.1"</span>
-    <span data-ty>   ✅ PROM_PORT: 9100</span>
-    <span data-ty>   ✅ LOKI_HOST: "127.0.0.1"</span>
-    <span data-ty>   ✅ LOKI_PORT: 3100</span>
-    <span data-ty>   ✅ INCLUDE_QUERYPARAMS: false</span>
-    <br>
-    <span data-ty>2024-11-06 08:06:01 info: Version: 19.3.0</span>
-    <span data-ty>2024-11-06 08:06:02 warn: API/INIT: RPC methods not decorated: chainHead_v1_body, chainHead_v1_call, chainHead_v1_continue, chainHead_v1_follow, chainHead_v1_header, chainHead_v1_stopOperation, chainHead_v1_storage, chainHead_v1_unfollow, chainHead_v1_unpin, chainSpec_v1_chainName, chainSpec_v1_genesisHash, chainSpec_v1_properties, transactionWatch_v1_submitAndWatch, transactionWatch_v1_unwatch, transaction_v1_broadcast, transaction_v1_stop</span>
-    <span data-ty>2024-11-06 08:06:02 info: Connected to chain Polkadot Asset Hub on the statemint client at wss://polkadot-asset-hub-rpc.polkadot.io</span>
-    <span data-ty>2024-11-06 08:06:02 info: Listening on http://127.0.0.1:8080/</span>
-    <span data-ty>2024-11-06 08:06:02 info: Check the root endpoint (http://127.0.0.1:8080/) to see the available endpoints for the current node</span>
-</div>
-
+<p>--8&lt;-- 'code/develop/toolkit/api-libraries/sidecar/terminal-output.md'</p>
 <p>With Sidecar running, you can access the exposed endpoints via a browser, <a href="https://www.postman.com/" target="_blank"><code>Postman</code></a>, <a href="https://curl.se/" target="_blank"><code>curl</code></a>, or your preferred tool.</p>
 <h3 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Permanent link">&para;</a></h3>
 <p>Sidecar API provides a set of REST endpoints that allow you to query different aspects of the chain, including blocks, accounts, and transactions. Each endpoint offers specific insights into the chain’s state and activities.</p>
 <p>For example, to retrieve the version of the node, use the <code>/node/version</code> endpoint:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="s1">&#39;http://127.0.0.1:8080/node/version&#39;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>--8&lt;--<span class="w"> </span><span class="s1">&#39;code/develop/toolkit/api-libraries/sidecar/get-node-version.md&#39;</span>
 </span></code></pre></div>
 <p>Alternatively, you can access <code>http://127.0.0.1:8080/node/version</code> directly in a browser since it’s a <code>GET</code> request.</p>
 <p>In response, you’ll see output similar to this (assuming you’re connected to Polkadot Asset Hub):</p>
-<div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>curl -X 'GET' 'http://127.0.0.1:8080/node/version' -H 'accept: application/json'</span>
-    <br>
-    <span data-ty>{</span>
-    <span data-ty>    "clientVersion": "1.16.1-835e0767fe8",</span>
-    <span data-ty>    "clientImplName": "statemint",</span>
-    <span data-ty>    "chain": "Polkadot Asset Hub"</span>
-    <span data-ty>}</span>
-</div>
-
+<p>--8&lt;-- 'code/develop/toolkit/api-libraries/sidecar/asset-hub-node-version-response.md'</p>
 <p>For a complete list of available endpoints and their documentation, visit the <a href="https://paritytech.github.io/substrate-api-sidecar/dist/" target="_blank">Sidecar API list endpoints</a>. You can learn about the endpoints and how to use them in your applications.</p>
 <h2 id="where-to-go-next">Where to Go Next<a class="headerlink" href="#where-to-go-next" title="Permanent link">&para;</a></h2>
 <p>To dive deeper, refer to the <a href="https://github.com/paritytech/substrate-api-sidecar?tab=readme-ov-file#substrateapi-sidecar" target="_blank">official Sidecar documentation</a>. This provides a comprehensive guide to the available configurations and advanced usage.</p>
@@ -5108,12 +5076,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

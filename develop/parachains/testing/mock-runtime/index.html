@@ -1033,6 +1033,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -1096,6 +1099,20 @@
     <li class="md-nav__item">
       <a href="../../deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3174,7 +3191,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3185,7 +3202,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -4997,120 +5014,26 @@
 <h3 id="testing-module">Testing Module<a class="headerlink" href="#testing-module" title="Permanent link">&para;</a></h3>
 <p>The mock runtime includes all the necessary pallets and configurations needed for testing. To ensure proper testing, you must create a module that integrates all components, enabling assessment of interactions between pallets and system elements.</p>
 <p>Here's a simple example of how to create a testing module that simulates these interactions:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">crate</span>::<span class="o">*</span><span class="p">;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="c1">// ...</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">mock</span><span class="o">-</span><span class="n">runtime</span><span class="o">/</span><span class="n">integration</span><span class="o">-</span><span class="n">testing</span><span class="o">-</span><span class="n">module</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>The <code>crate::*;</code> snippet imports all the components from your crate (including runtime configurations, pallet modules, and utility functions) into the <code>tests</code> module. This allows you to write tests without manually importing each piece, making the code more concise and readable. You can opt to instead create a separate <code>mock.rs</code> file to define the configuration for your mock runtime and a companion <code>tests.rs</code> file to house the specific logic for each test.</p>
 <p>Once the testing module is configured, you can craft your mock runtime using the <a href="https://paritytech.github.io/polkadot-sdk/master/frame_support/attr.runtime.html" target="_blank"><code>frame_support::runtime</code></a> macro. This macro allows you to define a runtime environment that will be created for testing purposes:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">crate</span>::<span class="o">*</span><span class="p">;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="cp">#[frame_support::runtime]</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">mod</span> <span class="nn">runtime</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="cp">#[runtime::runtime]</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="cp">#[runtime::derive(</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="cp">            RuntimeCall,</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="cp">            RuntimeEvent,</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="cp">            RuntimeError,</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="cp">            RuntimeOrigin,</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="cp">            RuntimeFreezeReason,</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="cp">            RuntimeHoldReason,</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="cp">            RuntimeSlashReason,</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="cp">            RuntimeLockId,</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="cp">            RuntimeTask</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="cp">        )]</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Test</span><span class="p">;</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">        </span><span class="cp">#[runtime::pallet_index(0)]</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">type</span> <span class="nc">System</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">Pallet</span><span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="c1">// Other pallets...</span>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">mock</span><span class="o">-</span><span class="n">runtime</span><span class="o">/</span><span class="n">mock</span><span class="o">-</span><span class="n">runtime</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h3 id="genesis-storage">Genesis Storage<a class="headerlink" href="#genesis-storage" title="Permanent link">&para;</a></h3>
 <p>The next step is configuring the genesis storage—the initial state of your runtime. Genesis storage sets the starting conditions for the runtime, defining how pallets are configured before any blocks are produced. You can only customize the initial state only of those items that implement the <a href="https://paritytech.github.io/polkadot-sdk/master/frame_support/pallet_macros/attr.genesis_config.html" target="_blank"><code>[pallet::genesis_config]</code></a> and <a href="https://paritytech.github.io/polkadot-sdk/master/frame_support/pallet_macros/attr.genesis_build.html" target="_blank"><code>[pallet::genesis_build]</code></a> macros within their respective pallets.</p>
 <p>In Polkadot SDK, you can create this storage using the <a href="https://paritytech.github.io/polkadot-sdk/master/sp_runtime/trait.BuildStorage.html" target="_blank"><code>BuildStorage</code></a> trait from the <a href="https://paritytech.github.io/polkadot-sdk/master/sp_runtime" target="_blank"><code>sp_runtime</code></a> crate. This trait is essential for building the configuration that initializes the blockchain's state. </p>
 <p>The function <code>new_test_ext()</code> demonstrates setting up this environment. It uses <code>frame_system::GenesisConfig::&lt;Test&gt;::default()</code> to generate a default genesis configuration for the runtime, followed by <code>.build_storage()</code> to create the initial storage state. This storage is then converted into a format usable by the testing framework, <a href="https://paritytech.github.io/polkadot-sdk/master/sp_io/type.TestExternalities.html" target="_blank"><code>sp_io::TestExternalities</code></a>, allowing tests to be executed in a simulated blockchain environment.</p>
 <p>Here's the code that sets the genesis storage configuration:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">crate</span>::<span class="o">*</span><span class="p">;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">sp_runtime</span>::<span class="n">BuildStorage</span><span class="p">;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="cp">#[frame_support::runtime]</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">mod</span> <span class="nn">runtime</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="cp">#[runtime::runtime]</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="cp">#[runtime::derive(</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="cp">            RuntimeCall,</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="cp">            RuntimeEvent,</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="cp">            RuntimeError,</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="cp">            RuntimeOrigin,</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="cp">            RuntimeFreezeReason,</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="cp">            RuntimeHoldReason,</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="cp">            RuntimeSlashReason,</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="cp">            RuntimeLockId,</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="cp">            RuntimeTask</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="cp">        )]</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Test</span><span class="p">;</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">        </span><span class="cp">#[runtime::pallet_index(0)]</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">type</span> <span class="nc">System</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">Pallet</span><span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="c1">// Other pallets...</span>
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">new_test_ext</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nc">sp_io</span>::<span class="n">TestExternalities</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="n">frame_system</span>::<span class="n">GenesisConfig</span>::<span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span>::<span class="n">default</span><span class="p">()</span>
-</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">            </span><span class="p">.</span><span class="n">build_storage</span><span class="p">()</span>
-</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">            </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span>
-</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">            </span><span class="p">.</span><span class="n">into</span><span class="p">()</span>
-</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">mock</span><span class="o">-</span><span class="n">runtime</span><span class="o">/</span><span class="n">genesis</span><span class="o">-</span><span class="n">config</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>You can also customize the genesis storage to set initial values for your runtime pallets. For example, you can set the initial balance for accounts like this:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Build genesis storage according to the runtime&#39;s configuration</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">new_test_ext</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nc">sp_io</span>::<span class="n">TestExternalities</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Define the initial balances for accounts</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">initial_balances</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="p">(</span><span class="n">AccountId32</span><span class="p">,</span><span class="w"> </span><span class="kt">u128</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="p">(</span><span class="n">AccountId32</span>::<span class="n">from</span><span class="p">([</span><span class="mi">0</span><span class="k">u8</span><span class="p">;</span><span class="w"> </span><span class="mi">32</span><span class="p">]),</span><span class="w"> </span><span class="mi">1_000_000_000_000</span><span class="p">),</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="p">(</span><span class="n">AccountId32</span>::<span class="n">from</span><span class="p">([</span><span class="mi">1</span><span class="k">u8</span><span class="p">;</span><span class="w"> </span><span class="mi">32</span><span class="p">]),</span><span class="w"> </span><span class="mi">2_000_000_000_000</span><span class="p">),</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">];</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">GenesisConfig</span>::<span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span>::<span class="n">default</span><span class="p">()</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="p">.</span><span class="n">build_storage</span><span class="p">()</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="c1">// Adding balances configuration to the genesis config</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="n">pallet_balances</span>::<span class="n">GenesisConfig</span>::<span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="n">balances</span>: <span class="nc">initial_balances</span><span class="p">,</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">.</span><span class="n">assimilate_storage</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="n">into</span><span class="p">()</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">mock</span><span class="o">-</span><span class="n">runtime</span><span class="o">/</span><span class="n">genesis</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">custom</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>For a more idiomatic approach, see the <a href="https://paritytech.github.io/polkadot-sdk/master/polkadot_sdk_docs/guides/your_first_pallet/index.html#better-test-setup" target="_blank">Your First Pallet</a> guide from the Polkadot SDK Rust documentation.</p>
 <h3 id="pallet-configuration">Pallet Configuration<a class="headerlink" href="#pallet-configuration" title="Permanent link">&para;</a></h3>
 <p>Each pallet in the mocked runtime requires an associated configuration, specifying the types and values it depends on to function. These configurations often use basic or primitive types (e.g., u32, bool) instead of more complex types like structs or traits, ensuring the setup remains straightforward and manageable.</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#[derive_impl(frame_system::config_preludes::TestDefaultConfig)]</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">impl</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">Config</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Test</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="o">..</span><span class="p">.</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">type</span> <span class="nc">Index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">u64</span><span class="p">;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">type</span> <span class="nc">BlockNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">u64</span><span class="p">;</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">type</span> <span class="nc">Hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H256</span><span class="p">;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="k">type</span> <span class="nc">Hashing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BlakeTwo256</span><span class="p">;</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="k">type</span> <span class="nc">AccountId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">u64</span><span class="p">;</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="o">..</span><span class="p">.</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">}</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="k">impl</span><span class="w"> </span><span class="n">pallet_template</span>::<span class="n">Config</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Test</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="k">type</span> <span class="nc">RuntimeEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RuntimeEvent</span><span class="p">;</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="k">type</span> <span class="nc">WeightInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">();</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="o">..</span><span class="p">.</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">mock</span><span class="o">-</span><span class="n">runtime</span><span class="o">/</span><span class="n">pallets</span><span class="o">-</span><span class="n">configurations</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>The configuration should be set for each pallet existing in the mocked runtime. The simplification of types is for simplifying the testing process. For example, <code>AccountId</code> is <code>u64</code>, meaning a valid account address can be an unsigned integer:</p>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">alice_account</span>: <span class="kt">u64</span> <span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -5131,12 +5054,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../../../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3400,7 +3417,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3411,7 +3428,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5665,25 +5682,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TOML</label><label for="__tabbed_2_2">JSON</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-toml highlight"><span class="filename">base-example.toml</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">[settings]</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">bootnode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;kubernetes&quot;</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">backchannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="c1"># ...</span>
+<div class="language-toml highlight"><span class="filename">base-example.toml</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/parachains/spawn-chains/zombienet/get-started/base-example.toml&#39;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-json highlight"><span class="filename">base-example.json</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">        </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">        </span><span class="nt">&quot;bootnode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">        </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kubernetes&quot;</span><span class="p">,</span>
-</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">        </span><span class="nt">&quot;backchannel&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">        </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="p">}</span>
+<div class="language-json highlight"><span class="filename">base-example.json</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="mi">--8</span><span class="err">&lt;</span><span class="mi">--</span><span class="w"> </span><span class="err">&#39;code/develop/</span><span class="kc">t</span><span class="err">oolki</span><span class="kc">t</span><span class="err">/parachai</span><span class="kc">ns</span><span class="err">/spaw</span><span class="kc">n</span><span class="mi">-</span><span class="err">chai</span><span class="kc">ns</span><span class="err">/zombie</span><span class="kc">net</span><span class="err">/ge</span><span class="kc">t</span><span class="mi">-</span><span class="err">s</span><span class="kc">tarte</span><span class="err">d/base</span><span class="mf">-e</span><span class="err">xample.jso</span><span class="kc">n</span><span class="err">&#39;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -5852,47 +5855,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">TOML</label><label for="__tabbed_3_2">JSON</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-toml highlight"><span class="filename">relaychain-example-nodes.toml</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="k">[relaychain]</span>
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="n">default_command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;polkadot&quot;</span>
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="n">default_image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;polkadot-debug:master&quot;</span>
-</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="n">chain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rococo-local&quot;</span>
-</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="n">chain_spec_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_CHAIN_SPEC&quot;</span>
-</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="n">default_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--chain&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rococo-local&quot;</span><span class="p">]</span>
-</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>
-</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="k">[[relaychain.nodes]]</span>
-</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span>
-</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="n">validator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000000000</span>
-</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>
-</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="k">[[relaychain.nodes]]</span>
-</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bob&quot;</span>
-</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="n">validator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000000000</span>
-</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a><span class="c1"># ...</span>
+<div class="language-toml highlight"><span class="filename">relaychain-example-nodes.toml</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/parachains/spawn-chains/zombienet/get-started/relaychain-example-nodes.toml&#39;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-json highlight"><span class="filename">relaychain-example-nodes.json</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p">{</span>
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">    </span><span class="nt">&quot;relaychain&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">        </span><span class="nt">&quot;default_command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polkadot&quot;</span><span class="p">,</span>
-</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">        </span><span class="nt">&quot;default_image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polkadot-debug:master&quot;</span><span class="p">,</span>
-</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">        </span><span class="nt">&quot;chain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rococo-local&quot;</span><span class="p">,</span>
-</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">        </span><span class="nt">&quot;chain_spec_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_CHAIN-SPEC.JSON&quot;</span><span class="p">,</span>
-</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">        </span><span class="nt">&quot;default_args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--chain&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rococo-local&quot;</span><span class="p">],</span>
-</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="w">        </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="w">            </span><span class="p">{</span>
-</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span><span class="p">,</span>
-</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">                </span><span class="nt">&quot;validator&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="w">                </span><span class="nt">&quot;balance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000000000000</span>
-</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="w">            </span><span class="p">},</span>
-</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a><span class="w">            </span><span class="p">{</span>
-</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bob&quot;</span><span class="p">,</span>
-</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a><span class="w">                </span><span class="nt">&quot;validator&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a><span class="w">                </span><span class="nt">&quot;balance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000000000000</span>
-</span><span id="__span-30-18"><a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a><span class="w">            </span><span class="p">}</span>
-</span><span id="__span-30-19"><a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a><span class="w">        </span><span class="p">]</span>
-</span><span id="__span-30-20"><a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-30-21"><a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a><span class="p">}</span>
+<div class="language-json highlight"><span class="filename">relaychain-example-nodes.json</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="mi">--8</span><span class="err">&lt;</span><span class="mi">--</span><span class="w"> </span><span class="err">&#39;code/develop/</span><span class="kc">t</span><span class="err">oolki</span><span class="kc">t</span><span class="err">/parachai</span><span class="kc">ns</span><span class="err">/spaw</span><span class="kc">n</span><span class="mi">-</span><span class="err">chai</span><span class="kc">ns</span><span class="err">/zombie</span><span class="kc">net</span><span class="err">/ge</span><span class="kc">t</span><span class="mi">-</span><span class="err">s</span><span class="kc">tarte</span><span class="err">d/relaychai</span><span class="kc">n</span><span class="mf">-e</span><span class="err">xample</span><span class="mi">-</span><span class="kc">n</span><span class="err">odes.jso</span><span class="kc">n</span><span class="err">&#39;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -5983,43 +5950,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">TOML</label><label for="__tabbed_4_2">JSON</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-toml highlight"><span class="filename">relaychain-example-node-groups.toml</span><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="k">[relaychain]</span>
-</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="n">default_command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;polkadot&quot;</span>
-</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="n">default_image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;polkadot-debug:master&quot;</span>
-</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="n">chain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rococo-local&quot;</span>
-</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="n">chain_spec_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_CHAIN_SPEC&quot;</span>
-</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="n">default_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--chain&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rococo-local&quot;</span><span class="p">]</span>
-</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>
-</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="k">[[relaychain.node_groups]]</span>
-</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;group-1&quot;</span>
-</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
-</span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a><span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;polkadot-debug:master&quot;</span>
-</span><span id="__span-36-12"><a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;polkadot&quot;</span>
-</span><span id="__span-36-13"><a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a><span class="n">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--chain&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rococo-local&quot;</span><span class="p">]</span>
-</span><span id="__span-36-14"><a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a><span class="c1"># ...</span>
+<div class="language-toml highlight"><span class="filename">relaychain-example-node-groups.toml</span><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/parachains/spawn-chains/zombienet/get-started/relaychain-example-node-groups.toml&#39;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-json highlight"><span class="filename">relaychain-example-node-groups.json</span><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">{</span>
-</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">    </span><span class="nt">&quot;relaychain&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">        </span><span class="nt">&quot;default_command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polkadot&quot;</span><span class="p">,</span>
-</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">        </span><span class="nt">&quot;default_image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polkadot-debug:master&quot;</span><span class="p">,</span>
-</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">        </span><span class="nt">&quot;chain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rococo-local&quot;</span><span class="p">,</span>
-</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">        </span><span class="nt">&quot;chain_spec_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_CHAIN-SPEC.JSON&quot;</span><span class="p">,</span>
-</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="w">        </span><span class="nt">&quot;default_args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--chain&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rococo-local&quot;</span><span class="p">],</span>
-</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="w">        </span><span class="nt">&quot;node_groups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a><span class="w">            </span><span class="p">{</span>
-</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;group-1&quot;</span><span class="p">,</span>
-</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a><span class="w">                </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a><span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polkadot-debug:master&quot;</span><span class="p">,</span>
-</span><span id="__span-37-13"><a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a><span class="w">                </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polkadot&quot;</span><span class="p">,</span>
-</span><span id="__span-37-14"><a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a><span class="w">                </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--chain&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rococo-local&quot;</span><span class="p">]</span>
-</span><span id="__span-37-15"><a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a><span class="w">            </span><span class="p">}</span>
-</span><span id="__span-37-16"><a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a><span class="w">        </span><span class="p">],</span>
-</span><span id="__span-37-17"><a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a><span class="w">        </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-37-18"><a id="__codelineno-37-18" name="__codelineno-37-18" href="#__codelineno-37-18"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-37-19"><a id="__codelineno-37-19" name="__codelineno-37-19" href="#__codelineno-37-19"></a><span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-37-20"><a id="__codelineno-37-20" name="__codelineno-37-20" href="#__codelineno-37-20"></a><span class="p">}</span>
+<div class="language-json highlight"><span class="filename">relaychain-example-node-groups.json</span><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="mi">--8</span><span class="err">&lt;</span><span class="mi">--</span><span class="w"> </span><span class="err">&#39;code/develop/</span><span class="kc">t</span><span class="err">oolki</span><span class="kc">t</span><span class="err">/parachai</span><span class="kc">ns</span><span class="err">/spaw</span><span class="kc">n</span><span class="mi">-</span><span class="err">chai</span><span class="kc">ns</span><span class="err">/zombie</span><span class="kc">net</span><span class="err">/ge</span><span class="kc">t</span><span class="mi">-</span><span class="err">s</span><span class="kc">tarte</span><span class="err">d/relaychai</span><span class="kc">n</span><span class="mf">-e</span><span class="err">xample</span><span class="mi">-</span><span class="kc">n</span><span class="err">ode</span><span class="mi">-</span><span class="err">groups.jso</span><span class="kc">n</span><span class="err">&#39;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -6065,27 +6000,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">TOML</label><label for="__tabbed_5_2">JSON</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-toml highlight"><span class="filename">parachain-example.toml</span><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="k">[parachain]</span>
-</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
-</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="n">add_to_genesis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="n">cumulus_based</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="n">genesis_wasm_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_WASM&quot;</span>
-</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="n">genesis_state_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_STATE&quot;</span>
-</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="c1"># ...</span>
+<div class="language-toml highlight"><span class="filename">parachain-example.toml</span><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/parachains/spawn-chains/zombienet/get-started/parachain-example.toml&#39;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-json highlight"><span class="filename">parachain-example.json</span><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="p">{</span>
-</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">    </span><span class="nt">&quot;parachain&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
-</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">        </span><span class="nt">&quot;add_to_genesis&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">        </span><span class="nt">&quot;cumulus_based&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="w">        </span><span class="nt">&quot;genesis_wasm_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_WASM&quot;</span><span class="p">,</span>
-</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="w">        </span><span class="nt">&quot;genesis_state_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_STATE&quot;</span><span class="p">,</span>
-</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="w">        </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-40-10"><a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a><span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-40-11"><a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a><span class="p">}</span>
+<div class="language-json highlight"><span class="filename">parachain-example.json</span><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="mi">--8</span><span class="err">&lt;</span><span class="mi">--</span><span class="w"> </span><span class="err">&#39;code/develop/</span><span class="kc">t</span><span class="err">oolki</span><span class="kc">t</span><span class="err">/parachai</span><span class="kc">ns</span><span class="err">/spaw</span><span class="kc">n</span><span class="mi">-</span><span class="err">chai</span><span class="kc">ns</span><span class="err">/zombie</span><span class="kc">net</span><span class="err">/ge</span><span class="kc">t</span><span class="mi">-</span><span class="err">s</span><span class="kc">tarte</span><span class="err">d/parachai</span><span class="kc">n</span><span class="mf">-e</span><span class="err">xample.jso</span><span class="kc">n</span><span class="err">&#39;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -6188,39 +6107,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">TOML</label><label for="__tabbed_6_2">JSON</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-toml highlight"><span class="filename">collator-example.toml</span><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="k">[parachain]</span>
-</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
-</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="n">add_to_genesis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="n">cumulus_based</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="n">genesis_wasm_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_WASM&quot;</span>
-</span><span id="__span-46-6"><a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="n">genesis_state_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_STATE&quot;</span>
-</span><span id="__span-46-7"><a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>
-</span><span id="__span-46-8"><a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a><span class="k">[[parachain.collators]]</span>
-</span><span id="__span-46-9"><a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span>
-</span><span id="__span-46-10"><a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a><span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;polkadot-parachain&quot;</span>
-</span><span id="__span-46-11"><a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;polkadot-parachain&quot;</span>
-</span><span id="__span-46-12"><a id="__codelineno-46-12" name="__codelineno-46-12" href="#__codelineno-46-12"></a><span class="c1"># ...</span>
+<div class="language-toml highlight"><span class="filename">collator-example.toml</span><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/parachains/spawn-chains/zombienet/get-started/collator-example.toml&#39;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-json highlight"><span class="filename">collator-example.json</span><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="p">{</span>
-</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">    </span><span class="nt">&quot;parachain&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
-</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">        </span><span class="nt">&quot;add_to_genesis&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">        </span><span class="nt">&quot;cumulus_based&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="w">        </span><span class="nt">&quot;genesis_wasm_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_WASM&quot;</span><span class="p">,</span>
-</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="w">        </span><span class="nt">&quot;genesis_state_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_STATE&quot;</span><span class="p">,</span>
-</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="w">        </span><span class="nt">&quot;collators&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">            </span><span class="p">{</span>
-</span><span id="__span-47-10"><a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span><span class="p">,</span>
-</span><span id="__span-47-11"><a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polkadot-parachain&quot;</span><span class="p">,</span>
-</span><span id="__span-47-12"><a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="w">                </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polkadot-parachain&quot;</span><span class="p">,</span>
-</span><span id="__span-47-13"><a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a><span class="w">                </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-47-14"><a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a><span class="w">            </span><span class="p">}</span>
-</span><span id="__span-47-15"><a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a><span class="w">        </span><span class="p">]</span>
-</span><span id="__span-47-16"><a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-47-17"><a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a><span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-47-18"><a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a><span class="p">}</span>
+<div class="language-json highlight"><span class="filename">collator-example.json</span><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="mi">--8</span><span class="err">&lt;</span><span class="mi">--</span><span class="w"> </span><span class="err">&#39;code/develop/</span><span class="kc">t</span><span class="err">oolki</span><span class="kc">t</span><span class="err">/parachai</span><span class="kc">ns</span><span class="err">/spaw</span><span class="kc">n</span><span class="mi">-</span><span class="err">chai</span><span class="kc">ns</span><span class="err">/zombie</span><span class="kc">net</span><span class="err">/ge</span><span class="kc">t</span><span class="mi">-</span><span class="err">s</span><span class="kc">tarte</span><span class="err">d/colla</span><span class="kc">t</span><span class="err">or</span><span class="mf">-e</span><span class="err">xample.jso</span><span class="kc">n</span><span class="err">&#39;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -6311,41 +6202,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">TOML</label><label for="__tabbed_7_2">JSON</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-toml highlight"><span class="filename">collator-groups-example.toml</span><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="k">[parachain]</span>
-</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
-</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="n">add_to_genesis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="n">cumulus_based</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="n">genesis_wasm_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_WASM&quot;</span>
-</span><span id="__span-53-6"><a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="n">genesis_state_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_STATE&quot;</span>
-</span><span id="__span-53-7"><a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>
-</span><span id="__span-53-8"><a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a><span class="k">[[parachain.collator_groups]]</span>
-</span><span id="__span-53-9"><a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;group-1&quot;</span>
-</span><span id="__span-53-10"><a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
-</span><span id="__span-53-11"><a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a><span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;polkadot-parachain&quot;</span>
-</span><span id="__span-53-12"><a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;polkadot-parachain&quot;</span>
-</span><span id="__span-53-13"><a id="__codelineno-53-13" name="__codelineno-53-13" href="#__codelineno-53-13"></a><span class="c1"># ...</span>
+<div class="language-toml highlight"><span class="filename">collator-groups-example.toml</span><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/parachains/spawn-chains/zombienet/get-started/collator-groups-example.toml&#39;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-json highlight"><span class="filename">collator-groups-example.json</span><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="p">{</span>
-</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">    </span><span class="nt">&quot;parachain&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
-</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">        </span><span class="nt">&quot;add_to_genesis&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="w">        </span><span class="nt">&quot;cumulus_based&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="w">        </span><span class="nt">&quot;genesis_wasm_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_WASM&quot;</span><span class="p">,</span>
-</span><span id="__span-54-7"><a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="w">        </span><span class="nt">&quot;genesis_state_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSERT_PATH_TO_STATE&quot;</span><span class="p">,</span>
-</span><span id="__span-54-8"><a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a><span class="w">        </span><span class="nt">&quot;collator_groups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-54-9"><a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a><span class="w">            </span><span class="p">{</span>
-</span><span id="__span-54-10"><a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;group-1&quot;</span><span class="p">,</span>
-</span><span id="__span-54-11"><a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a><span class="w">                </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-</span><span id="__span-54-12"><a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a><span class="w">                </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polkadot-parachain&quot;</span><span class="p">,</span>
-</span><span id="__span-54-13"><a id="__codelineno-54-13" name="__codelineno-54-13" href="#__codelineno-54-13"></a><span class="w">                </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polkadot-parachain&quot;</span><span class="p">,</span>
-</span><span id="__span-54-14"><a id="__codelineno-54-14" name="__codelineno-54-14" href="#__codelineno-54-14"></a><span class="w">                </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-54-15"><a id="__codelineno-54-15" name="__codelineno-54-15" href="#__codelineno-54-15"></a><span class="w">            </span><span class="p">}</span>
-</span><span id="__span-54-16"><a id="__codelineno-54-16" name="__codelineno-54-16" href="#__codelineno-54-16"></a><span class="w">        </span><span class="p">]</span>
-</span><span id="__span-54-17"><a id="__codelineno-54-17" name="__codelineno-54-17" href="#__codelineno-54-17"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-54-18"><a id="__codelineno-54-18" name="__codelineno-54-18" href="#__codelineno-54-18"></a><span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-54-19"><a id="__codelineno-54-19" name="__codelineno-54-19" href="#__codelineno-54-19"></a><span class="p">}</span>
+<div class="language-json highlight"><span class="filename">collator-groups-example.json</span><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="mi">--8</span><span class="err">&lt;</span><span class="mi">--</span><span class="w"> </span><span class="err">&#39;code/develop/</span><span class="kc">t</span><span class="err">oolki</span><span class="kc">t</span><span class="err">/parachai</span><span class="kc">ns</span><span class="err">/spaw</span><span class="kc">n</span><span class="mi">-</span><span class="err">chai</span><span class="kc">ns</span><span class="err">/zombie</span><span class="kc">net</span><span class="err">/ge</span><span class="kc">t</span><span class="mi">-</span><span class="err">s</span><span class="kc">tarte</span><span class="err">d/colla</span><span class="kc">t</span><span class="err">or</span><span class="mi">-</span><span class="err">groups</span><span class="mf">-e</span><span class="err">xample.jso</span><span class="kc">n</span><span class="err">&#39;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -6397,12 +6258,12 @@ Each of the <code>HrmpChannelsConfig</code> keys are defined as follows:</p>
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

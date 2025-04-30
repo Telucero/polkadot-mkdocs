@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3210,7 +3227,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3221,7 +3238,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5101,15 +5118,7 @@
 </li>
 </ul>
 <p>After adding the dependencies, your <code>Cargo.toml</code> should look like this:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[package]</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_project&quot;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">edition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2021&quot;</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">[dependencies]</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">subxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.41.0&quot;</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">subxt-signer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.41.0&quot;</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">tokio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;1.44.2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;rt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;macros&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/api-libraries/subxt/Cargo.toml&#39;</span>
 </span></code></pre></div>
 </li>
 </ol>
@@ -5121,9 +5130,7 @@
 </span></code></pre></div>
 <h3 id="generate-type-safe-interfaces">Generate Type-Safe Interfaces<a class="headerlink" href="#generate-type-safe-interfaces" title="Permanent link">&para;</a></h3>
 <p>Use the <code>#[subxt::subxt]</code> macro to generate a type-safe Rust interface from the downloaded metadata:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Generate an interface that we can use from the node&#39;s metadata.</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="cp">#[subxt::subxt(runtime_metadata_path = </span><span class="s">&quot;./polkadot_metadata.scale&quot;</span><span class="cp">)]</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">polkadot</span><span class="w"> </span><span class="p">{}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">toolkit</span><span class="o">/</span><span class="n">api</span><span class="o">-</span><span class="n">libraries</span><span class="o">/</span><span class="n">subxt</span><span class="o">/</span><span class="n">subxt</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">6</span>:<span class="mi">8</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>Once subxt interfaces are generated, you can interact with your node in the following ways. You can use the links below to view the related subxt documentation:</p>
 <ul>
@@ -5138,27 +5145,9 @@
 </ul>
 <h3 id="initialize-the-subxt-client">Initialize the Subxt Client<a class="headerlink" href="#initialize-the-subxt-client" title="Permanent link">&para;</a></h3>
 <p>To interact with a blockchain node using subxt, create an asynchronous main function and initialize the client. Replace <code>INSERT_NODE_URL</code> with the URL of your target node:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="kt">str</span>::<span class="n">FromStr</span><span class="p">;</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">use</span><span class="w"> </span><span class="n">subxt</span>::<span class="n">utils</span>::<span class="n">AccountId32</span><span class="p">;</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">use</span><span class="w"> </span><span class="n">subxt</span>::<span class="p">{</span><span class="n">OnlineClient</span><span class="p">,</span><span class="w"> </span><span class="n">PolkadotConfig</span><span class="p">};</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">use</span><span class="w"> </span><span class="n">subxt_signer</span>::<span class="p">{</span><span class="n">bip39</span>::<span class="n">Mnemonic</span><span class="p">,</span><span class="n">sr25519</span>::<span class="n">Keypair</span><span class="p">};</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1">// Generate an interface that we can use from the node&#39;s metadata.</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="cp">#[subxt::subxt(runtime_metadata_path = </span><span class="s">&quot;./polkadot_metadata.scale&quot;</span><span class="cp">)]</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">polkadot</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="cp">#[tokio::main(flavor = </span><span class="s">&quot;current_thread&quot;</span><span class="cp">)]</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="k">async</span><span class="w"> </span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="p">(),</span><span class="w"> </span><span class="nb">Box</span><span class="o">&lt;</span><span class="k">dyn</span><span class="w"> </span><span class="n">std</span>::<span class="n">error</span>::<span class="n">Error</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="c1">// Define the node URL.</span>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">NODE_URL</span>: <span class="kp">&amp;</span><span class="kt">str</span> <span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT_NODE_URL&quot;</span><span class="p">;</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="c1">// Initialize the Subxt client to interact with the blockchain.</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OnlineClient</span>::<span class="o">&lt;</span><span class="n">PolkadotConfig</span><span class="o">&gt;</span>::<span class="n">from_url</span><span class="p">(</span><span class="n">NODE_URL</span><span class="p">).</span><span class="k">await</span><span class="o">?</span><span class="p">;</span>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="c1">// Your code here...</span>
-</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
-</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="nb">Ok</span><span class="p">(())</span>
-</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">toolkit</span><span class="o">/</span><span class="n">api</span><span class="o">-</span><span class="n">libraries</span><span class="o">/</span><span class="n">subxt</span><span class="o">/</span><span class="n">subxt</span><span class="p">.</span><span class="n">rs</span>::<span class="mi">17</span><span class="o">&#39;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="c1">// Your code here...</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">toolkit</span><span class="o">/</span><span class="n">api</span><span class="o">-</span><span class="n">libraries</span><span class="o">/</span><span class="n">subxt</span><span class="o">/</span><span class="n">subxt</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">73</span>:<span class="mi">75</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h3 id="read-chain-data">Read Chain Data<a class="headerlink" href="#read-chain-data" title="Permanent link">&para;</a></h3>
 <p>subxt provides multiple ways to access on-chain data:</p>
@@ -5166,69 +5155,19 @@
 <li>
 <p><strong>Constants</strong> - constants are predefined values in the runtime that remain unchanged unless modified by a runtime upgrade</p>
 <p>For example, to retrieve the existential deposit, use:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// A query to obtain some constant.</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">constant_query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">polkadot</span>::<span class="n">constants</span><span class="p">().</span><span class="n">balances</span><span class="p">().</span><span class="n">existential_deposit</span><span class="p">();</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1">// Obtain the value.</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kd">let</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">api</span><span class="p">.</span><span class="n">constants</span><span class="p">().</span><span class="n">at</span><span class="p">(</span><span class="o">&amp;</span><span class="n">constant_query</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Existential deposit: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">toolkit</span><span class="o">/</span><span class="n">api</span><span class="o">-</span><span class="n">libraries</span><span class="o">/</span><span class="n">subxt</span><span class="o">/</span><span class="n">subxt</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">18</span>:<span class="mi">24</span><span class="o">&#39;</span>
 </span></code></pre></div>
 </li>
 <li>
 <p><strong>State</strong> - state refers to the current chain data, which updates with each block</p>
 <p>To fetch account information, replace <code>INSERT_ADDRESS</code> with the address you want to fetch data from and use:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// Define the target account address.</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">const</span><span class="w"> </span><span class="n">ADDRESS</span>: <span class="kp">&amp;</span><span class="kt">str</span> <span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT_ADDRESS&quot;</span><span class="p">;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kd">let</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AccountId32</span>::<span class="n">from_str</span><span class="p">(</span><span class="n">ADDRESS</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">// Build a storage query to access account information.</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="kd">let</span><span class="w"> </span><span class="n">storage_query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">polkadot</span>::<span class="n">storage</span><span class="p">().</span><span class="n">system</span><span class="p">().</span><span class="n">account</span><span class="p">(</span><span class="o">&amp;</span><span class="n">account</span><span class="p">.</span><span class="n">into</span><span class="p">());</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1">// Fetch the latest state for the account.</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">api</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="p">.</span><span class="n">storage</span><span class="p">()</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="p">.</span><span class="n">at_latest</span><span class="p">()</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="p">.</span><span class="k">await</span><span class="o">?</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="o">&amp;</span><span class="n">storage_query</span><span class="p">)</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="p">.</span><span class="k">await</span><span class="o">?</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Account info: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">toolkit</span><span class="o">/</span><span class="n">api</span><span class="o">-</span><span class="n">libraries</span><span class="o">/</span><span class="n">subxt</span><span class="o">/</span><span class="n">subxt</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">26</span>:<span class="mi">42</span><span class="o">&#39;</span>
 </span></code></pre></div>
 </li>
 </ul>
 <h3 id="submit-transactions">Submit Transactions<a class="headerlink" href="#submit-transactions" title="Permanent link">&para;</a></h3>
 <p>To submit a transaction, you must construct an extrinsic, sign it with your private key, and send it to the blockchain. Replace <code>INSERT_DEST_ADDRESS</code> with the recipient's address, <code>INSERT_AMOUNT</code> with the amount to transfer, and <code>INSERT_SECRET_PHRASE</code> with the sender's mnemonic phrase:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// Define the recipient address and transfer amount.</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">const</span><span class="w"> </span><span class="n">DEST_ADDRESS</span>: <span class="kp">&amp;</span><span class="kt">str</span> <span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT_DEST_ADDRESS&quot;</span><span class="p">;</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">const</span><span class="w"> </span><span class="n">AMOUNT</span>: <span class="kt">u128</span> <span class="o">=</span><span class="w"> </span><span class="n">INSERT_AMOUNT</span><span class="p">;</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1">// Convert the recipient address into an `AccountId32`.</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kd">let</span><span class="w"> </span><span class="n">dest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AccountId32</span>::<span class="n">from_str</span><span class="p">(</span><span class="n">DEST_ADDRESS</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1">// Build the balance transfer extrinsic.</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="kd">let</span><span class="w"> </span><span class="n">balance_transfer_tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">polkadot</span>::<span class="n">tx</span><span class="p">()</span>
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="p">.</span><span class="n">balances</span><span class="p">()</span>
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="p">.</span><span class="n">transfer_allow_death</span><span class="p">(</span><span class="n">dest</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span><span class="w"> </span><span class="n">AMOUNT</span><span class="p">);</span>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1">// Load the sender&#39;s keypair from a mnemonic phrase.</span>
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="k">const</span><span class="w"> </span><span class="n">SECRET_PHRASE</span>: <span class="kp">&amp;</span><span class="kt">str</span> <span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT_SECRET_PHRASE&quot;</span><span class="p">;</span>
-</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="kd">let</span><span class="w"> </span><span class="n">mnemonic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mnemonic</span>::<span class="n">parse</span><span class="p">(</span><span class="n">SECRET_PHRASE</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="kd">let</span><span class="w"> </span><span class="n">sender_keypair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Keypair</span>::<span class="n">from_phrase</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mnemonic</span><span class="p">,</span><span class="w"> </span><span class="nb">None</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
-</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="c1">// Sign and submit the extrinsic, then wait for it to be finalized.</span>
-</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="kd">let</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">api</span>
-</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="p">.</span><span class="n">tx</span><span class="p">()</span>
-</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">    </span><span class="p">.</span><span class="n">sign_and_submit_then_watch_default</span><span class="p">(</span><span class="o">&amp;</span><span class="n">balance_transfer_tx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sender_keypair</span><span class="p">)</span>
-</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">    </span><span class="p">.</span><span class="k">await</span><span class="o">?</span>
-</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">    </span><span class="p">.</span><span class="n">wait_for_finalized_success</span><span class="p">()</span>
-</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">    </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="p">;</span>
-</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>
-</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="c1">// Check for a successful transfer event.</span>
-</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">events</span><span class="p">.</span><span class="n">find_first</span>::<span class="o">&lt;</span><span class="n">polkadot</span>::<span class="n">balances</span>::<span class="n">events</span>::<span class="n">Transfer</span><span class="o">&gt;</span><span class="p">()</span><span class="o">?</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Balance transfer successful: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">);</span>
-</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">toolkit</span><span class="o">/</span><span class="n">api</span><span class="o">-</span><span class="n">libraries</span><span class="o">/</span><span class="n">subxt</span><span class="o">/</span><span class="n">subxt</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">44</span>:<span class="mi">72</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h2 id="where-to-go-next">Where to Go Next<a class="headerlink" href="#where-to-go-next" title="Permanent link">&para;</a></h2>
 <p>Now that you've covered the basics dive into the official <a href="https://docs.rs/subxt/latest/subxt/book/index.html" target="_blank">subxt documentation</a> for comprehensive reference materials and advanced features.</p>
@@ -5236,12 +5175,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

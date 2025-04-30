@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3154,7 +3171,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3165,7 +3182,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -4993,22 +5010,22 @@
 <ul>
 <li>
 <p><a href="https://github.com/paritytech/polkadot-sdk/blob/polkadot-stable2412/cumulus/xcm/xcm-emulator/src/lib.rs#L355" target="_blank"><strong><code>decl_test_relay_chains</code></strong></a> - defines runtime and configuration for the relay chains. Example:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">\</span><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/cumulus/parachains/integration-tests/emulated/chains/relays/westend/src/lib.rs:26:47&#39;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/cumulus/parachains/integration-tests/emulated/chains/relays/westend/src/lib.rs:26:47&#39;</span>
 </span></code></pre></div>
 </li>
 <li>
 <p><a href="https://github.com/paritytech/polkadot-sdk/blob/polkadot-stable2412/cumulus/xcm/xcm-emulator/src/lib.rs#L590" target="_blank"><strong><code>decl_test_parachains</code></strong></a> - defines runtime and configuration for the parachains. Example:</p>
-<p><code>rust
-   \--8&lt;-- 'https://raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/cumulus/parachains/integration-tests/emulated/chains/parachainsassets/asset-hub-westend/src/lib.rs:32:55'</code></p>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/cumulus/parachains/integration-tests/emulated/chains/parachainsassets/asset-hub-westend/src/lib.rs:32:55&#39;</span>
+</span></code></pre></div>
 </li>
 <li>
 <p><a href="https://github.com/paritytech/polkadot-sdk/blob/polkadot-stable2412/cumulus/xcm/xcm-emulator/src/lib.rs#L1178" target="_blank"><strong><code>decl_test_bridges</code></strong></a> - creates bridges between chains, specifying the source, target, and message handler. Example:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">\</span><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/cumulus/parachains/integration-tests/emulated/networks/rococo-westend-system/src/lib.rs:63:74&#39;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/cumulus/parachains/integration-tests/emulated/networks/rococo-westend-system/src/lib.rs:63:74&#39;</span>
 </span></code></pre></div>
 </li>
 <li>
 <p><a href="https://github.com/paritytech/polkadot-sdk/blob/polkadot-stable2412/cumulus/xcm/xcm-emulator/src/lib.rs#L916" target="_blank"><strong><code>decl_test_networks</code></strong></a> - defines a testing network with relay chains, parachains, and bridges, implementing message transport and processing logic. Example:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">\</span><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/cumulus/parachains/integration-tests/emulated/networks/westend-system/src/lib.rs:38:52&#39;</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk/refs/tags/polkadot-stable2412/cumulus/parachains/integration-tests/emulated/networks/westend-system/src/lib.rs:38:52&#39;</span>
 </span></code></pre></div>
 </li>
 </ul>
@@ -5019,12 +5036,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

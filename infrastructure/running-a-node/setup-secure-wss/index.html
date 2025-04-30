@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3187,7 +3204,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3198,7 +3215,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5033,45 +5050,23 @@
 <p>LetsEncrypt will auto-generate an SSL certificate and include it in your configuration.</p>
 <p>When connecting, you can generate a self-signed certificate and rely on your node's raw IP address. However, self-signed certificates aren't optimal because you must include the certificate in an allowlist to access it from a browser.</p>
 <p>Use the following command to generate a self-signed certificate using OpenSSL:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-x509<span class="w"> </span>-nodes<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-newkey<span class="w"> </span>rsa:2048<span class="w"> </span>-keyout<span class="w"> </span>/etc/ssl/private/selfsigned.key<span class="w"> </span>-out<span class="w"> </span>/etc/ssl/certs/selfsigned.crt
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>openssl<span class="w"> </span>dhparam<span class="w"> </span>-out<span class="w"> </span>/etc/ssl/certs/dhparam.pem<span class="w"> </span><span class="m">2048</span>
-</span></code></pre></div>
+<p>--8&lt;-- 'code/infrastructure/running-a-node/setup-secure-wss/install-openssl.md'</p>
 <h2 id="install-a-proxy-server">Install a Proxy Server<a class="headerlink" href="#install-a-proxy-server" title="Permanent link">&para;</a></h2>
 <p>There are a lot of different implementations of a WebSocket proxy; some of the more widely used are <a href="https://www.nginx.com/" target="_blank">nginx</a> and <a href="https://httpd.apache.org/" target="_blank">apache2</a>, both of which are commonly used web server implementations. See the following section for configuration examples for both implementations.</p>
 <h3 id="use-nginx">Use nginx<a class="headerlink" href="#use-nginx" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Install the <code>nginx</code> web server: 
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>apt<span class="w"> </span>install<span class="w"> </span>nginx
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>apt<span class="w"> </span>install<span class="w"> </span>nginx
 </span></code></pre></div></p>
 </li>
 <li>
 <p>In an SSL-enabled virtual host, add:
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>server {
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    (...)
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    location / {
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    proxy_buffers 16 4k;
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    proxy_buffer_size 2k;
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    proxy_pass http://localhost:9944;
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    proxy_http_version 1.1;
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    proxy_set_header Upgrade $http_upgrade;
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    proxy_set_header Connection &quot;Upgrade&quot;;
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    proxy_set_header Host $host;
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    }
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>}
-</span></code></pre></div></p>
+    --8&lt;-- 'code/infrastructure/running-a-node/setup-secure-wss/nginx-config.md'</p>
 </li>
 <li>
 <p>Optionally, you can introduce some form of rate limiting:
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>http {
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    limit_req_zone  &quot;$http_x_forwarded_for&quot; zone=zone:10m rate=2r/s;
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    (...)
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>}
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>location / {
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    limit_req zone=zone burst=5;
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    (...)
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>}
-</span></code></pre></div></p>
+    --8&lt;-- 'code/infrastructure/running-a-node/setup-secure-wss/nginx-rate-limit.md'</p>
 </li>
 </ol>
 <h3 id="use-apache2">Use Apache2<a class="headerlink" href="#use-apache2" title="Permanent link">&para;</a></h3>
@@ -5079,37 +5074,29 @@
 <ol>
 <li>
 <p>Install the <code>apache2</code> web server:
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>apt<span class="w"> </span>install<span class="w"> </span>apache2
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>a2dismod<span class="w"> </span>mpm_prefork
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>a2enmod<span class="w"> </span>mpm_event<span class="w"> </span>proxy<span class="w"> </span>proxy_html<span class="w"> </span>proxy_http<span class="w"> </span>proxy_wstunnel<span class="w"> </span>rewrite<span class="w"> </span>ssl
-</span></code></pre></div></p>
+    --8&lt;-- 'code/infrastructure/running-a-node/setup-secure-wss/install-apache2.md'</p>
 </li>
 <li>
 <p>The <a href="https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.html" target="_blank"><code>mod_proxy_wstunnel</code></a> provides support for the tunneling of WebSocket connections to a backend WebSocket server. The connection is automatically upgraded to a WebSocket connection. In an SSL-enabled virtual host add:
-    <div class="language-apacheconf highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c"># (...)</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">SSLProxyEngine</span><span class="w"> </span><span class="k">on</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">ProxyRequests</span><span class="w"> </span><span class="k">off</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nb">ProxyPass</span><span class="w"> </span>/<span class="w"> </span>ws://localhost:9944
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nb">ProxyPassReverse</span><span class="w"> </span>/<span class="w"> </span>ws://localhost:9944
-</span></code></pre></div></p>
+    --8&lt;-- 'code/infrastructure/running-a-node/setup-secure-wss/apache2-config.md'</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Older versions of <code>mod_proxy_wstunnel</code> don't upgrade the connection automatically and will need the following config added:
-<div class="language-apacheconf highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">on</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">RewriteCond</span><span class="w"> </span>%{HTTP:Upgrade}<span class="w"> </span>websocket<span class="w"> </span>[NC]
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">RewriteRule</span><span class="w"> </span>/(.*)<span class="w"> </span>ws://localhost:9944/$1<span class="w"> </span>[P,L]
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">RewriteRule</span><span class="w"> </span>/(.*)<span class="w"> </span>http://localhost:9944/$1<span class="w"> </span>[P,L]
+<div class="language-apacheconf highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">on</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">RewriteCond</span><span class="w"> </span>%{HTTP:Upgrade}<span class="w"> </span>websocket<span class="w"> </span>[NC]
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">RewriteRule</span><span class="w"> </span>/(.*)<span class="w"> </span>ws://localhost:9944/$1<span class="w"> </span>[P,L]
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">RewriteRule</span><span class="w"> </span>/(.*)<span class="w"> </span>http://localhost:9944/$1<span class="w"> </span>[P,L]
 </span></code></pre></div></p>
 </div>
 </li>
 <li>
 <p>Optionally, some form of rate limiting can be introduced by first running the following command:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>apt<span class="w"> </span>install<span class="w"> </span>libapache2-mod-qos
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>a2enmod<span class="w"> </span>qos
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>apt<span class="w"> </span>install<span class="w"> </span>libapache2-mod-qos
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>a2enmod<span class="w"> </span>qos
 </span></code></pre></div>
 <p>Then edit <code>/etc/apache2/mods-available/qos.conf</code> as follows:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a># allows max 50 connections from a single IP address:
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>QS_SrvMaxConnPerIP                                 50
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># allows max 50 connections from a single IP address:
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>QS_SrvMaxConnPerIP                                 50
 </span></code></pre></div>
 </li>
 </ol>
@@ -5118,7 +5105,7 @@
 <li>Open <a href="https://polkadot.js.org/apps" target="_blank">Polkadot.js Apps interface</a> and click the logo in the top left to switch the node</li>
 <li>
 <p>Activate the <strong>Development</strong> toggle and input either your node's domain or IP address. Remember to prefix with <code>wss://</code> and, if you're using the 443 port, append <code>:443</code> as follows:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>wss://example.com:443
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>wss://example.com:443
 </span></code></pre></div>
 </li>
 </ol>
@@ -5127,12 +5114,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3070,7 +3087,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3081,7 +3098,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5038,14 +5055,7 @@
 <p>To produce a block in your parachain, navigate to Polkadot.js Apps and ensure you're connected to the Paseo relay chain. Then, access the <a href="https://polkadot.js.org/apps/#/extrinsics" target="_blank"><strong>Developer &gt; Extrinsics</strong></a> tab and execute the <code>onDemand.placeOrderAllowDeath</code> extrinsic from the account that registered the <code>ParaID</code>. For this example, <code>maxAmount</code> is set to <code>1000000000000</code> (this value may vary depending on the network conditions), and <code>paraId</code> is set to <code>4518</code>:</p>
 <p><img alt="" src="/polkadot-mkdocs/images/tutorials/polkadot-sdk/parachains/zero-to-hero/obtain-coretime/obtain-coretime-9.webp" /></p>
 <p>With each successful on-demand extrinsic, the parachain will produce a new block. You can verify this by checking the collator logs. If the extrinsic is successful, you should see output similar to the following:</p>
-<div id="termynal" data-termynal>
-  <span data-ty="progress">2024-12-11 18:03:29 [Parachain] 🙌 Starting consensus session on top of parent </span>
-  <span data-ty="progress">0x860e5e37dbc04e736e76c4a42c64e71e069084548862d4007d32958578b26d87 (#214) </span>
-  <span data-ty="progress">2024-12-11 18:03:30 [Parachain] 🎁 Prepared block for proposing at 215 (701 ms) hash: </span>
-  <span data-ty="progress">0xee48b7dd559ab4cbff679f59e5cd37f2fd5b60c53a25b11d770dce999968076c; parent_hash: 0x860e…6d87; end: NoMoreTransactions; extrinsics_count: 2 </span>
-  <span data-ty="progress">2024-12-11 18:03:30 [Parachain] 🏆 Imported #215 (0x860e…6d87 → 0xee48…076c)</span>
-</div>
-
+<p>--8&lt;-- 'code/tutorials/polkadot-sdk/parachains/zero-to-hero/obtain-coretime/obtain-coretime-1.html'</p>
 <h2 id="purchase-bulk-coretime">Purchase Bulk Coretime<a class="headerlink" href="#purchase-bulk-coretime" title="Permanent link">&para;</a></h2>
 <p>Purchasing bulk coretime involves purchasing a core from the <a href="/polkadot-mkdocs/polkadot-protocol/architecture/system-chains/coretime/" target="_blank">Coretime Chain</a>, which has an instance of <a href="https://paritytech.github.io/polkadot-sdk/master/pallet_broker/index.html" target="_blank"><code>pallet_broker</code></a> (the Broker pallet). Although this can be done via sending extrinsics through a tool like Polkadot.js Apps, there are user interfaces for purchasing and managing bulk coretime:</p>
 <ul>
@@ -5085,12 +5095,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

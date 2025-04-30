@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../../../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3196,7 +3213,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3207,7 +3224,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5232,37 +5249,7 @@
 </li>
 <li>
 <p>Add the following code to the file you just created.
-<div class="language-toml highlight"><span class="filename">spawn-a-basic-network-test.zndsl</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">Description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test the basic functionality of the network (minimal example)&quot;</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">Network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./spawn-a-basic-network.toml&quot;</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">Creds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;config&quot;</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># Alice&#39;s tasks</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">[[tasks]]</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">is_up</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="n">parachain_100_registered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;within&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">225</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="n">parachain_100_block_height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;at least 10&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">250</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># Bob&#39;s tasks</span>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="k">[[tasks]]</span>
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bob&quot;</span>
-</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="n">is_up</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="n">parachain_100_registered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;within&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">225</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="n">parachain_100_block_height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;at least 10&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">250</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
-</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="c1"># Metrics</span>
-</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="k">[[metrics]]</span>
-</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span>
-</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="n">node_roles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
-</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="n">sub_libp2p_is_major_syncing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>
-</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="k">[[metrics]]</span>
-</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bob&quot;</span>
-</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="n">node_roles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
-</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>
-</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="k">[[metrics]]</span>
-</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;collator01&quot;</span>
-</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="n">node_roles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+<div class="language-toml highlight"><span class="filename">spawn-a-basic-network-test.zndsl</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/parachains/spawn-chains/zombienet/write-tests/spawn-a-basic-chain-test.toml&#39;</span>
 </span></code></pre></div></p>
 </li>
 </ol>
@@ -5281,83 +5268,21 @@
 <h2 id="example-test-files">Example Test Files<a class="headerlink" href="#example-test-files" title="Permanent link">&para;</a></h2>
 <p>The following example test files define two tests, a small network test and a big network test. Each test defines a network configuration file and credentials to use.</p>
 <p>The tests define assertions to evaluate the network’s metrics and logs. The assertions are defined by sentences in the DSL, which are mapped to tests to run.</p>
-<div class="language-toml highlight"><span class="filename">small-network-test.zndsl</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Small Network test&quot;</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">Network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./0000-test-config-small-network.toml&quot;</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">Creds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;config&quot;</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># Metrics</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="k">[[metrics]]</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="n">node_roles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="n">sub_libp2p_is_major_syncing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># Logs</span>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="k">[[logs]]</span>
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="n">bob_log_line_glob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*rted #1*&quot;</span>
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="n">bob_log_line_regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Imported #[0-9]+&quot;</span>
+<div class="language-toml highlight"><span class="filename">small-network-test.zndsl</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/parachains/spawn-chains/zombienet/write-tests/small-network-test.toml&#39;</span>
 </span></code></pre></div>
 <p>And the second test file:</p>
-<div class="language-toml highlight"><span class="filename">big-network-test.zndsl</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">Description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Big Network test&quot;</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">Network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./0001-test-config-big-network.toml&quot;</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">Creds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;config&quot;</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># Metrics</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="k">[[metrics]]</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="n">node_roles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="n">sub_libp2p_is_major_syncing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1"># Logs</span>
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="k">[[logs]]</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="n">bob_log_line_glob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*rted #1*&quot;</span>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="n">bob_log_line_regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Imported #[0-9]+&quot;</span>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># Custom JS script</span>
-</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="k">[[custom_scripts]]</span>
-</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="n">alice_js_script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;./0008-custom.js&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;return is greater than 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>
-</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="c1"># Custom TS script</span>
-</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="k">[[custom_scripts]]</span>
-</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="n">alice_ts_script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;./0008-custom-ts.ts&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;return is greater than 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>
-</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="c1"># Backchannel</span>
-</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="k">[[backchannel]]</span>
-</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="n">alice_wait_for_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">use_as</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>
-</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="c1"># Well-known functions</span>
-</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="k">[[functions]]</span>
-</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="n">alice_is_up</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="n">alice_parachain_100_registered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;within&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">225</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="n">alice_parachain_100_block_height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;at least 10&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">250</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>
-</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a><span class="c1"># Histogram</span>
-</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="k">[[histogram]]</span>
-</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="n">alice_polkadot_pvf_execution_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">min_samples</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a><span class="w">  </span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span>
-</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a><span class="w">  </span><span class="s2">&quot;0.25&quot;</span><span class="p">,</span>
-</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a><span class="w">  </span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
-</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a><span class="w">  </span><span class="s2">&quot;+Inf&quot;</span><span class="p">,</span>
-</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a><span class="p">],</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a>
-</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a><span class="c1"># System events</span>
-</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a><span class="k">[[system_events]]</span>
-</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a><span class="n">alice_system_event_matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">paraId</span><span class="se">\&quot;</span><span class="s2">:[0-9]+&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a>
-</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a><span class="c1"># Tracing</span>
-</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a><span class="k">[[tracing]]</span>
-</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a><span class="n">alice_trace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">traceID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;94c1501a78a0d83c498cc92deec264d9&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a><span class="w">  </span><span class="s2">&quot;answer-chunk-request&quot;</span><span class="p">,</span>
-</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a><span class="w">  </span><span class="s2">&quot;answer-chunk-request&quot;</span><span class="p">,</span>
-</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<div class="language-toml highlight"><span class="filename">big-network-test.zndsl</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/toolkit/parachains/spawn-chains/zombienet/write-tests/big-network-test.toml&#39;</span>
 </span></code></pre></div>
   <div class="md-source-file">
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

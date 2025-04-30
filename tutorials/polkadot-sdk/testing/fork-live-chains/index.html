@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3070,7 +3087,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3081,7 +3098,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5081,17 +5098,7 @@
 </div>
 </div>
 <p>Regardless of which method you choose from the preceding examples, you'll see an output similar to the following:</p>
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>npx @acala-network/chopsticks --config=polkadot</span>
-  <br />
-  <span data-ty>[18:38:26.155] INFO: Loading config file https://raw.githubusercontent.com/AcalaNetwork/chopsticks/master/configs/polkadot.yml</span>
-  <span data-ty> app: "chopsticks"</span>
-  <span data-ty> chopsticks::executor TRACE: Calling Metadata_metadata</span>
-  <span data-ty> chopsticks::executor TRACE: Completed Metadata_metadata</span>
-  <span data-ty>[18:38:28.186] INFO: Polkadot RPC listening on port 8000</span>
-  <span data-ty> app: "chopsticks"</span>
-</div>
-
+<p>--8&lt;-- 'code/tutorials/polkadot-sdk/testing/fork-live-chains/run-chopsticks-01.html'</p>
 <p>If using a file path, make sure you've downloaded the <a href="https://github.com/AcalaNetwork/chopsticks/blob/master/configs/polkadot.yml" target="_blank">Polkadot configuration file</a>, or have created your own.</p>
 <h2 id="create-a-fork">Create a Fork<a class="headerlink" href="#create-a-fork" title="Permanent link">&para;</a></h2>
 <p>Once you've configured Chopsticks, use the following command to fork Polkadot at block 100:</p>
@@ -5100,13 +5107,7 @@
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>--block<span class="w"> </span><span class="m">100</span>
 </span></code></pre></div>
 <p>If the fork is successful, you will see output similar to the following:</p>
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>npx @acala-network/chopsticks \ --endpoint wss://polkadot-rpc.dwellir.com \ --block 100</span>
-  <br />
-  <span data-ty>[19:12:21.023] INFO: Polkadot RPC listening on port 8000</span>
-  <span data-ty> app: "chopsticks"</span>
-</div>
-
+<p>-8&lt;-- 'code/tutorials/polkadot-sdk/testing/fork-live-chains/polkadot-fork-01.html'</p>
 <p>Access the running Chopsticks fork using the default address.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ws://localhost:8000
 </span></code></pre></div>
@@ -5132,18 +5133,7 @@
 <p>You should now be connected to your local fork and can interact with it as you would with a real chain.</p>
 <h3 id="use-polkadotjs-library">Use Polkadot.js Library<a class="headerlink" href="#use-polkadotjs-library" title="Permanent link">&para;</a></h3>
 <p>For programmatic interaction, you can use the Polkadot.js library. The following is a basic example:</p>
-<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ApiPromise</span><span class="p">,</span><span class="w"> </span><span class="nx">WsProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@polkadot/api&#39;</span><span class="p">;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">connectToFork</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">wsProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WsProvider</span><span class="p">(</span><span class="s1">&#39;ws://localhost:8000&#39;</span><span class="p">);</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ApiPromise</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="w"> </span><span class="nx">provider</span><span class="o">:</span><span class="w"> </span><span class="nx">wsProvider</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">isReady</span><span class="p">;</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="c1">// Now you can use &#39;api&#39; to interact with your fork</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Connected to chain: </span><span class="si">${</span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">rpc</span><span class="p">.</span><span class="nx">system</span><span class="p">.</span><span class="nx">chain</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="nx">connectToFork</span><span class="p">();</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">--</span><span class="mf">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="s1">&#39;code/tutorials/polkadot-sdk/testing/fork-live-chains/basic-example.js&#39;</span>
 </span></code></pre></div>
 <h2 id="replay-blocks">Replay Blocks<a class="headerlink" href="#replay-blocks" title="Permanent link">&para;</a></h2>
 <p>Chopsticks allows you to replay specific blocks from a chain, which is useful for debugging and analyzing state changes. You can use the parameters in the <a href="/polkadot-mkdocs/develop/toolkit/parachains/fork-chains/chopsticks/get-started/#configure-chopsticks" target="_blank">Configuration</a> section to set up the chain configuration, and then use the run-block subcommand with the following additional options:</p>
@@ -5160,152 +5150,7 @@
 </span></code></pre></div>
 <details class="code">
 <summary>polkadot-output.json</summary>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nt">&quot;Call&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0xba754e7478944d07a1f7e914422b4d973b0855abeb6f81138fdca35beb474b44a10f6fc59a4d90c3b78e38fac100fc6adc6f9e69a07565ec8abce6165bd0d24078cc7bf34f450a2cc7faacc1fa1e244b959f0ed65437f44208876e1e5eefbf8dd34c040642414245b501030100000083e2cc0f00000000d889565422338aa58c0fd8ebac32234149c7ce1f22ac2447a02ef059b58d4430ca96ba18fbf27d06fe92ec86d8b348ef42f6d34435c791b952018d0a82cae40decfe5faf56203d88fdedee7b25f04b63f41f23da88c76c876db5c264dad2f70c&quot;</span><span class="p">,</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="nt">&quot;storageDiff&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">                </span><span class="s2">&quot;0x0b76934f4cc08dee01012d059e1b83eebbd108c4899964f707fdaffb82636065&quot;</span><span class="p">,</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">                </span><span class="s2">&quot;0x00&quot;</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">                </span><span class="s2">&quot;0x1cb6f36e027abb2091cfb5110ab5087f0323475657e0890fbdbf66fb24b4649e&quot;</span><span class="p">,</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">                </span><span class="s2">&quot;0x1cb6f36e027abb2091cfb5110ab5087f06155b3cd9a8c9e5e9a23fd5dc13a5ed&quot;</span><span class="p">,</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">                </span><span class="s2">&quot;0x83e2cc0f00000000&quot;</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">                </span><span class="s2">&quot;0x1cb6f36e027abb2091cfb5110ab5087ffa92de910a7ce2bd58e99729c69727c1&quot;</span><span class="p">,</span>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef702a5c1b19ab7a04f536c519aca4983ac&quot;</span><span class="p">,</span>
-</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef70a98fdbe9ce6c55837576c60c7af3850&quot;</span><span class="p">,</span>
-</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">                </span><span class="s2">&quot;0x02000000&quot;</span>
-</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef734abf5cb34d6244378cddbf18e849d96&quot;</span><span class="p">,</span>
-</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">                </span><span class="s2">&quot;0xc03b86ae010000000000000000000000&quot;</span>
-</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef780d41e5e16056765bc8461851072c9d7&quot;</span><span class="p">,</span>
-</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">                </span><span class="s2">&quot;0x080000000000000080e36a09000000000200000001000000000000ca9a3b00000000020000&quot;</span>
-</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef78a42f33323cb5ced3b44dd825fda9fcc&quot;</span><span class="p">,</span>
-</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef799e7f93fc6a98f0874fd057f111c4d2d&quot;</span><span class="p">,</span>
-</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef7a44704b568d21667356a5a050c118746d366e7fe86e06375e7030000&quot;</span><span class="p">,</span>
-</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="w">                </span><span class="s2">&quot;0xba754e7478944d07a1f7e914422b4d973b0855abeb6f81138fdca35beb474b44&quot;</span>
-</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef7a86da5a932684f199539836fcb8c886f&quot;</span><span class="p">,</span>
-</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef7b06c3320c6ac196d813442e270868d63&quot;</span><span class="p">,</span>
-</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef7bdc0bd303e9855813aa8a30d4efc5112&quot;</span><span class="p">,</span>
-</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef7df1daeb8986837f21cc5d17596bb78d15153cb1f00942ff401000000&quot;</span><span class="p">,</span>
-</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef7df1daeb8986837f21cc5d17596bb78d1b4def25cfda6ef3a00000000&quot;</span><span class="p">,</span>
-</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a><span class="w">                </span><span class="s2">&quot;0x26aa394eea5630e07c48ae0c9558cef7ff553b5a9862a516939d82b3d3d8661a&quot;</span><span class="p">,</span>
-</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a><span class="w">                </span><span class="s2">&quot;0x2b06af9719ac64d755623cda8ddd9b94b1c371ded9e9c565e89ba783c4d5f5f9b4def25cfda6ef3a000000006f3d6b177c8acbd8dc9974cdb3cebfac4d31333c30865ff66c35c1bf898df5c5dd2924d3280e7201&quot;</span><span class="p">,</span>
-</span><span id="__span-7-75"><a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a><span class="w">                </span><span class="s2">&quot;0x9b000000&quot;</span>
-</span><span id="__span-7-76"><a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-77"><a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a><span class="w">            </span><span class="p">[</span><span class="s2">&quot;0x3a65787472696e7369635f696e646578&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">],</span>
-</span><span id="__span-7-78"><a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-79"><a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a><span class="w">                </span><span class="s2">&quot;0x3f1467a096bcd71a5b6a0c8155e208103f2edf3bdf381debe331ab7446addfdc&quot;</span><span class="p">,</span>
-</span><span id="__span-7-80"><a id="__codelineno-7-80" name="__codelineno-7-80" href="#__codelineno-7-80"></a><span class="w">                </span><span class="s2">&quot;0x550057381efedcffffffffffffffffff&quot;</span>
-</span><span id="__span-7-81"><a id="__codelineno-7-81" name="__codelineno-7-81" href="#__codelineno-7-81"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-82"><a id="__codelineno-7-82" name="__codelineno-7-82" href="#__codelineno-7-82"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-83"><a id="__codelineno-7-83" name="__codelineno-7-83" href="#__codelineno-7-83"></a><span class="w">                </span><span class="s2">&quot;0x3fba98689ebed1138735e0e7a5a790ab0f41321f75df7ea5127be2db4983c8b2&quot;</span><span class="p">,</span>
-</span><span id="__span-7-84"><a id="__codelineno-7-84" name="__codelineno-7-84" href="#__codelineno-7-84"></a><span class="w">                </span><span class="s2">&quot;0x00&quot;</span>
-</span><span id="__span-7-85"><a id="__codelineno-7-85" name="__codelineno-7-85" href="#__codelineno-7-85"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-86"><a id="__codelineno-7-86" name="__codelineno-7-86" href="#__codelineno-7-86"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-87"><a id="__codelineno-7-87" name="__codelineno-7-87" href="#__codelineno-7-87"></a><span class="w">                </span><span class="s2">&quot;0x3fba98689ebed1138735e0e7a5a790ab21a5051453bd3ae7ed269190f4653f3b&quot;</span><span class="p">,</span>
-</span><span id="__span-7-88"><a id="__codelineno-7-88" name="__codelineno-7-88" href="#__codelineno-7-88"></a><span class="w">                </span><span class="s2">&quot;0x080000&quot;</span>
-</span><span id="__span-7-89"><a id="__codelineno-7-89" name="__codelineno-7-89" href="#__codelineno-7-89"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-90"><a id="__codelineno-7-90" name="__codelineno-7-90" href="#__codelineno-7-90"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-91"><a id="__codelineno-7-91" name="__codelineno-7-91" href="#__codelineno-7-91"></a><span class="w">                </span><span class="s2">&quot;0x3fba98689ebed1138735e0e7a5a790abb984cfb497221deefcefb70073dcaac1&quot;</span><span class="p">,</span>
-</span><span id="__span-7-92"><a id="__codelineno-7-92" name="__codelineno-7-92" href="#__codelineno-7-92"></a><span class="w">                </span><span class="s2">&quot;0x00&quot;</span>
-</span><span id="__span-7-93"><a id="__codelineno-7-93" name="__codelineno-7-93" href="#__codelineno-7-93"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-94"><a id="__codelineno-7-94" name="__codelineno-7-94" href="#__codelineno-7-94"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-95"><a id="__codelineno-7-95" name="__codelineno-7-95" href="#__codelineno-7-95"></a><span class="w">                </span><span class="s2">&quot;0x5f3e4907f716ac89b6347d15ececedca80cc6574281671b299c1727d7ac68cabb4def25cfda6ef3a00000000&quot;</span><span class="p">,</span>
-</span><span id="__span-7-96"><a id="__codelineno-7-96" name="__codelineno-7-96" href="#__codelineno-7-96"></a><span class="w">                </span><span class="s2">&quot;0x204e0000183887050ecff59f58658b3df63a16d03a00f92890f1517f48c2f6ccd215e5450e380e00005809fd84af6483070acbb92378e3498dbc02fb47f8e97f006bb83f60d7b2b15d980d000082104c22c383925323bf209d771dec6e1388285abe22c22d50de968467e0bb6ce00b000088ee494d719d68a18aade04903839ea37b6be99552ceceb530674b237afa9166480d0000dc9974cdb3cebfac4d31333c30865ff66c35c1bf898df5c5dd2924d3280e72011c0c0000e240d12c7ad07bb0e7785ee6837095ddeebb7aef84d6ed7ea87da197805b343a0c0d0000&quot;</span>
-</span><span id="__span-7-97"><a id="__codelineno-7-97" name="__codelineno-7-97" href="#__codelineno-7-97"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-98"><a id="__codelineno-7-98" name="__codelineno-7-98" href="#__codelineno-7-98"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-99"><a id="__codelineno-7-99" name="__codelineno-7-99" href="#__codelineno-7-99"></a><span class="w">                </span><span class="s2">&quot;0xae394d879ddf7f99595bc0dd36e355b5bbd108c4899964f707fdaffb82636065&quot;</span><span class="p">,</span>
-</span><span id="__span-7-100"><a id="__codelineno-7-100" name="__codelineno-7-100" href="#__codelineno-7-100"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-101"><a id="__codelineno-7-101" name="__codelineno-7-101" href="#__codelineno-7-101"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-102"><a id="__codelineno-7-102" name="__codelineno-7-102" href="#__codelineno-7-102"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-103"><a id="__codelineno-7-103" name="__codelineno-7-103" href="#__codelineno-7-103"></a><span class="w">                </span><span class="s2">&quot;0xbd2a529379475088d3e29a918cd478721a39ec767bd5269111e6492a1675702a&quot;</span><span class="p">,</span>
-</span><span id="__span-7-104"><a id="__codelineno-7-104" name="__codelineno-7-104" href="#__codelineno-7-104"></a><span class="w">                </span><span class="s2">&quot;0x4501407565175cfbb5dca18a71e2433f838a3d946ef532c7bff041685db1a7c13d74252fffe343a960ef84b15187ea0276687d8cb3168aeea5202ea6d651cb646517102b81ff629ee6122430db98f2cadf09db7f298b49589b265dae833900f24baa8fb358d87e12f3e9f7986a9bf920c2fb48ce29886199646d2d12c6472952519463e80b411adef7e422a1595f1c1af4b5dd9b30996fba31fa6a30bd94d2022d6b35c8bc5a8a51161d47980bf4873e01d15afc364f8939a6ce5a09454ab7f2dd53bf4ee59f2c418e85aa6eb764ad218d0097fb656900c3bdd859771858f87bf7f06fc9b6db154e65d50d28e8b2374898f4f519517cd0bedc05814e0f5297dc04beb307b296a93cc14d53afb122769dfd402166568d8912a4dff9c2b1d4b6b34d811b40e5f3763e5f3ab5cd1da60d75c0ff3c12bcef3639f5f792a85709a29b752ffd1233c2ccae88ed3364843e2fa92bdb49021ee36b36c7cdc91b3e9ad32b9216082b6a2728fccd191a5cd43896f7e98460859ca59afbf7c7d93cd48da96866f983f5ff8e9ace6f47ee3e6c6edb074f578efbfb0907673ebca82a7e1805bc5c01cd2fa5a563777feeb84181654b7b738847c8e48d4f575c435ad798aec01631e03cf30fe94016752b5f087f05adf1713910767b7b0e6521013be5370776471191641c282fdfe7b7ccf3b2b100a83085cd3af2b0ad4ab3479448e71fc44ff987ec3a26be48161974b507fb3bc8ad23838f2d0c54c9685de67dc6256e71e739e9802d0e6e3b456f6dca75600bc04a19b3cc1605784f46595bfb10d5e077ce9602ae3820436166aa1905a7686b31a32d6809686462bc9591c0bc82d9e49825e5c68352d76f1ac6e527d8ac02db3213815080afad4c2ecb95b0386e3e9ab13d4f538771dac70d3059bd75a33d0b9b581ec33bb16d0e944355d4718daccb35553012adfcdacb1c5200a2aec3756f6ad5a2beffd30018c439c1b0c4c0f86dbf19d0ad59b1c9efb7fe90906febdb9001af1e7e15101089c1ab648b199a40794d30fe387894db25e614b23e833291a604d07eec2ade461b9b139d51f9b7e88475f16d6d23de6fe7831cc1dbba0da5efb22e3b26cd2732f45a2f9a5d52b6d6eaa38782357d9ae374132d647ef60816d5c98e6959f8858cfa674c8b0d340a8f607a68398a91b3a965585cc91e46d600b1310b8f59c65b7c19e9d14864a83c4ad6fa4ba1f75bba754e7478944d07a1f7e914422b4d973b0855abeb6f81138fdca35beb474b44c7736fc3ab2969878810153aa3c93fc08c99c478ed1bb57f647d3eb02f25cee122c70424643f4b106a7643acaa630a5c4ac39364c3cb14453055170c01b44e8b1ef007c7727494411958932ae8b3e0f80d67eec8e94dd2ff7bbe8c9e51ba7e27d50bd9f52cbaf9742edecb6c8af1aaf3e7c31542f7d946b52e0c37d194b3dd13c3fddd39db0749755c7044b3db1143a027ad428345d930afcefc0d03c3a0217147900bdea1f5830d826f7e75ecd1c4e2bc8fd7de3b35c6409acae1b2215e9e4fd7e360d6825dc712cbf9d87ae0fd4b349b624d19254e74331d66a39657da81e73d7b13adc1e5efa8efd65aa32c1a0a0315913166a590ae551c395c476116156cf9d872fd863893edb41774f33438161f9b973e3043f819d087ba18a0f1965e189012496b691f342f7618fa9db74e8089d4486c8bd1993efd30ff119976f5cc0558e29b417115f60fd8897e13b6de1a48fbeee38ed812fd267ae25bffea0caa71c09309899b34235676d5573a8c3cf994a3d7f0a5dbd57ab614c6caf2afa2e1a860c6307d6d9341884f1b16ef22945863335bb4af56e5ef5e239a55dbd449a4d4d3555c8a3ec5bd3260f88cabca88385fe57920d2d2dfc5d70812a8934af5691da5b91206e29df60065a94a0a8178d118f1f7baf768d934337f570f5ec68427506391f51ab4802c666cc1749a84b5773b948fcbe460534ed0e8d48a15c149d27d67deb8ea637c4cc28240ee829c386366a0b1d6a275763100da95374e46528a0adefd4510c38c77871e66aeda6b6bfd629d32af9b2fad36d392a1de23a683b7afd13d1e3d45dad97c740106a71ee308d8d0f94f6771164158c6cd3715e72ccfbc49a9cc49f21ead8a3c5795d64e95c15348c6bf8571478650192e52e96dd58f95ec2c0fb4f2ccc05b0ab749197db8d6d1c6de07d6e8cb2620d5c308881d1059b50ffef3947c273eaed7e56c73848e0809c4bd93619edd9fd08c8c5c88d5f230a55d2c6a354e5dd94440e7b5bf99326cf4a112fe843e7efdea56e97af845761d98f40ed2447bd04a424976fcf0fe0a0c72b97619f85cf431fe4c3aa6b3a4f61df8bc1179c11e77783bfedb7d374bd1668d0969333cb518bd20add8329462f2c9a9f04d150d60413fdd27271586405fd85048481fc2ae25b6826cb2c947e4231dc7b9a0d02a9a03f88460bced3fef5d78f732684bd218a1954a4acfc237d79ccf397913ab6864cd8a07e275b82a8a72520624738368d1c5f7e0eaa2b445cf6159f2081d3483618f7fc7b16ec4e6e4d67ab5541bcda0ca1af40efd77ef8653e223191448631a8108c5e50e340cd405767ecf932c1015aa8856b834143dc81fa0e8b9d1d8c32278fca390f2ff08181df0b74e2d13c9b7b1d85543416a0dae3a77530b9cd1366213fcf3cd12a9cd3ae0a006d6b29b5ffc5cdc1ab24343e2ab882abfd719892fca5bf2134731332c5d3bef6c6e4013d84a853cb03d972146b655f0f8541bcd36c3c0c8a775bb606edfe50d07a5047fd0fe01eb125e83673930bc89e91609fd6dfe97132679374d3de4a0b3db8d3f76f31bed53e247da591401d508d65f9ee01d3511ee70e3644f3ab5d333ca7dbf737fe75217b4582d50d98b5d59098ea11627b7ed3e3e6ee3012eadd326cf74ec77192e98619427eb0591e949bf314db0fb932ed8be58258fb4f08e0ccd2cd18b997fb5cf50c90d5df66a9f3bb203bd22061956128b800e0157528d45c7f7208c65d0592ad846a711fa3c5601d81bb318a45cc1313b122d4361a7d7a954645b04667ff3f81d3366109772a41f66ece09eb93130abe04f2a51bb30e767dd37ec6ee6a342a4969b8b342f841193f4f6a9f0fac4611bc31b6cab1d25262feb31db0b8889b6f8d78be23f033994f2d3e18e00f3b0218101e1a7082782aa3680efc8502e1536c30c8c336b06ae936e2bcf9bbfb20dd514ed2867c03d4f44954867c97db35677d30760f37622b85089cc5d182a89e29ab0c6b9ef18138b16ab91d59c2312884172afa4874e6989172014168d3ed8db3d9522d6cbd631d581d166787c93209bec845d112e0cbd825f6df8b64363411270921837cfb2f9e7f2e74cdb9cd0d2b02058e5efd9583e2651239654b887ea36ce9537c392fc5dfca8c5a0facbe95b87dfc4232f229bd12e67937d32b7ffae2e837687d2d292c08ff6194a2256b17254748857c7e3c871c3fff380115e6f7faf435a430edf9f8a589f6711720cfc5cec6c8d0d94886a39bb9ac6c50b2e8ef6cf860415192ca4c1c3aaa97d36394021a62164d5a63975bcd84b8e6d74f361c17101e3808b4d8c31d1ee1a5cf3a2feda1ca2c0fd5a50edc9d95e09fb5158c9f9b0eb5e2c90a47deb0459cea593201ae7597e2e9245aa5848680f546256f3&quot;</span>
-</span><span id="__span-7-105"><a id="__codelineno-7-105" name="__codelineno-7-105" href="#__codelineno-7-105"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-106"><a id="__codelineno-7-106" name="__codelineno-7-106" href="#__codelineno-7-106"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-107"><a id="__codelineno-7-107" name="__codelineno-7-107" href="#__codelineno-7-107"></a><span class="w">                </span><span class="s2">&quot;0xd57bce545fb382c34570e5dfbf338f5e326d21bc67a4b34023d577585d72bfd7&quot;</span><span class="p">,</span>
-</span><span id="__span-7-108"><a id="__codelineno-7-108" name="__codelineno-7-108" href="#__codelineno-7-108"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-109"><a id="__codelineno-7-109" name="__codelineno-7-109" href="#__codelineno-7-109"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-110"><a id="__codelineno-7-110" name="__codelineno-7-110" href="#__codelineno-7-110"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-111"><a id="__codelineno-7-111" name="__codelineno-7-111" href="#__codelineno-7-111"></a><span class="w">                </span><span class="s2">&quot;0xd57bce545fb382c34570e5dfbf338f5ea36180b5cfb9f6541f8849df92a6ec93&quot;</span><span class="p">,</span>
-</span><span id="__span-7-112"><a id="__codelineno-7-112" name="__codelineno-7-112" href="#__codelineno-7-112"></a><span class="w">                </span><span class="s2">&quot;0x00&quot;</span>
-</span><span id="__span-7-113"><a id="__codelineno-7-113" name="__codelineno-7-113" href="#__codelineno-7-113"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-114"><a id="__codelineno-7-114" name="__codelineno-7-114" href="#__codelineno-7-114"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-115"><a id="__codelineno-7-115" name="__codelineno-7-115" href="#__codelineno-7-115"></a><span class="w">                </span><span class="s2">&quot;0xd57bce545fb382c34570e5dfbf338f5ebddf84c5eb23e6f53af725880d8ffe90&quot;</span><span class="p">,</span>
-</span><span id="__span-7-116"><a id="__codelineno-7-116" name="__codelineno-7-116" href="#__codelineno-7-116"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-117"><a id="__codelineno-7-117" name="__codelineno-7-117" href="#__codelineno-7-117"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-118"><a id="__codelineno-7-118" name="__codelineno-7-118" href="#__codelineno-7-118"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-119"><a id="__codelineno-7-119" name="__codelineno-7-119" href="#__codelineno-7-119"></a><span class="w">                </span><span class="s2">&quot;0xd5c41b52a371aa36c9254ce34324f2a53b996bb988ea8ee15bad3ffd2f68dbda&quot;</span><span class="p">,</span>
-</span><span id="__span-7-120"><a id="__codelineno-7-120" name="__codelineno-7-120" href="#__codelineno-7-120"></a><span class="w">                </span><span class="s2">&quot;0x00&quot;</span>
-</span><span id="__span-7-121"><a id="__codelineno-7-121" name="__codelineno-7-121" href="#__codelineno-7-121"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-122"><a id="__codelineno-7-122" name="__codelineno-7-122" href="#__codelineno-7-122"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-123"><a id="__codelineno-7-123" name="__codelineno-7-123" href="#__codelineno-7-123"></a><span class="w">                </span><span class="s2">&quot;0xf0c365c3cf59d671eb72da0e7a4113c49f1f0515f462cdcf84e0f1d6045dfcbb&quot;</span><span class="p">,</span>
-</span><span id="__span-7-124"><a id="__codelineno-7-124" name="__codelineno-7-124" href="#__codelineno-7-124"></a><span class="w">                </span><span class="s2">&quot;0x50defc5172010000&quot;</span>
-</span><span id="__span-7-125"><a id="__codelineno-7-125" name="__codelineno-7-125" href="#__codelineno-7-125"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-126"><a id="__codelineno-7-126" name="__codelineno-7-126" href="#__codelineno-7-126"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-127"><a id="__codelineno-7-127" name="__codelineno-7-127" href="#__codelineno-7-127"></a><span class="w">                </span><span class="s2">&quot;0xf0c365c3cf59d671eb72da0e7a4113c4bbd108c4899964f707fdaffb82636065&quot;</span><span class="p">,</span>
-</span><span id="__span-7-128"><a id="__codelineno-7-128" name="__codelineno-7-128" href="#__codelineno-7-128"></a><span class="w">                </span><span class="kc">null</span>
-</span><span id="__span-7-129"><a id="__codelineno-7-129" name="__codelineno-7-129" href="#__codelineno-7-129"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-130"><a id="__codelineno-7-130" name="__codelineno-7-130" href="#__codelineno-7-130"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-131"><a id="__codelineno-7-131" name="__codelineno-7-131" href="#__codelineno-7-131"></a><span class="w">                </span><span class="s2">&quot;0xf68f425cf5645aacb2ae59b51baed90420d49a14a763e1cbc887acd097f92014&quot;</span><span class="p">,</span>
-</span><span id="__span-7-132"><a id="__codelineno-7-132" name="__codelineno-7-132" href="#__codelineno-7-132"></a><span class="w">                </span><span class="s2">&quot;0x9501800300008203000082030000840300008503000086030000870300008703000089030000890300008b0300008b0300008d0300008d0300008f0300008f0300009103000092030000920300009403000094030000960300009603000098030000990300009a0300009b0300009b0300009d0300009d0300009f0300009f030000a1030000a2030000a3030000a4030000a5030000a6030000a6030000a8030000a8030000aa030000ab030000ac030000ad030000ae030000af030000b0030000b1030000b1030000b3030000b3030000b5030000b6030000b7030000b8030000b9030000ba030000ba030000bc030000bc030000be030000be030000c0030000c1030000c2030000c2030000c4030000c5030000c5030000c7030000c7030000c9030000c9030000cb030000cc030000cd030000ce030000cf030000d0030000d0030000d2030000d2030000d4030000d4030000d6030000d7030000d8030000d9030000da030000db030000db030000dd030000dd030000df030000e0030000e1030000e2030000e3030000e4030000e4030000&quot;</span>
-</span><span id="__span-7-133"><a id="__codelineno-7-133" name="__codelineno-7-133" href="#__codelineno-7-133"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-134"><a id="__codelineno-7-134" name="__codelineno-7-134" href="#__codelineno-7-134"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-135"><a id="__codelineno-7-135" name="__codelineno-7-135" href="#__codelineno-7-135"></a><span class="w">                </span><span class="s2">&quot;0xf68f425cf5645aacb2ae59b51baed9049b58374218f48eaf5bc23b7b3e7cf08a&quot;</span><span class="p">,</span>
-</span><span id="__span-7-136"><a id="__codelineno-7-136" name="__codelineno-7-136" href="#__codelineno-7-136"></a><span class="w">                </span><span class="s2">&quot;0xb3030000&quot;</span>
-</span><span id="__span-7-137"><a id="__codelineno-7-137" name="__codelineno-7-137" href="#__codelineno-7-137"></a><span class="w">            </span><span class="p">],</span>
-</span><span id="__span-7-138"><a id="__codelineno-7-138" name="__codelineno-7-138" href="#__codelineno-7-138"></a><span class="w">            </span><span class="p">[</span>
-</span><span id="__span-7-139"><a id="__codelineno-7-139" name="__codelineno-7-139" href="#__codelineno-7-139"></a><span class="w">                </span><span class="s2">&quot;0xf68f425cf5645aacb2ae59b51baed904b97380ce5f4e70fbf9d6b5866eb59527&quot;</span><span class="p">,</span>
-</span><span id="__span-7-140"><a id="__codelineno-7-140" name="__codelineno-7-140" href="#__codelineno-7-140"></a><span class="w">                </span><span class="s2">&quot;0x9501800300008203000082030000840300008503000086030000870300008703000089030000890300008b0300008b0300008d0300008d0300008f0300008f0300009103000092030000920300009403000094030000960300009603000098030000990300009a0300009b0300009b0300009d0300009d0300009f0300009f030000a1030000a2030000a3030000a4030000a5030000a6030000a6030000a8030000a8030000aa030000ab030000ac030000ad030000ae030000af030000b0030000b1030000b1030000b3030000b3030000b5030000b6030000b7030000b8030000b9030000ba030000ba030000bc030000bc030000be030000be030000c0030000c1030000c2030000c2030000c4030000c5030000c5030000c7030000c7030000c9030000c9030000cb030000cc030000cd030000ce030000cf030000d0030000d0030000d2030000d2030000d4030000d4030000d6030000d7030000d8030000d9030000da030000db030000db030000dd030000dd030000df030000e0030000e1030000e2030000e3030000e4030000e4030000&quot;</span>
-</span><span id="__span-7-141"><a id="__codelineno-7-141" name="__codelineno-7-141" href="#__codelineno-7-141"></a><span class="w">            </span><span class="p">]</span>
-</span><span id="__span-7-142"><a id="__codelineno-7-142" name="__codelineno-7-142" href="#__codelineno-7-142"></a><span class="w">        </span><span class="p">],</span>
-</span><span id="__span-7-143"><a id="__codelineno-7-143" name="__codelineno-7-143" href="#__codelineno-7-143"></a><span class="w">        </span><span class="nt">&quot;offchainStorageDiff&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-</span><span id="__span-7-144"><a id="__codelineno-7-144" name="__codelineno-7-144" href="#__codelineno-7-144"></a><span class="w">        </span><span class="nt">&quot;runtimeLogs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
-</span><span id="__span-7-145"><a id="__codelineno-7-145" name="__codelineno-7-145" href="#__codelineno-7-145"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-7-146"><a id="__codelineno-7-146" name="__codelineno-7-146" href="#__codelineno-7-146"></a><span class="p">}</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="mi">--8</span><span class="err">&lt;</span><span class="mi">--</span><span class="w"> </span><span class="err">&#39;code/</span><span class="kc">tut</span><span class="err">orials/polkado</span><span class="kc">t</span><span class="mi">-</span><span class="err">sdk/</span><span class="kc">test</span><span class="err">i</span><span class="kc">n</span><span class="err">g/</span><span class="kc">f</span><span class="err">ork</span><span class="mi">-</span><span class="err">live</span><span class="mi">-</span><span class="err">chai</span><span class="kc">ns</span><span class="err">/replay</span><span class="mi">-</span><span class="err">block.jso</span><span class="kc">n</span><span class="err">&#39;</span>
 </span></code></pre></div>
 </details>
 <h2 id="xcm-testing">XCM Testing<a class="headerlink" href="#xcm-testing" title="Permanent link">&para;</a></h2>
@@ -5321,47 +5166,18 @@
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>--p<span class="w"> </span>astar
 </span></code></pre></div>
 <p>After running it, you should see output similar to the following:</p>
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>npx @acala-network/chopsticks xcm \</span>
-  <span data-ty>--r polkadot \</span>
-  <span data-ty>--p moonbeam \</span>
-  <span data-ty>--p astar</span>
-  <br />
-  <span data-ty>[13:46:07.901] INFO: Loading config file https://raw.githubusercontent.com/AcalaNetwork/chopsticks/master/configs/moonbeam.yml</span>
-  <span data-ty> app: "chopsticks"</span>
-  <span data-ty>[13:46:12.631] INFO: Moonbeam RPC listening on port 8000</span>
-  <span data-ty> app: "chopsticks"</span>
-  <span data-ty>[13:46:12.632] INFO: Loading config file https://raw.githubusercontent.com/AcalaNetwork/chopsticks/master/configs/astar.yml</span>
-  <span data-ty> app: "chopsticks"</span>
-  <span data-ty> chopsticks::executor TRACE: Calling Metadata_metadata</span>
-  <span data-ty> chopsticks::executor TRACE: Completed Metadata_metadata</span>
-  <span data-ty>[13:46:23.669] INFO: Astar RPC listening on port 8001</span>
-  <span data-ty> app: "chopsticks"</span>
-  <span data-ty>[13:46:25.144] INFO (xcm): Connected parachains [2004,2006]</span>
-  <span data-ty> app: "chopsticks"</span>
-  <span data-ty>[13:46:25.144] INFO: Loading config file https://raw.githubusercontent.com/AcalaNetwork/chopsticks/master/configs/polkadot.yml</span>
-  <span data-ty> app: "chopsticks"</span>
-  <span data-ty> chopsticks::executor TRACE: Calling Metadata_metadata</span>
-  <span data-ty> chopsticks::executor TRACE: Completed Metadata_metadata</span>
-  <span data-ty>[13:46:53.320] INFO: Polkadot RPC listening on port 8002</span>
-  <span data-ty> app: "chopsticks"</span>
-  <span data-ty>[13:46:54.038] INFO (xcm): Connected relaychain 'Polkadot' with parachain 'Moonbeam'</span>
-  <span data-ty> app: "chopsticks"</span>
-  <span data-ty>[13:46:55.028] INFO (xcm): Connected relaychain 'Polkadot' with parachain 'Astar'</span>
-  <span data-ty> app: "chopsticks"</span>
-</div>
-
+<p>--8&lt;-- 'code/tutorials/polkadot-sdk/testing/fork-live-chains/fork-output.html'</p>
 <p>Now you can interact with your forked chains using the ports specified in the output.</p>
   <div class="md-source-file">
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

@@ -931,6 +931,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -994,6 +997,20 @@
     <li class="md-nav__item">
       <a href="../../parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3175,7 +3192,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3186,7 +3203,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5012,7 +5029,7 @@
 <p>These principles guarantee that XCM provides a reliable framework for cross-chain communication, even in complex environments.</p>
 <h2 id="the-xcm-tech-stack">The XCM Tech Stack<a class="headerlink" href="#the-xcm-tech-stack" title="Permanent link">&para;</a></h2>
 <p><img alt="Diagram of the XCM tech stack" src="/polkadot-mkdocs/images/develop/interoperability/intro-to-xcm/intro-to-xcm-01.webp" /></p>
-<p>The XCM tech stack is designed to faciliate seamless interoperable communication between chains that reside within the Polkadot ecosystem. XCM can be used to ecpress the meaning of the messages over each of the communicatio channels.</p>
+<p>The XCM tech stack is designed to facilitate seamless interoperable communication between chains that reside within the Polkadot ecosystem. XCM can be used to express the meaning of the messages over each of the communication channels.</p>
 <h2 id="core-functionalities-of-xcm">Core Functionalities of XCM<a class="headerlink" href="#core-functionalities-of-xcm" title="Permanent link">&para;</a></h2>
 <p>XCM enhances cross-consensus communication by introducing several powerful features:</p>
 <ul>
@@ -5023,29 +5040,13 @@
 <p>The standardized format for messages allows parachains to handle tasks like user balances, governance, and staking, freeing the Polkadot relay chain to focus on shared security. These features make XCM indispensable for implementing scalable and interoperable blockchain applications. </p>
 <h2 id="xcm-example">XCM Example<a class="headerlink" href="#xcm-example" title="Permanent link">&para;</a></h2>
 <p>The following is a simplified XCM message demonstrating a token transfer from Alice to Bob on the same chain (ParaA).</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Xcm</span><span class="p">(</span><span class="fm">vec!</span><span class="p">[</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">WithdrawAsset</span><span class="p">((</span><span class="n">Here</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">).</span><span class="n">into</span><span class="p">()),</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">BuyExecution</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="n">fees</span>: <span class="p">(</span><span class="n">Here</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">).</span><span class="n">into</span><span class="p">(),</span><span class="w"> </span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">weight_limit</span>: <span class="nc">WeightLimit</span>::<span class="n">Unlimited</span><span class="w"> </span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">DepositAsset</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="n">assets</span>: <span class="nc">All</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="n">beneficiary</span>: <span class="nc">MultiLocation</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="n">parents</span>: <span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="n">interior</span>: <span class="nc">Junction</span>::<span class="n">AccountId32</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">                </span><span class="n">network</span>: <span class="nb">None</span><span class="p">,</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">                </span><span class="n">id</span>: <span class="nc">BOB</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">into</span><span class="p">()</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="p">}.</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="p">}.</span><span class="n">into</span><span class="p">()</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">]);</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">interoperability</span><span class="o">/</span><span class="n">intro</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">xcm</span><span class="o">/</span><span class="n">XCM</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">look</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>The message consists of three instructions described as follows:</p>
 <ul>
 <li>
 <p><a href="https://github.com/polkadot-fellows/xcm-format?tab=readme-ov-file#withdrawasset" target="_blank"><strong>WithdrawAsset</strong></a> - transfers a specified number of tokens from Alice's account to a holding register
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">WithdrawAsset</span><span class="p">((</span><span class="n">Here</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">).</span><span class="n">into</span><span class="p">()),</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">interoperability</span><span class="o">/</span><span class="n">intro</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">xcm</span><span class="o">/</span><span class="n">XCM</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">look</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">2</span>:<span class="mi">2</span><span class="o">&#39;</span>
 </span></code></pre></div></p>
 <ul>
 <li><code>Here</code> - the native parachain token</li>
@@ -5055,10 +5056,7 @@
 </li>
 <li>
 <p><a href="https://github.com/polkadot-fellows/xcm-format?tab=readme-ov-file#buyexecution" target="_blank"><strong>BuyExecution</strong></a> - allocates fees to cover the execution <a href="/polkadot-mkdocs/polkadot-protocol/glossary/#weight" target="_blank">weight</a> of the XCM instructions
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">BuyExecution</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">fees</span>: <span class="p">(</span><span class="n">Here</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">).</span><span class="n">into</span><span class="p">(),</span><span class="w"> </span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">weight_limit</span>: <span class="nc">WeightLimit</span>::<span class="n">Unlimited</span><span class="w"> </span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">},</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">interoperability</span><span class="o">/</span><span class="n">intro</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">xcm</span><span class="o">/</span><span class="n">XCM</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">look</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">3</span>:<span class="mi">6</span><span class="o">&#39;</span>
 </span></code></pre></div></p>
 <ul>
 <li><code>fees</code> - describes the asset in the holding register that should be used to pay for the weight </li>
@@ -5067,16 +5065,7 @@
 </li>
 <li>
 <p><a href="https://github.com/polkadot-fellows/xcm-format?tab=readme-ov-file#depositasset" target="_blank"><strong>DepositAsset</strong></a> - moves the remaining tokens from the holding register to Bob’s account
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">DepositAsset</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">assets</span>: <span class="nc">All</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">beneficiary</span>: <span class="nc">MultiLocation</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="n">parents</span>: <span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">interior</span>: <span class="nc">Junction</span>::<span class="n">AccountId32</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">            </span><span class="n">network</span>: <span class="nb">None</span><span class="p">,</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">            </span><span class="n">id</span>: <span class="nc">BOB</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">into</span><span class="p">()</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="p">}.</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">}.</span><span class="n">into</span><span class="p">()</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">interoperability</span><span class="o">/</span><span class="n">intro</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">xcm</span><span class="o">/</span><span class="n">XCM</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">look</span><span class="p">.</span><span class="n">rs</span>:<span class="mi">7</span>:<span class="mi">16</span><span class="o">&#39;</span>
 </span></code></pre></div></p>
 <ul>
 <li><code>All</code> - the wildcard for the asset(s) to be deposited. In this case, all assets in the holding register should be deposited</li>
@@ -5096,12 +5085,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

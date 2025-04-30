@@ -929,6 +929,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -992,6 +995,20 @@
     <li class="md-nav__item">
       <a href="../../../../develop/parachains/deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../develop/parachains/deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3072,7 +3089,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3083,7 +3100,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5412,12 +5429,7 @@
 <li><strong>Submit the serialized transaction</strong> - finally, submit the serialized transaction to the network, where it will enter the transaction pool and wait for processing by an authoring node</li>
 </ol>
 <p>The following is an example of how a signed transaction might look:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">node_runtime</span>::<span class="n">UncheckedExtrinsic</span>::<span class="n">new_signed</span><span class="p">(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">function</span><span class="p">.</span><span class="n">clone</span><span class="p">(),</span><span class="w">                                      </span><span class="c1">// some call</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">sp_runtime</span>::<span class="n">AccountId32</span>::<span class="n">from</span><span class="p">(</span><span class="n">sender</span><span class="p">.</span><span class="n">public</span><span class="p">()).</span><span class="n">into</span><span class="p">(),</span><span class="w"> </span><span class="c1">// some sending account</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">node_runtime</span>::<span class="n">Signature</span>::<span class="n">Sr25519</span><span class="p">(</span><span class="n">signature</span><span class="p">.</span><span class="n">clone</span><span class="p">()),</span><span class="w">   </span><span class="c1">// the account&#39;s signature</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">extra</span><span class="p">.</span><span class="n">clone</span><span class="p">(),</span><span class="w">                                         </span><span class="c1">// the signed extensions</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">)</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">polkadot</span><span class="o">-</span><span class="n">protocol</span><span class="o">/</span><span class="n">basics</span><span class="o">/</span><span class="n">blocks</span><span class="o">-</span><span class="n">transactions</span><span class="o">-</span><span class="n">fees</span><span class="o">/</span><span class="n">transactions</span><span class="o">/</span><span class="n">signed</span><span class="o">-</span><span class="n">tx</span><span class="o">-</span><span class="n">example</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h3 id="transaction-encoding">Transaction Encoding<a class="headerlink" href="#transaction-encoding" title="Permanent link">&para;</a></h3>
 <p>Before a transaction is sent to the network, it is serialized and encoded using a structured encoding process that ensures consistency and prevents tampering:</p>
@@ -5488,12 +5500,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>

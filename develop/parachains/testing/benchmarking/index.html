@@ -1081,6 +1081,9 @@
           
           
         
+          
+          
+        
       
       
         
@@ -1144,6 +1147,20 @@
     <li class="md-nav__item">
       <a href="../../deployment/obtain-coretime/" class="md-nav__link">
         Obtain Coretime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/coretime-renewal/" class="md-nav__link">
+        Coretime Renewal
       </a>
     </li>
   
@@ -3222,7 +3239,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Chain</a>
+          <a href="../../../../polkadot-protocol/architecture/polkadot-chain/">Polkadot Relay Chain</a>
           
             <label for="__nav_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -3233,7 +3250,7 @@
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Polkadot Chain
+          Polkadot Relay Chain
         </label>
         <div class="nav-wrapper">
           
@@ -5104,9 +5121,7 @@
 <p>Benchmarking uses real-world testing to simulate worst-case scenarios for extrinsics. The framework generates a linear model for weight calculation by running multiple iterations with varied parameters. These worst-case weights ensure blocks remain within execution limits, enabling the runtime to maintain throughput under varying loads. Excess fees can be refunded if a call uses fewer resources than expected, offering users a fair cost model.</p>
 <p>Because weight is a generic unit of measurement based on computation time for a specific physical machine, the weight of any function can change based on the specifications of hardware used for benchmarking. By modeling the expected weight of each runtime function, the blockchain can calculate the number of transactions or system-level calls it can execute within a certain period.</p>
 <p>Within FRAME, each function call that is dispatched must have a <code>#[pallet::weight]</code> annotation that can return the expected weight for the worst-case scenario execution of that function given its inputs:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#[pallet::call_index(0)]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="hll"><span class="cp">#[pallet::weight(T::WeightInfo::do_something())]</span>
-</span></span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">origin</span>: <span class="nc">OriginFor</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">DispatchResultWithPostInfo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"> </span><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">benchmarking</span><span class="o">/</span><span class="n">dispatchable</span><span class="o">-</span><span class="n">pallet</span><span class="o">-</span><span class="n">weight</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <p>The <code>WeightInfo</code> file is automatically generated during benchmarking. Based on these tests, this file provides accurate weights for each extrinsic.</p>
 <h2 id="benchmarking-process">Benchmarking Process<a class="headerlink" href="#benchmarking-process" title="Permanent link">&para;</a></h2>
@@ -5122,22 +5137,13 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cargo<span class="w"> </span>install<span class="w"> </span>frame-omni-bencher
 </span></code></pre></div>
 <p>Before writing benchmark tests, you need to ensure the <code>frame-benchmarking</code> crate is included in your pallet's <code>Cargo.toml</code> similar to the following:</p>
-<div class="language-toml highlight"><span class="filename">Cargo.toml</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">frame-benchmarking</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;37.0.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">default-features</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+<div class="language-toml highlight"><span class="filename">Cargo.toml</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/parachains/testing/benchmarking/cargo.toml::1&#39;</span>
 </span></code></pre></div>
 <p>You must also ensure that you add the <code>runtime-benchmarks</code> feature flag as follows under the <code>[features]</code> section of your pallet's <code>Cargo.toml</code>:</p>
-<div class="language-toml highlight"><span class="filename">Cargo.toml</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">runtime-benchmarks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="s2">&quot;frame-benchmarking/runtime-benchmarks&quot;</span><span class="p">,</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="s2">&quot;frame-support/runtime-benchmarks&quot;</span><span class="p">,</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="s2">&quot;frame-system/runtime-benchmarks&quot;</span><span class="p">,</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="s2">&quot;sp-runtime/runtime-benchmarks&quot;</span><span class="p">,</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">]</span>
+<div class="language-toml highlight"><span class="filename">Cargo.toml</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/parachains/testing/benchmarking/cargo.toml:2:7&#39;</span>
 </span></code></pre></div>
 <p>Lastly, ensure that <code>frame-benchmarking</code> is included in <code>std = []</code>: </p>
-<div class="language-toml highlight"><span class="filename">Cargo.toml</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">std</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="c1"># ...</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="s2">&quot;frame-benchmarking?/std&quot;</span><span class="p">,</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="c1"># ...</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">]</span>
+<div class="language-toml highlight"><span class="filename">Cargo.toml</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/parachains/testing/benchmarking/cargo.toml:8:12&#39;</span>
 </span></code></pre></div>
 <p>Once complete, you have the required dependencies for writing benchmark tests for your pallet.</p>
 <h3 id="write-benchmark-tests">Write Benchmark Tests<a class="headerlink" href="#write-benchmark-tests" title="Permanent link">&para;</a></h3>
@@ -5149,40 +5155,7 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>└── Cargo.toml
 </span></code></pre></div>
 <p>With the directory structure set, you can use the <a href="https://github.com/paritytech/polkadot-sdk-parachain-template/tree/master/pallets" target="_blank"><code>polkadot-sdk-parachain-template</code></a> to get started as follows:</p>
-<div class="language-rust highlight"><span class="filename">benchmarking.rs (starter template)</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sd">//! Benchmarking setup for pallet-template</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">#![cfg(feature = </span><span class="s">&quot;runtime-benchmarks&quot;</span><span class="cp">)]</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">use</span><span class="w"> </span><span class="n">frame_benchmarking</span>::<span class="n">v2</span>::<span class="o">*</span><span class="p">;</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="cp">#[benchmarks]</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">mod</span> <span class="nn">benchmarks</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="cp">#[cfg(test)]</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">crate</span>::<span class="n">pallet</span>::<span class="n">Pallet</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Template</span><span class="p">;</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">frame_system</span>::<span class="n">RawOrigin</span><span class="p">;</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="cp">#[benchmark]</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="k">fn</span> <span class="nf">do_something</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">caller</span>: <span class="nc">T</span>::<span class="n">AccountId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">whitelisted_caller</span><span class="p">();</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="cp">#[extrinsic_call]</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">        </span><span class="n">do_something</span><span class="p">(</span><span class="n">RawOrigin</span>::<span class="n">Signed</span><span class="p">(</span><span class="n">caller</span><span class="p">),</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">Something</span>::<span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>::<span class="n">get</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">block_number</span><span class="p">),</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">100</span><span class="k">u32</span><span class="p">.</span><span class="n">into</span><span class="p">()));</span>
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">    </span><span class="cp">#[benchmark]</span>
-</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">    </span><span class="k">fn</span> <span class="nf">cause_error</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">        </span><span class="n">Something</span>::<span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>::<span class="n">put</span><span class="p">(</span><span class="n">CompositeStruct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">block_number</span>: <span class="mi">100</span><span class="k">u32</span><span class="p">.</span><span class="n">into</span><span class="p">()</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">caller</span>: <span class="nc">T</span>::<span class="n">AccountId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">whitelisted_caller</span><span class="p">();</span>
-</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">        </span><span class="cp">#[extrinsic_call]</span>
-</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">        </span><span class="n">cause_error</span><span class="p">(</span><span class="n">RawOrigin</span>::<span class="n">Signed</span><span class="p">(</span><span class="n">caller</span><span class="p">));</span>
-</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
-</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">Something</span>::<span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>::<span class="n">get</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">block_number</span><span class="p">),</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">101</span><span class="k">u32</span><span class="p">.</span><span class="n">into</span><span class="p">()));</span>
-</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>
-</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="w">    </span><span class="n">impl_benchmark_test_suite</span><span class="o">!</span><span class="p">(</span><span class="n">Template</span><span class="p">,</span><span class="w"> </span><span class="k">crate</span>::<span class="n">mock</span>::<span class="n">new_test_ext</span><span class="p">(),</span><span class="w"> </span><span class="k">crate</span>::<span class="n">mock</span>::<span class="n">Test</span><span class="p">);</span>
-</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="p">}</span>
+<div class="language-rust highlight"><span class="filename">benchmarking.rs (starter template)</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">https</span>:<span class="c1">//raw.githubusercontent.com/paritytech/polkadot-sdk-parachain-template/refs/tags/v0.0.2/pallets/template/src/benchmarking.rs&#39;</span>
 </span></code></pre></div>
 <p>In your benchmarking tests, employ these best practices:</p>
 <ul>
@@ -5199,24 +5172,11 @@
 <ol>
 <li>
 <p>Navigate to your <code>runtime/src</code> directory and check if a <code>benchmarks.rs</code> file exists. If not, create one. This file will contain the macro that registers all pallets for benchmarking along with their respective configurations:
-    <div class="language-rust highlight"><span class="filename">benchmarks.rs</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">frame_benchmarking</span>::<span class="n">define_benchmarks</span><span class="o">!</span><span class="p">(</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="p">[</span><span class="n">frame_system</span><span class="p">,</span><span class="w"> </span><span class="n">SystemBench</span>::<span class="o">&lt;</span><span class="n">Runtime</span><span class="o">&gt;</span><span class="p">]</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="p">[</span><span class="n">pallet_parachain_template</span><span class="p">,</span><span class="w"> </span><span class="n">TemplatePallet</span><span class="p">]</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="p">[</span><span class="n">pallet_balances</span><span class="p">,</span><span class="w"> </span><span class="n">Balances</span><span class="p">]</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p">[</span><span class="n">pallet_session</span><span class="p">,</span><span class="w"> </span><span class="n">SessionBench</span>::<span class="o">&lt;</span><span class="n">Runtime</span><span class="o">&gt;</span><span class="p">]</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">[</span><span class="n">pallet_timestamp</span><span class="p">,</span><span class="w"> </span><span class="n">Timestamp</span><span class="p">]</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="p">[</span><span class="n">pallet_message_queue</span><span class="p">,</span><span class="w"> </span><span class="n">MessageQueue</span><span class="p">]</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="p">[</span><span class="n">pallet_sudo</span><span class="p">,</span><span class="w"> </span><span class="n">Sudo</span><span class="p">]</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="p">[</span><span class="n">pallet_collator_selection</span><span class="p">,</span><span class="w"> </span><span class="n">CollatorSelection</span><span class="p">]</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="p">[</span><span class="n">cumulus_pallet_parachain_system</span><span class="p">,</span><span class="w"> </span><span class="n">ParachainSystem</span><span class="p">]</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="p">[</span><span class="n">cumulus_pallet_xcmp_queue</span><span class="p">,</span><span class="w"> </span><span class="n">XcmpQueue</span><span class="p">]</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">);</span>
+    <div class="language-rust highlight"><span class="filename">benchmarks.rs</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">benchmarking</span><span class="o">/</span><span class="n">frame</span><span class="o">-</span><span class="n">benchmark</span><span class="o">-</span><span class="kr">macro</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div></p>
 <p>For example, to add a new pallet named <code>pallet_parachain_template</code> for benchmarking, include it in the macro as shown:
-<div class="language-rust highlight"><span class="filename">benchmarks.rs</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">frame_benchmarking</span>::<span class="n">define_benchmarks</span><span class="o">!</span><span class="p">(</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="p">[</span><span class="n">frame_system</span><span class="p">,</span><span class="w"> </span><span class="n">SystemBench</span>::<span class="o">&lt;</span><span class="n">Runtime</span><span class="o">&gt;</span><span class="p">]</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="hll"><span class="w">    </span><span class="p">[</span><span class="n">pallet_parachain_template</span><span class="p">,</span><span class="w"> </span><span class="n">TemplatePallet</span><span class="p">]</span>
-</span></span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">);</span>
+<div class="language-rust highlight"><span class="filename">benchmarks.rs</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">benchmarking</span><span class="o">/</span><span class="n">frame</span><span class="o">-</span><span class="n">benchmark</span><span class="o">-</span><span class="kr">macro</span><span class="p">.</span><span class="n">rs</span>::<span class="mi">3</span><span class="o">&#39;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">);</span>
 </span></code></pre></div></p>
 <div class="admonition warning">
 <p class="admonition-title">Updating <code>define_benchmarks!</code> macro is required</p>
@@ -5232,10 +5192,7 @@
 </li>
 <li>
 <p>Enable runtime benchmarking for your pallet in <code>runtime/Cargo.toml</code>:
-    <div class="language-toml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">runtime-benchmarks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="c1"># ...</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="s2">&quot;pallet_parachain_template/runtime-benchmarks&quot;</span><span class="p">,</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">]</span>
+    <div class="language-toml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">--8</span><span class="err">&lt;</span><span class="n">--</span><span class="w"> </span><span class="s1">&#39;code/develop/parachains/testing/benchmarking/runtime-cargo.toml&#39;</span>
 </span></code></pre></div></p>
 </li>
 </ol>
@@ -5280,52 +5237,23 @@
 </li>
 </ol>
 <p>The generated <code>weights.rs</code> file contains weight annotations for your extrinsics, ready to be added to your pallet. The output should be similar to the following. Some output is omitted for brevity:</p>
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>frame-omni-bencher v1 benchmark pallet \</span>
-  <span data-ty>--runtime INSERT_PATH_TO_WASM_RUNTIME \</span>
-  <span data-ty>--pallet "INSERT_NAME_OF_PALLET" \</span>
-  <span data-ty>--extrinsic "" \</span>
-  <span data-ty>--template ./frame-weight-template.hbs \</span>
-  <span data-ty>--output ./weights.rs</span>
-  <span data-ty>...</span>
-  <span data-ty>2025-01-15T16:41:33.557045Z INFO polkadot_sdk_frame::benchmark::pallet: [ 0 % ] Starting benchmark: pallet_parachain_template::do_something</span>
-  <span data-ty>2025-01-15T16:41:33.564644Z INFO polkadot_sdk_frame::benchmark::pallet: [ 50 % ] Starting benchmark: pallet_parachain_template::cause_error</span>
-  <span data-ty>...</span>
-  <span data-ty>Created file: "weights.rs"</span>
-  <span data-ty="input"><span class="file-path"></span></span>
-</div>
-
+<p>--8&lt;-- 'code/develop/parachains/testing/benchmarking/benchmark-output.html'</p>
 <h4 id="add-benchmark-weights-to-pallet">Add Benchmark Weights to Pallet<a class="headerlink" href="#add-benchmark-weights-to-pallet" title="Permanent link">&para;</a></h4>
 <p>Once the <code>weights.rs</code> is generated, you must integrate it with your pallet. </p>
 <ol>
 <li>To begin the integration, import the <code>weights</code> module and the <code>WeightInfo</code> trait, then add both to your pallet's <code>Config</code> trait. Complete the following steps to set up the configuration:</li>
 </ol>
-<div class="language-rust highlight"><span class="filename">lib.rs</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">weights</span><span class="p">;</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">use</span><span class="w"> </span><span class="k">crate</span>::<span class="n">weights</span>::<span class="n">WeightInfo</span><span class="p">;</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="sd">/// Configure the pallet by specifying the parameters and types on which it depends.</span>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="cp">#[pallet::config]</span>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="n">Config</span>: <span class="nc">frame_system</span>::<span class="n">Config</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="c1">// ...</span>
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="sd">/// A type representing the weights required by the dispatchables of this pallet.</span>
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="k">type</span> <span class="nc">WeightInfo</span>: <span class="nc">WeightInfo</span><span class="p">;</span>
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="p">}</span>
+<div class="language-rust highlight"><span class="filename">lib.rs</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">benchmarking</span><span class="o">/</span><span class="n">weight</span><span class="o">-</span><span class="n">config</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <ol>
 <li>Next, you must add this to the <code>#[pallet::weight]</code> annotation in all the extrinsics via the <code>Config</code> as follows:</li>
 </ol>
-<div class="language-rust highlight"><span class="filename">lib.rs</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cp">#[pallet::call_index(0)]</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="hll"><span class="cp">#[pallet::weight(T::WeightInfo::do_something())]</span>
-</span></span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">origin</span>: <span class="nc">OriginFor</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">DispatchResultWithPostInfo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"> </span><span class="p">}</span>
+<div class="language-rust highlight"><span class="filename">lib.rs</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">benchmarking</span><span class="o">/</span><span class="n">dispatchable</span><span class="o">-</span><span class="n">pallet</span><span class="o">-</span><span class="n">weight</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <ol>
 <li>Finally, configure the actual weight values in your runtime. In <code>runtime/src/config/mod.rs</code>, add the following code:</li>
 </ol>
-<div class="language-rust highlight"><span class="filename">mod.rs</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// Configure pallet.</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">impl</span><span class="w"> </span><span class="n">pallet_parachain_template</span>::<span class="n">Config</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Runtime</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="c1">// ...</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="k">type</span> <span class="nc">WeightInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pallet_parachain_template</span>::<span class="n">weights</span>::<span class="n">SubstrateWeight</span><span class="o">&lt;</span><span class="n">Runtime</span><span class="o">&gt;</span><span class="p">;</span>
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="p">}</span>
+<div class="language-rust highlight"><span class="filename">mod.rs</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="o">--</span><span class="mi">8</span><span class="o">&lt;--</span><span class="w"> </span><span class="o">&#39;</span><span class="na">code</span><span class="o">/</span><span class="n">develop</span><span class="o">/</span><span class="n">parachains</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">benchmarking</span><span class="o">/</span><span class="n">runtime</span><span class="o">-</span><span class="n">pallet</span><span class="o">-</span><span class="n">config</span><span class="p">.</span><span class="n">rs</span><span class="o">&#39;</span>
 </span></code></pre></div>
 <h2 id="where-to-go-next">Where to Go Next<a class="headerlink" href="#where-to-go-next" title="Permanent link">&para;</a></h2>
 <ul>
@@ -5336,12 +5264,12 @@
     <small>
       
         <span class="source-file-label">Last update:</span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
           <br>
           <span class="source-file-seperator">|</span>
           <span class="source-file-label">Created:</span>
-          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2025</span>
+          <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2025</span>
         
       
     </small>
